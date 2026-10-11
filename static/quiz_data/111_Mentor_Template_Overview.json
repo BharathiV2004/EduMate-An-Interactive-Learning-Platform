@@ -1,0 +1,54 @@
+{
+    "topic": "Mentor Template Overview",
+    "generated_at": "2025-05-14T04:14:34.805439",
+    "questions": [
+        {
+            "question": "In which section would you find detailed information about the mentoring goals and objectives?",
+            "options": {
+                "A": "Introduction",
+                "B": "Team Structure",
+                "C": "Milestones",
+                "D": "Mentorship Plan"
+            },
+            "answer": "D",
+            "explanation": "The Mentorship Plan is where specific, measurable goals are laid out. It’s akin to a roadmap that outlines exactly what both parties aim to achieve through the mentorship.",
+            "hint": "Look for clear objectives and measurable outcomes.\n\n---"
+        },
+        {
+            "question": "What component of a Mentor Template ensures that mentors can provide tailored support based on the mentee's needs?",
+            "options": {
+                "A": "Personalized Action Plans",
+                "B": "Communication Channels",
+                "C": "Evaluation Criteria",
+                "D": "Role Descriptions"
+            },
+            "answer": "A",
+            "explanation": "Personalized Action Plans allow mentors to tailor their guidance and resources directly to each mentee’s unique situation, much like a tailor makes a custom suit.",
+            "hint": "Think about customization.\n\n---"
+        },
+        {
+            "question": "Which part of the Mentor Template would be most relevant for tracking progress and making adjustments during the mentorship?",
+            "options": {
+                "A": "Initial Assessment",
+                "B": "Monitoring and Evaluation",
+                "C": "Induction Program",
+                "D": "Exit Strategy"
+            },
+            "answer": "B",
+            "explanation": "The Monitoring and Evaluation section helps in assessing the effectiveness of the mentoring process through regular check-ins and performance reviews, ensuring that both parties stay on track.",
+            "hint": "Think about regular updates.\n\n---"
+        },
+        {
+            "question": "What is an essential feature for a Mentor Template to ensure transparency and accountability?",
+            "options": {
+                "A": "Clear Objectives",
+                "B": "Detailed Timelines",
+                "C": "Open Communication Channels",
+                "D": "Regular Meetings"
+            },
+            "answer": "C",
+            "explanation": "Open Communication Channels enable both mentors and mentees to share feedback, concerns, and ideas freely, fostering an environment of trust and openness.",
+            "hint": "Think about the importance of open lines."
+        }
+    ]
+}

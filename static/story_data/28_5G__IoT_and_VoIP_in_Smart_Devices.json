@@ -1,0 +1,187 @@
+{
+    "topic": "5G, IoT and VoIP in Smart Devices",
+    "story_name": "The Tech Whisperer",
+    "characters": [
+        {
+            "name": "Mia",
+            "description": "A tech-savvy college student, 22 years old.",
+            "image_path": "D:/Downloads/Edumate/static/images\\character_Mia.png",
+            "voice_id": "en-US-AndrewNeural"
+        },
+        {
+            "name": "Dr. Quantum",
+            "description": "A wise professor of computer science, 48 years old.",
+            "image_path": "D:/Downloads/Edumate/static/images\\character_Dr. Quantum.png",
+            "voice_id": "zh-CN-YunyangNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "Introduction to the New World",
+            "setting": "Mia's modern apartment filled with smart devices and a cozy living room.",
+            "dialogues": [
+                {
+                    "character": "Mia",
+                    "line": "Hey Dr. Quantum! I heard you're an expert in tech. Can you explain what's new out there?"
+                },
+                {
+                    "character": "Dr. Quantum",
+                    "line": "Absolutely, Mia. Let me introduce you to 5G, IoT, and VoIP."
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "Hey Dr. Quantum! I heard you're an expert in tech. Can you explain what's new out there?",
+                    "audio_path": "scene_1_Mia_407791463795977759.mp3"
+                },
+                {
+                    "character": "Dr. Quantum",
+                    "line": "Absolutely, Mia. Let me introduce you to 5G, IoT, and VoIP.",
+                    "audio_path": "scene_1_Dr. Quantum_3729469188860260835.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "Explaining the Technology",
+            "setting": "A comfortable office with whiteboards filled with diagrams.",
+            "dialogues": [
+                {
+                    "character": "Dr. Quantum",
+                    "line": "5G is like a super-fast internet that makes calls clearer and faster."
+                },
+                {
+                    "character": "Mia",
+                    "line": "So it's perfect for video calls then?"
+                },
+                {
+                    "character": "Dr. Quantum",
+                    "line": "Exactly! And VoIP allows you to make these calls without traditional phone lines."
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Quantum",
+                    "line": "5G is like a super-fast internet that makes calls clearer and faster.",
+                    "audio_path": "scene_2_Dr. Quantum_7754669846578853172.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "So it's perfect for video calls then?",
+                    "audio_path": "scene_2_Mia_5605382485947372391.mp3"
+                },
+                {
+                    "character": "Dr. Quantum",
+                    "line": "Exactly! And VoIP allows you to make these calls without traditional phone lines.",
+                    "audio_path": "scene_2_Dr. Quantum_3612063171153886701.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "The Internet of Things Comes Alive",
+            "setting": "Mia's smart home, with various devices connected.",
+            "dialogues": [
+                {
+                    "character": "Dr. Quantum",
+                    "line": "IoT means your everyday devices can now communicate and do amazing things."
+                },
+                {
+                    "character": "Mia",
+                    "line": "Like my fridge calling me when I run out of milk?"
+                },
+                {
+                    "character": "Dr. Quantum",
+                    "line": "Yes! And itâ€™s not just fridges. Imagine your thermostat learning your preferences or your lights turning on as you walk into a room."
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Quantum",
+                    "line": "IoT means your everyday devices can now communicate and do amazing things.",
+                    "audio_path": "scene_3_Dr. Quantum_8875160536133218886.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "Like my fridge calling me when I run out of milk?",
+                    "audio_path": "scene_3_Mia_8856620010799882476.mp3"
+                },
+                {
+                    "character": "Dr. Quantum",
+                    "line": "Yes! And itâ€™s not just fridges. Imagine your thermostat learning your preferences or your lights turning on as you walk into a room.",
+                    "audio_path": "scene_3_Dr. Quantum_5356933507554146786.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 4,
+            "scene_title": "Smart Homes and Offices in Action",
+            "setting": "A futuristic office filled with smart devices.",
+            "dialogues": [
+                {
+                    "character": "Mia",
+                    "line": "This is all so cool, but how do these devices work together?"
+                },
+                {
+                    "character": "Dr. Quantum",
+                    "line": "They automatically connect to improve communication and efficiencyâ€”like scheduling calls or sending reminders without you lifting a finger."
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_4.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "This is all so cool, but how do these devices work together?",
+                    "audio_path": "scene_4_Mia_7135754233646200496.mp3"
+                },
+                {
+                    "character": "Dr. Quantum",
+                    "line": "They automatically connect to improve communication and efficiencyâ€”like scheduling calls or sending reminders without you lifting a finger.",
+                    "audio_path": "scene_4_Dr. Quantum_2761837791597701120.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 5,
+            "scene_title": "The Future of Smart Living",
+            "setting": "Back at Mia's apartment with a group discussion.",
+            "dialogues": [
+                {
+                    "character": "Mia",
+                    "line": "Itâ€™s amazing how much smarter our homes can get!"
+                },
+                {
+                    "character": "Dr. Quantum",
+                    "line": "Indeed, but remember to keep your devices secure and understand their capabilities."
+                },
+                {
+                    "character": "Mia",
+                    "line": "Thanks for the insight, Dr. Quantum! Iâ€™ll definitely stay vigilant."
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_5.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "Itâ€™s amazing how much smarter our homes can get!",
+                    "audio_path": "scene_5_Mia_944239218423271789.mp3"
+                },
+                {
+                    "character": "Dr. Quantum",
+                    "line": "Indeed, but remember to keep your devices secure and understand their capabilities.",
+                    "audio_path": "scene_5_Dr. Quantum_7149760427943005507.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "Thanks for the insight, Dr. Quantum! Iâ€™ll definitely stay vigilant.",
+                    "audio_path": "scene_5_Mia_8551405199657968318.mp3"
+                }
+            ]
+        }
+    ]
+}

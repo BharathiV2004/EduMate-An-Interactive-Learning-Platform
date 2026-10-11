@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NeuroFlip Game</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
+    <style>
+        .game-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+        }
+        
+        .question-box {
+            background: linear-gradient(135deg, #4361ee, #3a0ca3);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        #timer {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="question-box">
+            <div id="question"></div>
+            <div id="timer">20</div>
+            <input type="text" id="answerInput">
+            <button onclick="submitAnswer()">Submit</button>
+        </div>
+        <div id="scores"></div>
+    </div>
+
+    <script>
+        const socket = io()
+        const params = new URLSearchParams(window.location.search)
+        const mode = "{{ mode }}"
+        const room_id = "{{ room_id }}"
+
+        if(mode === 'solo') {
+            socket.emit('start_solo', {
+                topic: "{{ topic }}"
+            })
+            
+            socket.on('game_data', data => {
+                startGame(data.questions, data.timer)
+            })
+        } else {
+            socket.emit('join_room', { room_id })
+            
+            socket.on('game_started', data => {
+                startGame(data.questions, data.timer)
+            })
+        }
+
+        function startGame(questions, timerDuration) {
+            let currentQuestion = 0
+            let timeLeft = timerDuration
+            
+            function updateQuestion() {
+                document.getElementById('question').textContent = questions[currentQuestion].question
+                startTimer()
+            }
+            
+            function startTimer() {
+                const timer = setInterval(() => {
+                    timeLeft--
+                    document.getElementById('timer').textContent = timeLeft
+                    
+                    if(timeLeft <= 0) {
+                        clearInterval(timer)
+                        currentQuestion++
+                        if(currentQuestion < questions.length) {
+                            timeLeft = timerDuration
+                            updateQuestion()
+                        }
+                    }
+                }, 1000)
+            }
+            
+            updateQuestion()
+        }
+
+        function submitAnswer() {
+            const answer = document.getElementById('answerInput').value
+            if(mode === 'multi') {
+                socket.emit('submit_answer', {
+                    room_id,
+                    answer,
+                    q_index: currentQuestion
+                })
+            }
+            document.getElementById('answerInput').value = ''
+        }
+    </script>
+</body>
+</html>

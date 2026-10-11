@@ -1,0 +1,90 @@
+{
+    "topic": "Smart Device Communication Technologies",
+    "generated_at": "2025-05-01T15:42:44.722921",
+    "questions": [
+        {
+            "question": "What technology is commonly used in smart homes to enable multiple devices to communicate and share data using a single network?",
+            "options": {
+                "A": "MQTT (Message Queuing Telemetry Transport)",
+                "B": "Z-Wave",
+                "C": "Zigbee",
+                "D": "CoAP (Constrained Application Protocol)"
+            },
+            "answer": "C",
+            "explanation": "Zigbee excels in home automation by allowing several devices, like lights or sensors, to communicate with each other using a single network. It’s designed for low-power consumption and is ideal for the Internet of Things.",
+            "hint": "Think about how all your smart bulbs can be controlled together.\n\n---"
+        },
+        {
+            "question": "Which protocol is often used for secure communication between a mobile app and a web server?",
+            "options": {
+                "A": "HTTP",
+                "B": "FTP (File Transfer Protocol)",
+                "C": "TLS/SSL",
+                "D": "SMTP (Simple Mail Transfer Protocol)"
+            },
+            "answer": "C",
+            "explanation": "TLS/SSL ensures that data sent from your phone to the web server is encrypted, making it secure. Think of it as a digital handshake that keeps sensitive information safe.",
+            "hint": "Consider what happens when you enter your password online.\n\n---"
+        },
+        {
+            "question": "What technology enables smart devices to communicate using very low power consumption?",
+            "options": {
+                "A": "Bluetooth Low Energy (BLE)",
+                "B": "Wi-Fi",
+                "C": "NFC",
+                "D": "LTE (Long-Term Evolution)"
+            },
+            "answer": "A",
+            "explanation": "BLE allows devices like fitness trackers or beacons to operate on minimal battery while still communicating with other devices. It's perfect for power-sensitive applications.",
+            "hint": "Think about how your wristwatch can last months without needing a charge.\n\n---"
+        },
+        {
+            "question": "Which communication technology is best suited for large-scale commercial IoT deployments, such as smart city projects?",
+            "options": {
+                "A": "Z-Wave",
+                "B": "LoRa (Long Range)",
+                "C": "Zigbee",
+                "D": "BLE"
+            },
+            "answer": "B",
+            "explanation": "LoRa allows devices to communicate over long distances with low power consumption, making it ideal for large-scale applications like smart cities where data needs to travel across urban areas.",
+            "hint": "Consider the need for extensive coverage in a city.\n\n---"
+        },
+        {
+            "question": "What protocol is used by Apple’s HomeKit framework for secure communication between smart home devices?",
+            "options": {
+                "A": "MQTT",
+                "B": "CoAP",
+                "C": "HTTP/HTTPS",
+                "D": "Secure Device Control (SDC)"
+            },
+            "answer": "D",
+            "explanation": "SDC, part of the HomeKit ecosystem, provides a secure way to control and communicate with smart home devices. Think of it as Apple’s proprietary protocol for seamless integration.",
+            "hint": "Consider how your iPhone communicates with AirPods.\n\n---"
+        },
+        {
+            "question": "Which technology is used in smart lighting systems to allow multiple bulbs to work together and change colors simultaneously?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi",
+                "C": "Zigbee",
+                "D": "Infrared (IR)"
+            },
+            "answer": "C",
+            "explanation": "Zigbee enables all the lights in a room to communicate with each other, allowing for coordinated changes in color or brightness. Imagine pressing one button to turn off every light.",
+            "hint": "Think about how your Philips Hue bulbs can work together.\n\n---"
+        },
+        {
+            "question": "In smart home systems, which technology is used for secure communication and authentication between devices?",
+            "options": {
+                "A": "TLS/SSL",
+                "B": "OAuth 2.0",
+                "C": "MQTT with TLS",
+                "D": "CoAP with DTLS (Datagram Transport Layer Security)"
+            },
+            "answer": "D",
+            "explanation": "CoAP with DTLS ensures that smart home devices can communicate securely over low-power, constrained networks like Zigbee or LoRaWAN.",
+            "hint": "Think about locking your front door remotely."
+        }
+    ]
+}

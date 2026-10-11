@@ -1,0 +1,48 @@
+{
+    "topic": "5G, IoT and VoIP in Smart Devices",
+    "story_name": "The Tech Whisperer",
+    "characters": [
+        {
+            "name": "Mia",
+            "description": "A tech-savvy college student, 22 years old.",
+            "image_path": "static\\images\\character_Mia.png",
+            "voice_id": "en-US-AndrewNeural"
+        },
+        {
+            "name": "Dr. Quantum",
+            "description": "A wise professor of computer science, 48 years old.",
+            "image_path": "static\\images\\character_Dr. Quantum.png",
+            "voice_id": "zh-CN-YunyangNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "Introduction to the New World",
+            "setting": "Mia's modern apartment filled with smart devices and a cozy living room.",
+            "dialogues": [
+                {
+                    "character": "Mia",
+                    "line": "Hey Dr. Quantum! I heard you're an expert in tech. Can you explain what's new out there?"
+                },
+                {
+                    "character": "Dr. Quantum",
+                    "line": "Absolutely, Mia. Let me introduce you to 5G, IoT, and VoIP."
+                }
+            ],
+            "scene_image_path": "static\\images\\scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "Hey Dr. Quantum!...",
+                    "audio_path": "scene_1_Mia.mp3"
+                },
+                {
+                    "character": "Dr. Quantum",
+                    "line": "Absolutely, Mia...",
+                    "audio_path": "scene_1_Dr.Quantum.mp3"
+                }
+            ]
+        }
+    ]
+}

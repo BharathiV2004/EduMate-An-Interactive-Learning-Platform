@@ -1,0 +1,74 @@
+{
+    "topic": "Firewall and Its Importance",
+    "story_name": "The Cyber Defender",
+    "characters": [
+        {
+            "name": "Sam",
+            "description": "A 20-year-old aspiring cybersecurity expert.",
+            "image_path": "/static/images/character_Sam.png",
+            "voice_id": "en-US-AndrewNeural"
+        },
+        {
+            "name": "Dr. Tech",
+            "description": "An elderly professor in his 70s, known for vast knowledge of technology.",
+            "image_path": "/static/images/character_Mr.%20Jenkins.png",
+            "voice_id": "en-US-GuyNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "Introduction to the Threat",
+            "setting": "A quiet study room with books and computers around.",
+            "scene_image_path": "/static/images/Scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sam",
+                    "line": "Professor, I keep hearing about firewalls. What exactly are they?",
+                    "audio_path": "/static/audio/scene_1_Sam_-1711190703866115034.mp3"
+                },
+                {
+                    "character": "Dr. Tech",
+                    "line": "Ah, Sam! That's a great question. Firewalls act as barriers between your device and harmful online threats.",
+                    "audio_path": "/static/audio/scene_1_Dr.%20Tech_-6796028439977418475.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "Understanding the Firewall",
+            "setting": "A computer lab with cybersecurity tools on display.",
+            "scene_image_path": "/static/images/Scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Tech",
+                    "line": "Imagine a firewall like a digital guard. It monitors incoming and outgoing traffic to ensure only safe data passes through.",
+                    "audio_path": "/static/audio/scene_2_Dr.%20Tech_6601266356616692136.mp3"
+                },
+                {
+                    "character": "Sam",
+                    "line": "So, it's like a security checkpoint for my internet?",
+                    "audio_path": "/static/audio/scene_2_Sam_-2617765645622121966.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "The Importance of Firewalls",
+            "setting": "An auditorium with an audience listening.",
+            "scene_image_path": "/static/images/Scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Tech",
+                    "line": "Absolutely! Without firewalls, your device could be vulnerable to hackers, malware, and other cyber threats.",
+                    "audio_path": "/static/"
+                },
+                {
+                    "character": "Sam",
+                    "line": "Thank you, Professor! I understand why firewalls are so important now.",
+                    "audio_path": "/static/audio/scene_3_Sam_5099536719882050971.mp3"
+                }
+            ]
+        }
+    ]
+}

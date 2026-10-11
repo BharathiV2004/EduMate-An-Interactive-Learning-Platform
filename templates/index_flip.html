@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroFlip - Intelligent Learning Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #ef233c;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
+            --gradient-accent: linear-gradient(135deg, var(--accent), #b5179e);
+            
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+            
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --border-radius-xl: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            padding: 1.5rem 0;
+        }
+
+        .back-btn {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 0.6rem 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Game Modes */
+        .game-modes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .mode-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .mode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mode-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        /* Mode Header */
+        .mode-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mode-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+            background: var(--gradient-primary);
+        }
+
+        .mode-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .mode-description {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Search */
+        .search-container {
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.9rem 3rem 0.9rem 1.2rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius-xl);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background-color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* Compact Topics Grid */
+        .topics-container {
+            max-height: 300px;
+            overflow-y: auto;
+            margin: 1rem 0;
+            padding-right: 0.5rem;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .topic-pod {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .topic-pod:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .topic-pod.active {
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+            transform: scale(1.02);
+        }
+
+        .topic-icon {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .topic-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topic-count {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: white;
+            background: var(--gradient-primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+        }
+
+        /* Launch Button */
+        .launch-btn {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-top: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .launch-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .launch-btn:disabled {
+            background: var(--light-gray);
+            color: var(--gray);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem 0;
+            }
+            
+            .back-btn {
+                position: static;
+                transform: none;
+                margin-bottom: 1rem;
+                display: inline-flex;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .game-modes {
+                grid-template-columns: 1fr;
+            }
+            
+            .topics-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .topics-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+        
+    </style>
+    <style>
+            :root {
+            --cosmic-primary: #8a84d6;
+            --cosmic-secondary: #b594e5;
+            --cosmic-accent: #FFE066;
+            --cosmic-bright: #F8F9FA;
+            --text-primary: #E9ECEF;
+            --text-secondary: #CED4DA;
+            --text-accent: #FFEE99;
+            --space-bg-dark: #0c0a28;
+            --space-bg-medium: #1e1650;
+            --aurora-green: rgba(120, 236, 189, 0.3);
+            --aurora-blue: rgba(105, 159, 238, 0.2);
+            --aurora-purple: rgba(179, 136, 235, 0.3);
+        }
+
+    /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--space-bg-dark);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        #preloader::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: var(--cosmic-accent);
+            animation: spin 1.5s linear infinite;
+        }
+
+        #preloader::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: var(--cosmic-bright);
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Shooting Stars */
+        .shooting-star {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: var(--cosmic-bright);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+                      0 0 0 8px rgba(255, 255, 255, 0.1),
+                      0 0 20px var(--cosmic-bright);
+            animation: shootingStars 3s linear infinite;
+        }
+
+        @keyframes shootingStars {
+            0% { transform: translateX(-100%) translateY(-100%); opacity: 0; }
+            30% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { transform: translateX(100vw) translateY(100vh); opacity: 0; }
+        }
+</style>
+<style>
+    /* Enhanced Starry Night Theme */
+:root {
+  --night-bg-dark: #0c0a28;
+  --night-bg-medium: #1e1650;
+  --star-bright: #ffffff;
+  --star-primary: #8a9dc7;
+  --star-secondary: #b5c7e3;
+  --star-accent: #ffe066;
+  --aurora-green: rgba(120, 236, 189, 0.3);
+  --aurora-blue: rgba(105, 159, 238, 0.2);
+  --aurora-purple: rgba(179, 136, 235, 0.3);
+}
+
+/* Background Gradient */
+body {
+  background: linear-gradient(to bottom, var(--night-bg-dark), var(--night-bg-medium));
+  color: #f8f9fa;
+}
+
+/* Stars Pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, var(--star-bright), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40px 70px, var(--star-primary), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 50px 160px, var(--star-secondary), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, var(--star-accent), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, var(--star-bright), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 160px 120px, var(--star-primary), rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: twinkle 8s infinite alternate ease-in-out;
+  z-index: -1;
+}
+
+/* Twinkling Animation */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* Shooting Stars */
+.shooting-star {
+  position: fixed;
+  z-index: 0;
+}
+
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 3px;
+  background: var(--star-bright);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+              0 0 0 8px rgba(255, 255, 255, 0.1),
+              0 0 20px var(--star-bright);
+  animation: shootingStar 6s linear infinite;
+}
+
+@keyframes shootingStar {
+  0% {
+    transform: translateX(-100px) translateY(-100px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(100vw + 100px)) translateY(calc(100vh + 100px));
+    opacity: 0;
+  }
+}
+
+/* Aurora Effect */
+.aurora {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.aurora-layer {
+  position: absolute;
+  bottom: -5%;
+  left: -50%;
+  width: 200%;
+  height: 50%;
+  filter: blur(30px);
+  border-radius: 50%;
+  animation: auroraWave 20s infinite alternate ease-in-out;
+}
+
+.aurora-layer:nth-child(1) {
+  background: var(--aurora-green);
+  animation-duration: 20s;
+}
+
+.aurora-layer:nth-child(2) {
+  background: var(--aurora-blue);
+  animation-duration: 25s;
+  animation-direction: alternate-reverse;
+  height: 60%;
+  bottom: -10%;
+}
+
+.aurora-layer:nth-child(3) {
+  background: var(--aurora-purple);
+  animation-duration: 22s;
+  height: 40%;
+  bottom: -15%;
+}
+
+@keyframes auroraWave {
+  0% {
+    transform: translateX(-5%) scaleY(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(5%) scaleY(1.1);
+    opacity: 0.9;
+  }
+}
+</style>
+<style>
+    /* Starry Night Theme with Gold and Silver for NeuroFlip */
+:root {
+  --cosmic-gold: #e9ca1bb5;
+  --cosmic-silver: #C0C0C0;
+  --cosmic-bronze: #CD7F32;
+  --cosmic-platinum: #E5E4E2;
+  --night-bg-dark: #0a1128;
+  --night-bg-medium: #1b2e5e;
+  --night-bg-light: #2e4482;
+  --text-gold: #F9F295;
+  --text-silver: #E8E8E8;
+}
+
+body {
+  background: linear-gradient(to bottom, var(--night-bg-dark), var(--night-bg-medium));
+  color: var(--text-silver);
+  position: relative;
+}
+
+/* Star Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, var(--cosmic-silver), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40px 70px, var(--cosmic-gold), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, var(--cosmic-platinum), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 160px 120px, var(--cosmic-silver), rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+/* Mode Cards */
+.mode-card {
+  background: rgba(27, 46, 94, 0.6);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.mode-card::before {
+  background: var(--cosmic-gold);
+}
+
+/* Headers and Text */
+.title {
+  background: linear-gradient(135deg, var(--cosmic-gold), var(--cosmic-bronze));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle, .mode-description {
+  color: var(--cosmic-silver);
+}
+
+.mode-title {
+  color: var(--text-gold);
+}
+
+/* Topic Pods */
+.topic-pod {
+  background: rgba(27, 46, 94, 0.4);
+  border: 1px solid rgba(192, 192, 192, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.topic-pod:hover {
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.15);
+}
+
+.topic-pod.active {
+  border: 2px solid var(--cosmic-gold);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.topic-name {
+  color: var(--text-silver);
+}
+
+.topic-icon {
+  color: var(--cosmic-gold);
+}
+
+/* Search Box */
+.search-input {
+  background: rgba(27, 46, 94, 0.3);
+  border: 1px solid rgba(192, 192, 192, 0.3);
+  color: var(--text-silver);
+}
+
+.search-input::placeholder {
+  color: var(--cosmic-silver);
+}
+
+.search-input:focus {
+  border-color: var(--cosmic-gold);
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.15);
+}
+
+.search-icon {
+  color: var(--cosmic-gold);
+}
+
+/* Buttons */
+.back-btn, .launch-btn {
+  background: linear-gradient(135deg, var(--night-bg-medium), var(--night-bg-light));
+  border: 1px solid var(--cosmic-gold) !important;
+  color: var(--text-gold);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.back-btn:hover, .launch-btn:hover {
+  border-color: var(--cosmic-platinum) !important;
+  box-shadow: 0 8px 25px rgba(192, 192, 192, 0.2);
+}
+
+.launch-btn:disabled {
+  background: rgba(27, 46, 94, 0.3);
+  color: var(--cosmic-silver);
+  border-color: var(--cosmic-silver) !important;
+}
+
+/* Topic count badge */
+.topic-count {
+  background: linear-gradient(135deg, var(--cosmic-gold), var(--cosmic-bronze));
+  color: var(--night-bg-dark);
+}
+
+/* Mode Icon */
+.mode-icon {
+  background: linear-gradient(135deg, var(--cosmic-gold), var(--cosmic-bronze));
+}
+</style>
+</head>
+<body>
+    <div id="preloader"></div>
+    <div class="container">
+        <header class="header">
+            <button class="back-btn" onclick="window.location.href='courses.html'">
+                <i class="fas fa-arrow-left"></i> Back to Edumate
+            </button>
+            <h1 class="title">NeuroFlip</h1>
+            <p class="subtitle">Activate your cognitive potential through immersive learning</p>
+        </header>
+
+        <div class="game-modes">
+            <!-- Solo Mode -->
+            <div class="mode-card">
+                <div class="mode-header">
+                    <div class="mode-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="mode-text">
+                        <h2 class="mode-title">Solo Training</h2>
+                        <p class="mode-description">Enhance neural pathways through focused practice</p>
+                    </div>
+                </div>
+
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" 
+                               class="search-input"
+                               placeholder="Search topics..."
+                               id="soloSearch">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                </div>
+
+                <div class="topics-container">
+                    <div class="topics-grid" id="soloTopics">
+                        {% for topic in topics %}
+                        <div class="topic-pod" 
+                             data-topic="{{ topic }}"
+                             onclick="activateTopic(this, 'solo')">
+                            <div class="topic-content">
+                                <i class="fas fa-atom topic-icon"></i>
+                                <h3 class="topic-name">{{ topic|title }}</h3>
+                                <div class="topic-meta">
+                                    <span class="topic-count">
+                                        {{ topics_data[topic]|length }} pairs
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <button class="launch-btn" 
+                        id="soloLaunch"
+                        disabled
+                        onclick="initiateExperience('solo')">
+                    <i class="fas fa-play"></i> Start Training
+                </button>
+            </div>
+
+            <!-- Multiplayer Mode -->
+            <div class="mode-card">
+                <div class="mode-header">
+                    <div class="mode-icon" style="background: var(--gradient-accent);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="mode-text">
+                        <h2 class="mode-title">Multiplayer</h2>
+                        <p class="mode-description">Challenge others in real-time knowledge battles</p>
+                    </div>
+                </div>
+
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" 
+                               class="search-input"
+                               placeholder="Search topics..."
+                               id="multiSearch">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                </div>
+
+                <div class="topics-container">
+                    <div class="topics-grid" id="multiTopics">
+                        {% for topic in topics %}
+                        <div class="topic-pod" 
+                             data-topic="{{ topic }}"
+                             onclick="activateTopic(this, 'multi')">
+                            <div class="topic-content">
+                                <i class="fas fa-trophy topic-icon"></i>
+                                <h3 class="topic-name">{{ topic|title }}</h3>
+                                <div class="topic-meta">
+                                    <span class="topic-count">
+                                        {{ topics_data[topic]|length }} pairs
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <button class="launch-btn" 
+                        id="multiLaunch"
+                        disabled
+                        onclick="initiateExperience('multi')">
+                    <i class="fas fa-bolt"></i> Start Battle
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+         window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('preloader').remove();
+                }, 300);
+            }, 700);
+        });
+        let activeTopics = { solo: null, multi: null };
+
+        function activateTopic(pod, mode) {
+            // Clear previous activations
+            document.querySelectorAll(`#${mode}Topics .topic-pod`).forEach(p => {
+                p.classList.remove('active');
+                p.style.transform = 'scale(1)';
+            });
+
+            // Activate new pod
+            pod.classList.add('active');
+            pod.style.transform = 'scale(1.02)';
+            activeTopics[mode] = pod.dataset.topic;
+            
+            // Enable launch sequence
+            document.getElementById(`${mode}Launch`).disabled = false;
+        }
+
+        function initiateExperience(mode) {
+            const topic = activeTopics[mode];
+            if (topic) {
+                const experiencePath = mode === 'solo' ? 'game_flip' : 'multiplayer_flip';
+                window.location.href = `/${experiencePath}/${encodeURIComponent(topic)}`;
+            }
+        }
+
+        // Modified search functionality
+        async function configureSearch(inputId, gridId, mode) {
+            const searchField = document.getElementById(inputId);
+            const searchLens = searchField.nextElementSibling;
+            
+            searchField.addEventListener('keypress', async (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const query = searchField.value.trim();
+                    if (!query) {
+                        showNotification('Please enter a search term', 'error');
+                        return;
+                    }
+
+                    const existingTopics = Array.from(
+                        document.querySelectorAll(`#${gridId} .topic-pod`)
+                    ).map(pod => pod.dataset.topic.toLowerCase());
+
+                    if (!existingTopics.includes(query.toLowerCase())) {
+                        try {
+                            // Show loading state
+                            searchField.disabled = true;
+                            searchLens.classList.replace('fa-search', 'fa-spinner');
+                            searchLens.classList.add('fa-spin');
+                            
+                            console.log(`Attempting to generate topic: ${query}`);
+                            const response = await fetch('/generate-content', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json'
+                                },
+                                body: JSON.stringify({ 
+                                    topic: query,
+                                    mode: mode
+                                })
+                            });
+
+                            // Check if response is JSON
+                            const contentType = response.headers.get('content-type');
+                            if (!contentType || !contentType.includes('application/json')) {
+                                const text = await response.text();
+                                throw new Error(`Server returned ${response.status}: ${text.substring(0, 100)}`);
+                            }
+
+                            const data = await response.json();
+                            
+                            if (!response.ok) {
+                                throw new Error(data.error || `Server error: ${response.status}`);
+                            }
+
+                            // Success - reload the page
+                            window.location.reload();
+                            
+                        } catch (error) {
+                            // Show error to user
+                            let errorMessage = error.message;
+                            
+                            // Handle cases where the error might be HTML
+                            if (errorMessage.includes('<!doctype')) {
+                                errorMessage = 'Server returned an error page. Please check your request.';
+                            }
+                            
+                            showNotification(errorMessage, 'error');
+                            console.error('Generation error:', error);
+                        } finally {
+                            // Reset UI
+                            searchField.disabled = false;
+                            searchLens.classList.replace('fa-spinner', 'fa-search');
+                            searchLens.classList.remove('fa-spin');
+                        }
+                    } else {
+                        showNotification('Topic already exists!', 'info');
+                    }
+                }
+            });
+        }
+
+        configureSearch('soloSearch', 'soloTopics', 'solo');
+        configureSearch('multiSearch', 'multiTopics', 'multi');
+
+        function showNotification(message, type) {
+            // Implement your notification system here
+            alert(`${type.toUpperCase()}: ${message}`);
+        }
+    </script>
+    <div class="shooting-star"></div>
+<div class="aurora">
+    <div class="aurora-layer"></div>
+    <div class="aurora-layer"></div>
+    <div class="aurora-layer"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+
+{% extends "cb_base.html" %}
+
+{% block content %}
+<style>
+            :root {
+            --cosmic-primary: #8a84d6;
+            --cosmic-secondary: #b594e5;
+            --cosmic-accent: #FFE066;
+            --cosmic-bright: #F8F9FA;
+            --text-primary: #E9ECEF;
+            --text-secondary: #CED4DA;
+            --text-accent: #FFEE99;
+            --space-bg-dark: #0c0a28;
+            --space-bg-medium: #1e1650;
+            --aurora-green: rgba(120, 236, 189, 0.3);
+            --aurora-blue: rgba(105, 159, 238, 0.2);
+            --aurora-purple: rgba(179, 136, 235, 0.3);
+        }
+
+    /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--space-bg-dark);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        #preloader::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: var(--cosmic-accent);
+            animation: spin 1.5s linear infinite;
+        }
+
+        #preloader::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: var(--cosmic-bright);
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Shooting Stars */
+        .shooting-star {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: var(--cosmic-bright);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+                      0 0 0 8px rgba(255, 255, 255, 0.1),
+                      0 0 20px var(--cosmic-bright);
+            animation: shootingStars 3s linear infinite;
+        }
+
+        @keyframes shootingStars {
+            0% { transform: translateX(-100%) translateY(-100%); opacity: 0; }
+            30% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { transform: translateX(100vw) translateY(100vh); opacity: 0; }
+        }
+</style>
+<div id="preloader"></div>
+<br>
+<div class="welcome-banner">
+    <h2>Welcome to Code Blocks!</h2>
+    <p>Learn programming by solving puzzles with drag-and-drop code blocks.</p>
+    <div class="progress-container">
+        <div class="progress-bar" style="width: {{ (progress / levels|length) * 100 }}%"></div>
+        <span>Progress: {{ progress }} / {{ levels|length }} levels unlocked</span>
+    </div>
+</div>
+<div class="daily-challenge">
+    <h3>Random Challenge</h3>
+    <div class="challenge-card">
+        <h4>Special Debug Mission</h4>
+        <p>Find and fix all the bugs in Random level for bonus coins!</p>
+        <p>Complete 3 levels to play</p>
+        <button class="play-btn"
+        onclick="window.location.href='/daily_challenge';"
+        {% if progress < 3 %}disabled title="Unlock after level 3"{% endif %} >
+        Play
+    </button>
+    </div>
+</div><br>
+<div class="level-grid">
+    {% for level in levels %}
+    <a href="{{ url_for('level', language=language, level_id=level.id) }}"
+       class="level-card {% if level.id > progress %}locked{% endif %}"
+       data-level-id="{{ level.id }}">  <!-- Added data attribute -->
+        <div class="level-number">Level {{ level.id }}</div>
+        <h3>{{ level.title }}</h3>        {% if level.id > progress %}
+  <!-- Added explicit lock icon -->
+        {% endif %}
+        <div class="level-reward">
+            Reward: {{ level.base_coins }}🪙 {% if level.id not in user_data.completed_levels %}+ {{ level.first_time_bonus }}🪙 bonus{% endif %}
+        </div>
+        {% if level.id in user_data.completed_levels %}
+        <div class="completed-badge">✓ Completed</div>
+        {% endif %}
+    </a>
+    {% endfor %}
+</div>
+<script>
+              window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('preloader').remove();
+                }, 500);
+            }, 1000);
+        });
+</script>
+
+
+{% endblock %}

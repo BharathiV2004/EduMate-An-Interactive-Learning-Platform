@@ -1,0 +1,102 @@
+{
+    "topic": "Smart Device Communication Technologies: 5G, IoT, VoIP",
+    "generated_at": "2025-05-10T18:04:29.871976",
+    "questions": [
+        {
+            "question": "Which technology provides near-instantaneous communication for voice calls over the internet?",
+            "options": {
+                "A": "5G",
+                "B": "VoIP",
+                "C": "IoT",
+                "D": "LTE"
+            },
+            "answer": "B",
+            "explanation": "Voice over Internet Protocol (VoIP) uses internet connections instead of traditional phone lines to make and receive calls. This means you can have crystal-clear, near-instantaneous voice communication anywhere there's an internet connection.",
+            "hint": "Think of Skype or Zoom making a call.\n\n---"
+        },
+        {
+            "question": "Which technology offers the fastest data transfer speeds suitable for real-time applications like video streaming and autonomous driving?",
+            "options": {
+                "A": "IoT",
+                "B": "4G",
+                "C": "VoIP",
+                "D": "5G"
+            },
+            "answer": "D",
+            "explanation": "5G is designed to handle large volumes of data quickly and reliably, making it perfect for applications that require rapid response times and high data transfer speeds, like autonomous vehicles.",
+            "hint": "Think of your favorite streaming service in ultra-high definition.\n\n---"
+        },
+        {
+            "question": "In the context of smart device communication, what does IoT stand for?",
+            "options": {
+                "A": "Internet Operations Technology",
+                "B": "Industrial Organizational Theory",
+                "C": "Internet of Things",
+                "D": "Interactive Online Telephony"
+            },
+            "answer": "C",
+            "explanation": "IoT stands for the Internet of Things, which refers to a network of physical devices, vehicles, appliances, and other items embedded with sensors, software, and connectivity that enables them to exchange data and perform actions.",
+            "hint": "Think of your smart home gadgets connecting.\n\n---"
+        },
+        {
+            "question": "Which technology can be used for remote work by allowing employees to make voice calls over the internet?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "VoIP",
+                "D": "WiFi"
+            },
+            "answer": "C",
+            "explanation": "Voice over Internet Protocol (VoIP) is an excellent tool for remote work as it allows employees to make high-quality, cost-effective phone calls using their internet connection. It's like having a landline but without the physical infrastructure.",
+            "hint": "Think of making a call from your home office.\n\n---"
+        },
+        {
+            "question": "Which technology can provide location-based services and real-time tracking on smart devices?",
+            "options": {
+                "A": "VoIP",
+                "B": "IoT",
+                "C": "5G",
+                "D": "GPS"
+            },
+            "answer": "D",
+            "explanation": "Global Positioning System (GPS) is specifically designed for location tracking, providing precise coordinates that can be used in various applications like navigation or asset management.",
+            "hint": "Think of your smartphone's map app.\n\n---"
+        },
+        {
+            "question": "Which technology supports the seamless integration and interaction between physical devices and digital services through cloud computing?",
+            "options": {
+                "A": "VoIP",
+                "B": "IoT",
+                "C": "5G",
+                "D": "Bluetooth"
+            },
+            "answer": "B",
+            "explanation": "The Internet of Things (IoT) leverages cloud computing to enable seamless interactions between physical devices, allowing them to connect with other systems and share data.",
+            "hint": "Think of your smart home being managed from the cloud.\n\n---"
+        },
+        {
+            "question": "Which technology is designed for high-bandwidth applications such as video streaming and virtual reality experiences?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "VoIP",
+                "D": "Wi-Fi"
+            },
+            "answer": "A",
+            "explanation": "5G technology provides ultra-fast data transfer speeds, making it ideal for high-bandwidth applications like real-time video streaming or immersive virtual reality.",
+            "hint": "Think of your favorite online video service in HD.\n\n---"
+        },
+        {
+            "question": "Which technology is crucial for enabling the automation and monitoring of devices through smart home systems?",
+            "options": {
+                "A": "VoIP",
+                "B": "5G",
+                "C": "IoT",
+                "D": "LTE"
+            },
+            "answer": "C",
+            "explanation": "The Internet of Things (IoT) plays a key role in enabling the automation and monitoring of devices within smart homes, allowing for seamless integration between various connected gadgets.",
+            "hint": "Think of your smart thermostat learning your preferences."
+        }
+    ]
+}

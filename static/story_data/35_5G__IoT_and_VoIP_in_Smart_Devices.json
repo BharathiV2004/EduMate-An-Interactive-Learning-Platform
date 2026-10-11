@@ -1,0 +1,160 @@
+{
+    "topic": "5G, IoT and VoIP in Smart Devices",
+    "story_name": "The Connected Future",
+    "characters": [
+        {
+            "name": "Mia",
+            "description": "A tech-savvy college student, 20 years old, always on the go.",
+            "image_path": "D:/Downloads/Edumate/static/images\\character_Mia.png",
+            "voice_id": "en-US-AndrewNeural"
+        },
+        {
+            "name": "Dr. Patel",
+            "description": "A friendly 45-year-old professor of telecommunications, knowledgeable and enthusiastic.",
+            "image_path": "D:/Downloads/Edumate/static/images\\character_Dr. Patel.png",
+            "voice_id": "zh-CN-YunyangNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "Introduction to Technology",
+            "setting": "Mia's cozy living room filled with various smart devices.",
+            "dialogues": [
+                {
+                    "character": "Mia",
+                    "line": "Dr. Patel, why do you think 5G is such a big deal?"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "Well, Mia, let me explain it in simple terms. 5G is like super-fast internet on steroids!"
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "Dr. Patel, why do you think 5G is such a big deal?",
+                    "audio_path": "D:/Downloads/Edumate/static/audio/scene_1_Mia_4197027923231346293.mp3"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "Well, Mia, let me explain it in simple terms. 5G is like super-fast internet on steroids!",
+                    "audio_path": "D:/Downloads/Edumate/static/audio/scene_1_Dr. Patel_7422981905001197892.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "Exploring the Benefits of 5G",
+            "setting": "Dr. Patel's office filled with various telecommunications equipment.",
+            "dialogues": [
+                {
+                    "character": "Dr. Patel",
+                    "line": "With 5G, everything works faster and clearer. It's perfect for VoIP calls because it reduces delay."
+                },
+                {
+                    "character": "Mia",
+                    "line": "So, I can have crystal clear video calls without any lag?"
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Patel",
+                    "line": "With 5G, everything works faster and clearer. It's perfect for VoIP calls because it reduces delay.",
+                    "audio_path": "D:/Downloads/Edumate/static/audio/scene_2_Dr. Patel_6341698633273837277.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "So, I can have crystal clear video calls without any lag?",
+                    "audio_path": "D:/Downloads/Edumate/static/audio/scene_2_Mia_468793912893221676.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "Introduction to IoT",
+            "setting": "Mia's living room with her smart fridge prominently displayed.",
+            "dialogues": [
+                {
+                    "character": "Mia",
+                    "line": "What about these IoT devices? How do they work?"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "Imagine your smart speaker or watch making and receiving VoIP calls. It’s like every device is talking!"
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "What about these IoT devices? How do they work?",
+                    "audio_path": "D:/Downloads/Edumate/static/audio/scene_3_Mia_6563561937037537452.mp3"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "Imagine your smart speaker or watch making and receiving VoIP calls. It’s like every device is talking!",
+                    "audio_path": "D:/Downloads/Edumate/static/audio/scene_3_Dr. Patel_2186039077972528843.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 4,
+            "scene_title": "Example of Smart Home Automation",
+            "setting": "Mia's kitchen with the smart fridge in the center.",
+            "dialogues": [
+                {
+                    "character": "Mia",
+                    "line": "My smart fridge can call me when I'm out of milk? That sounds handy!"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "Exactly! And think about it, your home devices can automatically connect and help with communication."
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_4.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "My smart fridge can call me when I'm out of milk? That sounds handy!",
+                    "audio_path": "D:/Downloads/Edumate/static/audio/scene_4_Mia_3507428897729120170.mp3"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "Exactly! And think about it, your home devices can automatically connect and help with communication.",
+                    "audio_path": "D:/Downloads/Edumate/static/audio/scene_4_Dr. Patel_6979403232247613299.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 5,
+            "scene_title": "Smart Home and Office Communication",
+            "setting": "Mia's office with her desk filled with various connected gadgets.",
+            "dialogues": [
+                {
+                    "character": "Mia",
+                    "line": "So, all these devices in my home or office can work together to schedule calls or send reminders?"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "Absolutely! It’s like having a personal assistant that never sleeps."
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_5.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "So, all these devices in my home or office can work together to schedule calls or send reminders?",
+                    "audio_path": "D:/Downloads/Edumate/static/audio/scene_5_Mia_2205414508140051238.mp3"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "Absolutely! It’s like having a personal assistant that never sleeps.",
+                    "audio_path": "D:/Downloads/Edumate/static/audio/scene_5_Dr. Patel_3218725670726572066.mp3"
+                }
+            ]
+        }
+    ]
+}

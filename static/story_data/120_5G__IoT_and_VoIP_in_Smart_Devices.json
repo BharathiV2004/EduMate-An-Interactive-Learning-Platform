@@ -1,0 +1,128 @@
+{
+    "topic": "5G, IoT and VoIP in Smart Devices",
+    "story_name": "The Smart Home Revolution",
+    "characters": [
+        {
+            "name": "Sam",
+            "description": "A tech-savvy 23-year-old college student who loves exploring new gadgets. (Female, 23 years old)",
+            "image_path": "/static/images/character_Sam.png",
+            "voice_id": "en-US-EmmaNeural"
+        },
+        {
+            "name": "Dr. Patel",
+            "description": "A 48-year-old professor of computer engineering, knowledgeable and enthusiastic about technology. (Male, 48 years old)",
+            "image_path": "/static/images/character_Dr.%2520Patel.png",
+            "voice_id": "zh-CN-YunyangNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "The Introduction",
+            "setting": "Mia's cozy living room filled with various smart devices.",
+            "scene_image_path": "/static/images/scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sam",
+                    "line": "Dr. Patel, can you explain how 5G makes VoIP calls clearer?",
+                    "audio_path": "/static/audio/scene_1_Mia_3000405965158174108.mp3"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "Of course, Sam! 5G is like a super-fast internet connection that reduces delays in VoIP calls, making them clearer and more natural.",
+                    "audio_path": "/static/audio/scene_1_Dr.%2520Patel_8544461869379236187.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "The Explanation of 5G",
+            "setting": "Dr. Patel's office with diagrams of 5G networks on the wall.",
+            "scene_image_path": "/static/images/scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Patel",
+                    "line": "With 5G, data is transmitted much faster, allowing for smoother video calls without any lag.",
+                    "audio_path": "/static/audio/scene_2_Dr.%2520Patel_6019588805546321837.mp3"
+                },
+                {
+                    "character": "Sam",
+                    "line": "That sounds amazing! So, my mobile calls will be clearer too?",
+                    "audio_path": "/static/audio/scene_2_Mia_8897793354673818205.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "Introduction to IoT",
+            "setting": "Mia's kitchen with her smart fridge and other appliances.",
+            "scene_image_path": "/static/images/scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Patel",
+                    "line": "IoT stands for the Internet of Things. It means everyday devices can connect and communicate with each other.",
+                    "audio_path": "/static/audio/scene_3_Dr.%2520Patel_5587127595325124616.mp3"
+                },
+                {
+                    "character": "Sam",
+                    "line": "Like my fridge calling me when I'm out of milk?",
+                    "audio_path": "/static/audio/scene_3_Mia_7716319408360210248.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 4,
+            "scene_title": "Practical Example of IoT",
+            "setting": "Mia's living room, smart speaker playing music.",
+            "scene_image_path": "/static/images/scene_4.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sam",
+                    "line": "Hey, how does this smart speaker work?",
+                    "audio_path": "/static/audio/scene_4_Mia_2719640920207304628.mp3"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "This speaker can make or receive VoIP calls just like a regular phone. For instance, it could call you when the smart fridge detects low milk levels.",
+                    "audio_path": "/static/audio/scene_4_Dr.%2520Patel_4990921511662847780.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 5,
+            "scene_title": "Smart Homes and Offices",
+            "setting": "Mia's home office with various connected devices.",
+            "scene_image_path": "/static/images/scene_5.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sam",
+                    "line": "So, in my smart home, all these devices can connect and help me communicate more efficiently?",
+                    "audio_path": "/static/audio/scene_5_Mia_4967520662108979203.mp3"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "Exactly! Devices like your smartwatch or calendar can automatically schedule calls or send reminders.",
+                    "audio_path": "/static/audio/scene_5_Dr.%2520Patel_5618961295691973709.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 6,
+            "scene_title": "The Future of Smart Communication",
+            "setting": "A virtual reality conference room where Mia is demonstrating connected devices.",
+            "scene_image_path": "/static/images/scene_6.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sam",
+                    "line": "Imagine a world where everything in my home and office can talk to each other seamlessly. It's not just about devices, but making life easier.",
+                    "audio_path": "/static/audio/scene_6_Mia_5521741445696650472.mp3"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "Absolutely! These technologies are revolutionizing how we live and work.",
+                    "audio_path": "/static/audio/scene_6_Dr.%2520Patel_3608261658573512469.mp3"
+                }
+            ]
+        }
+    ]
+}

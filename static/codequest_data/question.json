@@ -1,0 +1,74 @@
+{
+    "python": [
+        {
+            "id": 1,
+            "template": "def is_even(number):\n    # DRAG SNIPPET HERE\n",
+            "snippets": [
+                "return number % 2 == 0",
+                "if number % 2: return True else: return False",
+                "return (number // 2) * 2 == number",
+                "return 'Even' if number % 2 == 0 else 'Odd'"
+            ],
+            "solution": "return number % 2 == 0",
+            "description": "Create a function that checks whether a given number is even.\nThis exercise tests understanding of modulus operator and conditional statements.",
+            "expected_output": "is_even(4) should return True, is_even(7) should return False",
+            "hint": "Think about how the remainder works with division by 2."
+        },
+        {
+            "id": 2,
+            "template": "numbers = [10, 20, 30]\nprint(# DRAG SNIPPET HERE)",
+            "snippets": [
+                "sum(numbers)",
+                "[number for number in numbers if number > 15]",
+                "numbers[0] + numbers[-1]",
+                "max(numbers)"
+            ],
+            "solution": "[number for number in numbers if number > 15]",
+            "description": "Define a list of numbers and print the numbers greater than 15 using list comprehension.\nThis exercise tests understanding of list comprehensions.",
+            "expected_output": "Prints [20, 30]",
+            "hint": "Think about how to use a condition in a list comprehension."
+        },
+        {
+            "id": 3,
+            "template": "def concatenate_strings(str1, str2):\n    # DRAG SNIPPET HERE\n",
+            "snippets": [
+                "return str1 + ' and ' + str2",
+                "concat = str1 + ' ' + str2; return concat",
+                "str1 && str2",
+                "return (str1, str2)"
+            ],
+            "solution": "return str1 + ' and ' + str2",
+            "description": "Create a function that takes two strings as arguments and returns them concatenated with the word 'and' in between.\nThis exercise tests understanding of string concatenation.",
+            "expected_output": "concatenate_strings('apple', 'banana') should return 'apple and banana'",
+            "hint": "Think about how to combine multiple strings."
+        },
+        {
+            "id": 4,
+            "template": "for i in range(# DRAG SNIPPET HERE):\n    print(i)",
+            "snippets": [
+                "10",
+                "len(range(5))",
+                "range(3, 6)",
+                "5"
+            ],
+            "solution": "10",
+            "description": "Print numbers from 0 to 9 using a for loop and the range function.\nThis exercise tests understanding of loops and ranges.",
+            "expected_output": "The loop should print numbers from 0 to 9 inclusive",
+            "hint": "Think about how to set up a range that includes all numbers you need."
+        },
+        {
+            "id": 5,
+            "template": "def get_length(string):\n    # DRAG SNIPPET HERE\n",
+            "snippets": [
+                "len(string)",
+                "string.size()",
+                "for char in string: return 1",
+                "return len(string.split())"
+            ],
+            "solution": "len(string)",
+            "description": "Create a function that returns the length of a given string.\nThis exercise tests understanding of the `len` function.",
+            "expected_output": "get_length('hello') should return 5",
+            "hint": "Think about built-in functions designed to handle strings."
+        }
+    ]
+}

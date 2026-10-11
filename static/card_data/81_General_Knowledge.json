@@ -1,0 +1,23 @@
+{
+    "topic": "General Knowledge",
+    "cards": [
+        {
+            "question": "What is the capital of France?",
+            "answer": "Paris",
+            "analogy": "Just like Washington D.C. is to the United States, Paris is to France.",
+            "common_mistake": "Many people think it's London or Berlin."
+        },
+        {
+            "question": "What is the largest planet in our solar system?",
+            "answer": "Jupiter",
+            "analogy": "Jupiter is like the big brother of the solar system family.",
+            "common_mistake": "People often confuse it with Saturn because of its rings."
+        },
+        {
+            "question": "Who wrote 'Romeo and Juliet'?",
+            "answer": "William Shakespeare",
+            "analogy": "Shakespeare is to literature what Einstein is to physics.",
+            "common_mistake": "Some attribute it to Charles Dickens by mistake."
+        }
+    ]
+}

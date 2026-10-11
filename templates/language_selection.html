@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Programming Challenge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --star-primary: #8a9dc7;
+      --star-secondary: #b5c7e3;
+      --star-accent: #f8df8c;
+      --star-bright: #ffffff;
+      --night-bg-dark: #0a1128;
+      --night-bg-medium: #1b2e5e;
+      --night-bg-light: #2e4482;
+      --aurora-green: rgba(120, 236, 189, 0.3);
+      --aurora-blue: rgba(105, 159, 238, 0.2);
+      --aurora-purple: rgba(179, 136, 235, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background: linear-gradient(to bottom, var(--night-bg-dark), var(--night-bg-medium), var(--night-bg-light));
+      font-family: 'Inter', sans-serif;
+      color: #e6e6e6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background-image: 
+        radial-gradient(1px 1px at 20px 30px, var(--star-bright), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 40px 70px, var(--star-primary), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 50px 160px, var(--star-secondary), rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, var(--star-accent), rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 130px 80px, var(--star-bright), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 160px 120px, var(--star-primary), rgba(0,0,0,0));
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      animation: twinkle 8s infinite alternate ease-in-out;
+      z-index: -1;
+      opacity: 0.7;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.7; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.01); }
+    }
+
+    .selection-container {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+      max-width: 1000px;
+      width: 95%;
+      overflow-y: auto;
+      position: relative;
+      animation: popin 0.6s ease;
+      z-index: 2;
+    }
+
+    @keyframes popin {
+      0% { transform: scale(0.92); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      text-align: center;
+      color: #00ffd1;
+      margin-bottom: 40px;
+      text-shadow: 0 0 15px rgba(0, 255, 209, 0.3);
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #64ffda;
+    }
+
+    .selection-section {
+      margin-bottom: 30px;
+    }
+
+    .language-options,
+    .difficulty-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .concept-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+      max-height: 250px;
+      overflow-y: auto;
+      background-color: rgba(15, 52, 96, 0.3);
+      border: 2px solid #64ffda;
+      border-radius: 12px;
+      padding: 15px;
+    }
+
+    .option-btn {
+      padding: 12px;
+      font-weight: 700;
+      background: linear-gradient(135deg, rgba(30, 42, 72, 0.8), rgba(44, 62, 96, 0.8));
+      color: var(--star-bright);
+      border: 2px solid #64ffda;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-size: 14px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .option-btn:hover,
+    .option-btn.selected {
+      background: linear-gradient(135deg, rgba(26, 80, 139, 0.8), rgba(40, 116, 166, 0.8));
+      box-shadow: 0 0 12px #64ffda;
+      transform: scale(1.07);
+    }
+
+    .start-btn {
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      border: none;
+      border-radius: 14px;
+      transition: 0.3s ease;
+      background: linear-gradient(to right, #00ffd1, #0fffc1);
+      color: #1a1a1a;
+      margin: 25px auto 0;
+      display: block;
+      box-shadow: 0 0 12px rgba(0, 255, 209, 0.5);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .start-btn::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: rotate(45deg);
+      z-index: -1;
+      transition: all 0.6s ease;
+      animation: buttonGlow 3s infinite;
+    }
+
+    @keyframes buttonGlow {
+      0% { transform: rotate(45deg) translateX(-100%); }
+      100% { transform: rotate(45deg) translateX(100%); }
+    }
+
+    .start-btn:hover {
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 0 20px rgba(0, 255, 209, 0.8);
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      background-color: #4cc9f0;
+      color: #0f172a;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .back-btn:hover {
+      background-color: #74d3fc;
+      transform: translateY(-3px);
+      box-shadow: 0 0 6px #4cc9f0;
+    }
+
+    /* Add aurora and shooting star styles */
+    .aurora {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .shooting-star {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Media queries remain the same */
+    @media (max-width: 600px) {
+      h1 { font-size: 26px; }
+      .option-btn { font-size: 12px; padding: 10px; }
+      .start-btn, .back-btn { font-size: 12px; padding: 10px 20px; }
+    }
+  </style>
+  <style>
+            :root {
+            --cosmic-primary: #8a84d6;
+            --cosmic-secondary: #b594e5;
+            --cosmic-accent: #FFE066;
+            --cosmic-bright: #F8F9FA;
+            --text-primary: #E9ECEF;
+            --text-secondary: #CED4DA;
+            --text-accent: #FFEE99;
+            --space-bg-dark: #0c0a28;
+            --space-bg-medium: #1e1650;
+            --aurora-green: rgba(120, 236, 189, 0.3);
+            --aurora-blue: rgba(105, 159, 238, 0.2);
+            --aurora-purple: rgba(179, 136, 235, 0.3);
+        }
+
+    /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--space-bg-dark);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        #preloader::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: var(--cosmic-accent);
+            animation: spin 1.5s linear infinite;
+        }
+
+        #preloader::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: var(--cosmic-bright);
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Shooting Stars */
+        .shooting-star {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: var(--cosmic-bright);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+                      0 0 0 8px rgba(255, 255, 255, 0.1),
+                      0 0 20px var(--cosmic-bright);
+            animation: shootingStars 3s linear infinite;
+        }
+
+        @keyframes shootingStars {
+            0% { transform: translateX(-100%) translateY(-100%); opacity: 0; }
+            30% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { transform: translateX(100vw) translateY(100vh); opacity: 0; }
+        }
+</style>
+
+</head>
+<body>
+  <div id="preloader"></div>
+  <div class="selection-container">
+    <a href="courses.html"><button class="back-btn">⬅ Back To Edumate</button></a>
+    <h1>Can you survive the Quest ?</h1>
+
+    <div class="selection-section">
+      <h2>Select Language</h2>
+      <div class="language-options">
+        <button class="option-btn" onclick="selectLanguage('python', this)">Python</button>
+        <button class="option-btn" onclick="selectLanguage('javascript', this)">JavaScript</button>
+        <button class="option-btn" onclick="selectLanguage('java', this)">Java</button>
+        <button class="option-btn" onclick="selectLanguage('c', this)">C</button>
+        <button class="option-btn" onclick="selectLanguage('c++', this)">C++</button>
+      </div>
+    </div>
+
+    <div class="selection-section">
+      <h2>Select Difficulty</h2>
+      <div class="difficulty-options">
+        <button class="option-btn" onclick="selectDifficulty('easy', this)">Easy</button>
+        <button class="option-btn" onclick="selectDifficulty('medium', this)">Medium</button>
+        <button class="option-btn" onclick="selectDifficulty('hard', this)">Hard</button>
+      </div>
+    </div>
+
+    <div class="selection-section">
+      <h2>Select Concept</h2>
+      <div class="concept-options">
+        <button class="option-btn" onclick="selectConcept('basics', this)">Basics</button>
+        <button class="option-btn" onclick="selectConcept('arrays', this)">Arrays</button>
+        <button class="option-btn" onclick="selectConcept('strings', this)">Strings</button>
+        <button class="option-btn" onclick="selectConcept('linked-lists', this)">Linked Lists</button>
+        <button class="option-btn" onclick="selectConcept('stacks', this)">Stacks</button>
+        <button class="option-btn" onclick="selectConcept('queues', this)">Queues</button>
+        <button class="option-btn" onclick="selectConcept('trees', this)">Trees</button>
+        <button class="option-btn" onclick="selectConcept('graphs', this)">Graphs</button>
+        <button class="option-btn" onclick="selectConcept('recursion', this)">Recursion</button>
+        <button class="option-btn" onclick="selectConcept('sorting', this)">Sorting</button>
+        <button class="option-btn" onclick="selectConcept('searching', this)">Searching</button>
+        <button class="option-btn" onclick="selectConcept('oop', this)">OOP</button>
+      </div>
+    </div>
+
+    <button class="start-btn" onclick="startChallenge()">Start Challenge</button>
+  </div>
+
+  <!-- Add aurora and shooting star elements -->
+  <div class="aurora">
+    <div class="aurora-layer-1"></div>
+    <div class="aurora-layer-2"></div>
+    <div class="aurora-layer-3"></div>
+  </div>
+  <div class="shooting-star"></div>
+
+  <script>
+    window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('preloader').remove();
+                }, 300);
+            }, 700);
+          });
+    // Original selection logic
+    let selectedLanguage = null;
+    let selectedConcept = null;
+    let selectedDifficulty = null;
+
+    function selectLanguage(lang, el) {
+      selectedLanguage = lang;
+      document.querySelectorAll('.language-options .option-btn').forEach(btn => btn.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function selectDifficulty(diff, el) {
+      selectedDifficulty = diff;
+      document.querySelectorAll('.difficulty-options .option-btn').forEach(btn => btn.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function selectConcept(concept, el) {
+      selectedConcept = concept;
+      document.querySelectorAll('.concept-options .option-btn').forEach(btn => btn.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function startChallenge() {
+      if (!selectedLanguage || !selectedConcept || !selectedDifficulty) {
+        alert("Please select language, difficulty, and concept to start the challenge.");
+        return;
+      }
+      window.location.href = `/start_game/${selectedLanguage}/${selectedConcept}/${selectedDifficulty}`;
+    }
+
+    // Add star cursor effect
+    document.addEventListener('mousemove', (e) => {
+      const cursorTrail = document.createElement('div');
+      cursorTrail.className = 'star-cursor';
+      cursorTrail.style.left = `${e.clientX}px`;
+      cursorTrail.style.top = `${e.clientY}px`;
+      document.body.appendChild(cursorTrail);
+      setTimeout(() => cursorTrail.remove(), 500);
+    });
+  </script>
+</body>
+</html>

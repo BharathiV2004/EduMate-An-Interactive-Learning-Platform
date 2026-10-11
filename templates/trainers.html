@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="preloader"></div>
+<div class="container mt-5">
+    
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Upload Files</h4>
+                </div>
+                <div class="card-body">
+                    <!-- In the form section of courses.html -->
+                    <form method="POST" enctype="multipart/form-data" action="{{ url_for('generate_flashcard') }}">
+                        {{ form.hidden_tag() }}
+                        
+                        <div class="mb-3">
+                            {{ form.files.label(class="form-label") }}
+                            {{ form.files(class="form-control", multiple=True) }}
+                            {% if form.files.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.files.errors %}
+                                        <small>{{ error }}</small><br>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-3">
+                            {{ form.file_type.label(class="form-label") }}
+                            {{ form.file_type(class="form-select") }}
+                        </div>
+                        
+                        <div class="mb-3">
+                            {{ form.description.label(class="form-label") }}
+                            {{ form.description(class="form-control", rows=3) }}
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Generate Flashcards</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Display uploaded files -->
+            <div class="mt-4">
+                <h5>Your Uploaded Files</h5>
+                <div class="list-group">
+                    {% for file in files %}
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6>{{ file.original_filename }}</h6>
+                                <small class="text-muted">{{ file.file_type|title }} - {{ file.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+                            </div>
+                            <div>
+                                <a href="{{ url_for('static', filename=file.file_path) }}" target="_blank" class="btn btn-sm btn-outline-primary">View</a>
+                            </div>
+                        </div>
+                        {% if file.description %}
+                        <p class="mt-2 mb-0">{{ file.description }}</p>
+                        {% endif %}
+                    </div>
+                    {% else %}
+                    <div class="alert alert-info">No files uploaded yet.</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- JavaScript for preview functionality -->
+<script>
+            window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('preloader').remove();
+                }, 300);
+            }, 700);
+        });
+document.getElementById('fileInput').addEventListener('change', function(e) {
+    const container = document.getElementById('previewContainer');
+    container.innerHTML = '';
+    
+    Array.from(e.target.files).forEach(file => {
+        const preview = createFilePreview(file);
+        container.appendChild(preview);
+    });
+});
+
+function createFilePreview(file) {
+    const col = document.createElement('div');
+    col.className = 'col-md-6 col-lg-4';
+    
+    const card = document.createElement('div');
+    card.className = 'card h-100';
+    
+    const cardBody = document.createElement('div');
+    cardBody.className = 'card-body text-center';
+    
+    // File icon based on type
+    const icon = document.createElement('i');
+    icon.className = getFileIcon(file.type);
+    
+    // File name
+    const fileName = document.createElement('h6');
+    fileName.className = 'card-title text-truncate mt-2';
+    fileName.textContent = file.name;
+    
+    // File size
+    const fileSize = document.createElement('small');
+    fileSize.className = 'text-muted d-block';
+    fileSize.textContent = formatFileSize(file.size);
+    
+    // Preview element based on file type
+    const preview = document.createElement('div');
+    preview.className = 'mt-2';
+    
+    if (file.type.startsWith('image/')) {
+        const imgPreview = document.createElement('img');
+        imgPreview.src = URL.createObjectURL(file);
+        imgPreview.className = 'img-thumbnail preview-thumbnail';
+        imgPreview.alt = 'Image preview';
+        preview.appendChild(imgPreview);
+    } else if (file.type.startsWith('audio/')) {
+        const audioPreview = document.createElement('audio');
+        audioPreview.src = URL.createObjectURL(file);
+        audioPreview.controls = true;
+        audioPreview.className = 'w-100';
+        preview.appendChild(audioPreview);
+    } else if (file.type.startsWith('video/')) {
+        const videoPreview = document.createElement('video');
+        videoPreview.src = URL.createObjectURL(file);
+        videoPreview.controls = true;
+        videoPreview.className = 'w-100';
+        videoPreview.style.maxHeight = '200px';
+        preview.appendChild(videoPreview);
+    }
+    
+    cardBody.appendChild(icon);
+    cardBody.appendChild(fileName);
+    cardBody.appendChild(fileSize);
+    cardBody.appendChild(preview);
+    card.appendChild(cardBody);
+    col.appendChild(card);
+    
+    return col;
+}
+
+function getFileIcon(type) {
+    if (type.startsWith('image/')) return 'fas fa-file-image fa-3x text-primary';
+    if (type === 'application/pdf') return 'fas fa-file-pdf fa-3x text-danger';
+    if (type.startsWith('audio/')) return 'fas fa-file-audio fa-3x text-success';
+    if (type.startsWith('video/')) return 'fas fa-file-video fa-3x text-warning';
+    if (type.startsWith('text/')) return 'fas fa-file-alt fa-3x text-info';
+    return 'fas fa-file fa-3x text-secondary';
+}
+
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+</script>
+
+<style>
+.preview-thumbnail {
+    height: 150px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+}
+.card {
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+</style>
+{% endblock %}

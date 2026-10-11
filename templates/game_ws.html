@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Search Puzzle - {{ topic }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        :root {
+          --star-primary: #8a9dc7;
+          --star-secondary: #b5c7e3;
+          --star-accent: #f8df8c;
+          --star-bright: #ffffff;
+          --night-bg-dark: #0a1128;
+          --night-bg-medium: #1b2e5e;
+          --night-bg-light: #2e4482;
+          --aurora-green: rgba(120, 236, 189, 0.3);
+          --aurora-blue: rgba(105, 159, 238, 0.2);
+          --aurora-purple: rgba(179, 136, 235, 0.3);
+        }
+
+        body {
+            background: linear-gradient(to bottom, var(--night-bg-dark), var(--night-bg-medium), var(--night-bg-light));
+            font-family: 'Arial', sans-serif;
+            padding-bottom: 50px;
+            position: relative;
+            color: var(--star-bright);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, var(--star-bright), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, var(--star-primary), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 160px, var(--star-secondary), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, var(--star-accent), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, var(--star-bright), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 160px 120px, var(--star-primary), rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: twinkle 8s infinite alternate ease-in-out;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(217deg, rgba(94, 114, 235, 0.05), rgba(255,0,0,0) 70.71%),
+                        linear-gradient(127deg, rgba(104, 109, 224, 0.05), rgba(0,255,0,0) 70.71%),
+                        linear-gradient(336deg, rgba(67, 97, 238, 0.08), rgba(0,0,255,0) 70.71%);
+            transform: rotate(-15deg);
+            z-index: -2;
+            opacity: 0.4;
+            animation: milkyWayFlow 30s infinite alternate ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.01); }
+        }
+
+        @keyframes milkyWayFlow {
+            0% { transform: rotate(-15deg) translateY(-5%); }
+            100% { transform: rotate(-18deg) translateY(5%); }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        h1, h2 {
+            color: var(--star-bright);
+            text-align: center;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        h1::after, h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--star-primary), var(--star-bright), var(--star-primary), transparent);
+            transform: translateX(-50%);
+        }
+
+        .puzzle-title {
+            font-size: 24px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            color: var(--star-accent);
+            text-shadow: 0 0 10px rgba(248, 223, 140, 0.5);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .puzzle-story {
+            font-size: 16px;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: rgba(70, 90, 166, 0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            border-left: 4px solid var(--star-accent);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .puzzle-instructions {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .grid-container {
+            max-width: 100%;
+            overflow: auto;
+            margin-bottom: 30px;
+            background: rgba(27, 46, 94, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .grid-container:hover {
+            box-shadow: 0 0 20px rgba(138, 157, 199, 0.2);
+        }
+
+        .word-grid {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        .word-grid td {
+            width: 35px;
+            height: 35px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            user-select: none;
+            color: var(--star-bright);
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .word-grid td:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateZ(5px);
+        }
+
+        .word-grid td.selected {
+            background-color: rgba(248, 223, 140, 0.4);
+            box-shadow: 0 0 10px rgba(248, 223, 140, 0.3);
+        }
+
+        .word-grid td.found {
+            background-color: rgba(120, 236, 189, 0.3);
+            box-shadow: 0 0 10px rgba(120, 236, 189, 0.2);
+            text-shadow: 0 0 5px var(--star-bright);
+        }
+
+        .clue-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .clue-list li {
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .clue-list li:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .clue-list li.found {
+            background-color: rgba(120, 236, 189, 0.2);
+            text-decoration: line-through;
+            border-left: 3px solid var(--aurora-green);
+        }
+
+        .timer, .score {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--star-accent);
+            text-shadow: 0 0 10px rgba(248, 223, 140, 0.3);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.4s ease;
+            background: linear-gradient(45deg, var(--night-bg-medium), var(--night-bg-light)) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: var(--star-bright) !important;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            z-index: -1;
+            transition: all 0.6s ease;
+            animation: buttonGlow 3s infinite;
+        }
+
+        @keyframes buttonGlow {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(13, 28, 79, 0.5);
+        }
+
+        .btn-warning {
+            background: linear-gradient(45deg, #e6be00, #ffc107) !important;
+            color: #212529 !important;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #2b4886, #4a6fa5) !important;
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, #1a9b39, #28a745) !important;
+        }
+
+        .btn-danger {
+            background: linear-gradient(45deg, #c22333, #dc3545) !important;
+        }
+
+        .results-container {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+            animation: fadeIn 0.5s ease;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .results-title {
+            font-size: 28px;
+            color: var(--star-accent);
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(248, 223, 140, 0.5);
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 17, 40, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 4px solid var(--night-bg-medium);
+            border-top-color: var(--star-accent);
+            border-bottom-color: var(--star-primary);
+            animation: spin 1.2s linear infinite;
+            position: relative;
+            box-shadow: 0 0 20px rgba(248, 223, 140, 0.3);
+        }
+
+        .loading-spinner::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: var(--star-secondary);
+            border-bottom-color: var(--star-bright);
+            animation: spin 0.8s linear infinite reverse;
+        }
+
+        .loading-text {
+            margin-top: 20px;
+            color: var(--star-bright);
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Get yourself prepared for the quest...</div>
+    </div>
+
+    <div class="aurora">
+        <div class="aurora-layer-1"></div>
+        <div class="aurora-layer-2"></div>
+        <div class="aurora-layer-3"></div>
+    </div>
+    
+    <div class="shooting-star"></div>
+    
+    <div class="container float-element">
+        <h1>WordScape Quest - Explore. Solve. Escape.</h1>
+        <div class="puzzle-title">Topic: <span id="topic-display">{{ topic }}</span></div>
+        
+        <div class="puzzle-story">
+            {{ story }}
+        </div>
+        
+        <div class="puzzle-instructions">
+            Find the words in the grid based on the clues below. Words can go horizontally, vertically, and diagonally in all eight directions.
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8">
+                <div class="timer" id="timer">Time: 0:00</div>
+                <div class="score" id="score">Score: 0 / 0</div>
+                
+                <div class="controls">
+                    <!-- <button id="finishBtn" class="btn btn-success">Finish Puzzle</button>
+                    <button id="newPuzzleBtn" class="btn btn-danger">New Puzzle</button> -->
+                </div>
+                
+                <div class="grid-container">
+                    <table class="word-grid" id="word-grid"></table>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <h2>Clues</h2>
+                <ol class="clue-list" id="clue-list"></ol>
+            </div>
+        </div>
+        
+        <div class="results-container" id="results">
+            <div class="results-title">Puzzle Completed!</div>
+            <div class="results-message" id="results-message"></div>
+            <div class="results-details">
+                <p>Words Found: <span id="words-found">0</span> / <span id="total-words">0</span></p>
+                <p>Time Taken: <span id="time-taken">0:00</span></p>
+                <p>Final Score: <span id="final-score">0</span></p>
+            </div>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            const topic = "{{ topic }}";
+            console.log(topic);
+            let grid = [];
+            let words = [];
+            let clues = {};
+            let foundWords = [];
+            let totalWords = 0;
+            let score = 0;
+            let startTime = null;
+            let timerInterval;
+            let selectedCells = [];
+            let isSelecting = false;
+            
+            const wordGrid = document.getElementById('word-grid');
+            const clueList = document.getElementById('clue-list');
+            const timerEl = document.getElementById('timer');
+            const scoreEl = document.getElementById('score');
+            const checkBtn = document.getElementById('checkBtn');
+            const hintBtn = document.getElementById('hintBtn');
+            const finishBtn = document.getElementById('finishBtn');
+            const newPuzzleBtn = document.getElementById('newPuzzleBtn');
+            const resultsContainer = document.getElementById('results');
+            const resultsMessage = document.getElementById('results-message');
+            const wordsFoundEl = document.getElementById('words-found');
+            const totalWordsEl = document.getElementById('total-words');
+            const timeTakenEl = document.getElementById('time-taken');
+            const finalScoreEl = document.getElementById('final-score');
+            const playAgainBtn = document.getElementById('playAgainBtn');
+            
+            initializePuzzle();
+            
+            function initializePuzzle() {
+                loadingOverlay.style.display = 'flex';
+                loadingOverlay.style.opacity = '1';
+
+                const formData = new FormData();
+                formData.append("topic", topic);
+
+                fetch('/generate_ws', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    grid = data.grid;
+                    words = data.words;
+                    clues = data.clues;
+                    totalWords = words.length;
+                    
+                    displayGrid();
+                    displayClues();
+                    updateScore();
+                    startTimer();
+
+                    setTimeout(() => {
+                        loadingOverlay.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingOverlay.style.display = 'none';
+                        }, 500);
+                    }, 500);
+                })
+                .catch(error => {
+                    console.error('Error generating puzzle:', error);
+                    loadingOverlay.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingOverlay.style.display = 'none';
+                    }, 500);
+                });
+            }
+
+            function displayGrid() {
+                wordGrid.innerHTML = '';
+                
+                for (let i = 0; i < grid.length; i++) {
+                    const row = document.createElement('tr');
+                    
+                    for (let j = 0; j < grid[i].length; j++) {
+                        const cell = document.createElement('td');
+                        cell.textContent = grid[i][j].toUpperCase();
+                        cell.dataset.row = i;
+                        cell.dataset.col = j;
+                        
+                        cell.addEventListener('mousedown', handleCellMouseDown);
+                        cell.addEventListener('mouseover', handleCellMouseOver);
+                        
+                        row.appendChild(cell);
+                    }
+                    
+                    wordGrid.appendChild(row);
+                }
+                
+                document.addEventListener('mouseup', handleDocumentMouseUp);
+            }
+            
+            function displayClues() {
+                clueList.innerHTML = '';
+                
+                for (const [index, clueObj] of Object.entries(clues)) {
+                    const clueItem = document.createElement('li');
+                    clueItem.textContent = clueObj.clue;
+                    clueItem.dataset.word = clueObj.word;
+                    clueItem.dataset.index = index;
+                    clueList.appendChild(clueItem);
+                }
+            }
+            
+            function handleCellMouseDown(event) {
+                isSelecting = true;
+                clearSelectedCells();
+                const cell = event.target;
+                cell.classList.add('selected');
+                selectedCells.push(cell);
+            }
+            
+            function handleCellMouseOver(event) {
+                if (!isSelecting) return;
+                const cell = event.target;
+                const lastCell = selectedCells[selectedCells.length - 1];
+                
+                if (isValidSelection(lastCell, cell)) {
+                    cell.classList.add('selected');
+                    selectedCells.push(cell);
+                }
+            }
+            
+            function isValidSelection(lastCell, newCell) {
+                if (!lastCell || newCell === lastCell) return false;
+                
+                const lastRow = parseInt(lastCell.dataset.row);
+                const lastCol = parseInt(lastCell.dataset.col);
+                const newRow = parseInt(newCell.dataset.row);
+                const newCol = parseInt(newCell.dataset.col);
+                
+                const rowDiff = newRow - lastRow;
+                const colDiff = newCol - lastCol;
+                
+                if (selectedCells.length >= 2) {
+                    const prevLastCell = selectedCells[selectedCells.length - 2];
+                    const prevLastRow = parseInt(prevLastCell.dataset.row);
+                    const prevLastCol = parseInt(prevLastCell.dataset.col);
+                    
+                    const prevRowDiff = lastRow - prevLastRow;
+                    const prevColDiff = lastCol - prevLastCol;
+                    
+                    if (Math.sign(rowDiff) !== Math.sign(prevRowDiff) || 
+                        Math.sign(colDiff) !== Math.sign(prevColDiff)) {
+                        return false;
+                    }
+                    
+                    if (prevRowDiff !== 0 && prevColDiff !== 0) {
+                        if (Math.abs(rowDiff / colDiff) !== Math.abs(prevRowDiff / prevColDiff)) {
+                            return false;
+                        }
+                    }
+                }
+                
+                return !selectedCells.includes(newCell);
+            }
+            
+            function handleDocumentMouseUp() {
+                if (!isSelecting) return;
+                isSelecting = false;
+                checkSelectedWord();
+            }
+            
+            function checkSelectedWord() {
+                if (selectedCells.length < 3) {
+                    clearSelectedCells();
+                    return;
+                }
+                
+                let selectedWord = '';
+                for (const cell of selectedCells) {
+                    selectedWord += cell.textContent.toLowerCase();
+                }
+                
+                const wordIndex = words.indexOf(selectedWord);
+                const reversedWordIndex = words.indexOf(selectedWord.split('').reverse().join(''));
+                
+                if (wordIndex !== -1 || reversedWordIndex !== -1) {
+                    const actualWord = wordIndex !== -1 ? selectedWord : words[reversedWordIndex];
+                    
+                    if (!foundWords.includes(actualWord)) {
+                        foundWords.push(actualWord);
+                        
+                        for (const cell of selectedCells) {
+                            cell.classList.remove('selected');
+                            cell.classList.add('found');
+                        }
+                        
+                        markClueAsFound(actualWord);
+                        score += selectedWord.length * 10;
+                        updateScore();
+                        
+                        if (foundWords.length === totalWords) {
+                            endGame();
+                        }
+                    } else {
+                        clearSelectedCells();
+                    }
+                } else {
+                    clearSelectedCells();
+                }
+            }
+            
+            function markClueAsFound(word) {
+                const clueItems = clueList.querySelectorAll('li');
+                for (const clueItem of clueItems) {
+                    if (clueItem.dataset.word === word) {
+                        clueItem.classList.add('found');
+                        break;
+                    }
+                }
+            }
+            
+            function clearSelectedCells() {
+                for (const cell of selectedCells) {
+                    cell.classList.remove('selected');
+                }
+                selectedCells = [];
+            }
+            
+            function updateScore() {
+                scoreEl.textContent = `Score: ${score} (${foundWords.length} / ${totalWords})`;
+            }
+            
+            function startTimer() {
+                startTime = new Date();
+                timerInterval = setInterval(() => {
+                    const currentTime = new Date();
+                    const elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
+                    const minutes = Math.floor(elapsedSeconds / 60);
+                    const seconds = elapsedSeconds % 60;
+                    timerEl.textContent = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+                }, 1000);
+            }
+            
+            function endGame() {
+                clearInterval(timerInterval);
+                const currentTime = new Date();
+                const elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
+                const minutes = Math.floor(elapsedSeconds / 60);
+                const seconds = elapsedSeconds % 60;
+                const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                const timeBonus = Math.max(0, 300 - elapsedSeconds) * 2;
+                const finalScore = score + timeBonus;
+                
+                wordsFoundEl.textContent = foundWords.length;
+                totalWordsEl.textContent = totalWords;
+                timeTakenEl.textContent = timeString;
+                finalScoreEl.textContent = finalScore;
+                
+                let message = '';
+                if (foundWords.length === totalWords) {
+                    message = `Congratulations! You found all ${totalWords} words in ${timeString}. You earned a time bonus of ${timeBonus} points!`;
+                } else {
+                    message = `Good job! You found ${foundWords.length} out of ${totalWords} words in ${timeString}.`;
+                }
+                resultsMessage.textContent = message;
+                
+                resultsContainer.style.display = 'block';
+                submitScore(finalScore, elapsedSeconds);
+            }
+            
+            function submitScore(finalScore, timeTaken) {
+                fetch('/submit_score_ws', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        score: finalScore,
+                        time: timeTaken,
+                        found_words: foundWords,
+                        total_words: totalWords
+                    })
+                })
+                .catch(error => console.error('Error submitting score:', error));
+            }
+            
+            checkBtn.addEventListener('click', checkSelectedWord);
+            
+            hintBtn.addEventListener('click', function() {
+                let notFoundWords = words.filter(word => !foundWords.includes(word));
+                if (notFoundWords.length > 0) {
+                    const randomWord = notFoundWords[Math.floor(Math.random() * notFoundWords.length)];
+                    for (const [index, clueObj] of Object.entries(clues)) {
+                        if (clueObj.word === randomWord) {
+                            const clueItem = clueList.querySelector(`li[data-index="${index}"]`);
+                            clueItem.style.backgroundColor = 'rgba(248, 223, 140, 0.3)';
+                            setTimeout(() => {
+                                clueItem.style.backgroundColor = '';
+                            }, 1500);
+                            break;
+                        }
+                    }
+                    score = Math.max(0, score - 20);
+                    updateScore();
+                }
+            });
+            
+            document.getElementById('finishBtn').addEventListener('click', endGame);
+document.getElementById('newPuzzleBtn').addEventListener('click', () => {
+    window.location.href = '/wordmaze'; // Fixed URL
+});
+playAgainBtn.addEventListener('click', () => window.location.href = '/generate_ws');
+            playAgainBtn.addEventListener('click', () => window.location.href = '/generate_ws');
+
+            document.addEventListener('mousemove', function(e) {
+                const cursor = document.createElement('div');
+                cursor.className = 'star-cursor';
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                document.body.appendChild(cursor);
+                setTimeout(() => {
+                    cursor.style.opacity = '0';
+                    setTimeout(() => cursor.remove(), 300);
+                }, 50);
+            });
+        });
+    </script>
+</body>
+</html>

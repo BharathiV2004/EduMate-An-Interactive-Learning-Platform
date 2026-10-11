@@ -1,0 +1,42 @@
+{% extends "cb_base.html" %}
+
+{% block content %}
+<div class="level-container">
+    <h2>Level {{ level.id }}: {{ level.title }}</h2>
+    <p>{{ level.description }}</p>
+    
+    <div class="game-area">
+        <div class="blocks-pool" id="blocks-pool">
+            <h3>Available Blocks</h3>
+            {% for block in level.blocks %}
+            <div class="code-block" data-id="{{ block.id }}" draggable="true">
+                {% if 'indent' in block %}<span class="indent" style="width: {{ block.indent * 20 }}px"></span>{% endif %}
+                {{ block.text }}
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="workspace" id="workspace">
+            <h3>Your Solution</h3>
+            <div class="drop-zone" id="drop-zone"></div>
+            <!-- Add this near the drop zone -->
+            <div class="undo-hint">Double touch to undo the block</div>
+            <button id="run-btn" data-language="{{ level.language }}" data-flag=0>Run Code</button>
+            <button id="hint-btn" data-language="{{ level.language }}">Use Hint (Cost: 1 Hint)</button>
+        </div>
+        
+        <div class="output">
+            <h3>Expected Output</h3>
+            <pre>{{ level.expected_output }}</pre>
+        
+            
+            <div id="result-message"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const levelId = {{ level.id }};
+    const solution = {{ level.solution|tojson }};
+</script>
+{% endblock %}

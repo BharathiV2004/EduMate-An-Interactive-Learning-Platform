@@ -1,0 +1,150 @@
+{
+    "topic": "Smart Device Communication Technologies: 5G, IoT, VoIP",
+    "generated_at": "2025-05-08T21:52:01.023846",
+    "questions": [
+        {
+            "question": "Which technology provides high-speed internet and is often used for streaming services due to its low latency?",
+            "options": {
+                "A": "5G",
+                "B": "VoIP",
+                "C": "Cable Modem",
+                "D": "DSL"
+            },
+            "answer": "A",
+            "explanation": "5G networks are designed for high-speed data transmission, with minimal delay (latency), making them perfect for applications like video conferencing and live streaming.",
+            "hint": "Think about the difference between watching a movie online versus waiting for a webpage to load.\n\n---"
+        },
+        {
+            "question": "Which technology is primarily used for voice communication over the internet and can integrate seamlessly into smart home devices?",
+            "options": {
+                "A": "5G",
+                "B": "Wi-Fi",
+                "C": "VoIP",
+                "D": "Bluetooth"
+            },
+            "answer": "C",
+            "explanation": "Voice-over-Internet Protocol (VoIP) allows users to make phone calls using a broadband Internet connection rather than traditional telephone lines. It’s widely used in smart homes for voice assistants and remote communication.",
+            "hint": "Think about calling someone without needing your landline.\n\n---"
+        },
+        {
+            "question": "Which technology can facilitate seamless communication between different types of devices, including smartphones, wearables, and home appliances?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "Wi-Fi Direct",
+                "D": "NFC"
+            },
+            "answer": "B",
+            "explanation": "The Internet of Things (IoT) enables connectivity across a wide range of devices, from smartphones to household appliances. For example, your smart fridge could notify you via your smartphone when the milk is low.",
+            "hint": "Think about a scenario where multiple devices work together in harmony.\n\n---"
+        },
+        {
+            "question": "Which technology uses radio waves for short-distance communication between electronic devices and can be used for data transmission over small ranges?",
+            "options": {
+                "A": "5G",
+                "B": "Bluetooth",
+                "C": "IoT",
+                "D": "Wi-Fi"
+            },
+            "answer": "B",
+            "explanation": "Bluetooth is a wireless technology that allows for the exchange of data between fixed and mobile devices over short distances. It’s commonly used in headphones, speakers, and other gadgets.",
+            "hint": "Think about how your headphones connect to your phone without needing wires.\n\n---"
+        },
+        {
+            "question": "Which technology ensures reliable communication by using IP addresses instead of traditional circuit-switched networks?",
+            "options": {
+                "A": "5G",
+                "B": "VoIP",
+                "C": "Wi-Fi",
+                "D": "Bluetooth"
+            },
+            "answer": "B",
+            "explanation": "Voice-over-Internet Protocol (VoIP) uses IP addresses to route voice traffic over the internet, making it more flexible and cost-effective compared to traditional phone lines.",
+            "hint": "Think about how a packet of data travels on the internet.\n\n---"
+        },
+        {
+            "question": "Which technology is designed for devices to share information without human intervention, enabling smart cities, wearables, and home automation?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "Wi-Fi",
+                "D": "Bluetooth"
+            },
+            "answer": "B",
+            "explanation": "The Internet of Things (IoT) enables devices to communicate with each other automatically, creating smart environments like homes or cities. For example, your car could notify you when it's time for maintenance.",
+            "hint": "Think about a scenario where technology works in the background.\n\n---"
+        },
+        {
+            "question": "Which technology offers high data rates and low latency, making it suitable for applications requiring real-time communication?",
+            "options": {
+                "A": "3G",
+                "B": "IoT",
+                "C": "5G",
+                "D": "Wi-Fi"
+            },
+            "answer": "C",
+            "explanation": "5G networks provide faster speeds and lower latency than previous generations, enabling real-time communication essential for technologies like autonomous vehicles.",
+            "hint": "Think about a technology that requires instant feedback.\n\n---"
+        },
+        {
+            "question": "Which of the following is not directly related to device-to-device communication?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "IoT",
+                "C": "Wi-Fi Direct",
+                "D": "4G"
+            },
+            "answer": "D",
+            "explanation": "While 4G supports data transmission, it’s more about providing high-speed internet access rather than direct device-to-device communication. It's used by smart devices for connectivity but isn't as focused on peer-to-peer interaction.",
+            "hint": "Think about a technology that specifically enables direct connections between devices.\n\n---"
+        },
+        {
+            "question": "Which technology is crucial for enabling smart cities and can handle large volumes of data from various sources?",
+            "options": {
+                "A": "5G",
+                "B": "VoIP",
+                "C": "IoT",
+                "D": "Wi-Fi"
+            },
+            "answer": "C",
+            "explanation": "The Internet of Things (IoT) is essential for creating smart cities by facilitating the collection, analysis, and communication of vast amounts of data from different sources.",
+            "hint": "Think about a city with connected traffic lights and sensors.\n\n---"
+        },
+        {
+            "question": "Which technology uses voice over IP to make phone calls but can also be used in video conferencing?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "VoIP",
+                "D": "Wi-Fi"
+            },
+            "answer": "C",
+            "explanation": "Voice-over-Internet Protocol (VoIP) is primarily for making phone calls over the internet, but it can support high-quality video communication as well.",
+            "hint": "Think about a video call on your smartphone.\n\n---"
+        },
+        {
+            "question": "Which technology uses low power consumption and long-range capabilities to connect devices in rural or remote areas?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "LoRaWAN",
+                "D": "Wi-Fi"
+            },
+            "answer": "C",
+            "explanation": "Low-Radio-Frequency Wide Area Network (LoRaWAN) is designed for long-distance communication with low power consumption, making it ideal for rural and remote areas.",
+            "hint": "Think about a smart meter in a farmland.\n\n---"
+        },
+        {
+            "question": "Which technology can provide continuous and reliable connection between devices without the need for infrastructure like Wi-Fi hotspots?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "Bluetooth Low Energy (BLE)",
+                "D": "NFC"
+            },
+            "answer": "C",
+            "explanation": "Bluetooth Low Energy (BLE) offers a low-power, short-range wireless technology that allows devices to connect and communicate even without an internet connection.",
+            "hint": "Think about a device that needs to work continuously for years."
+        }
+    ]
+}

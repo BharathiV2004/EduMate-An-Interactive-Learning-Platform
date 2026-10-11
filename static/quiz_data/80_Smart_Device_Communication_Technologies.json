@@ -1,0 +1,102 @@
+{
+    "topic": "Smart Device Communication Technologies",
+    "generated_at": "2025-05-10T16:33:15.090842",
+    "questions": [
+        {
+            "question": "In smart home technology, which protocol is commonly used for controlling lighting and other low-power devices?",
+            "options": {
+                "A": "Z-Wave",
+                "B": "Zigbee",
+                "C": "Bluetooth LE (Bluetooth Low Energy)",
+                "D": "Thread"
+            },
+            "answer": "B",
+            "explanation": "Zigbee is a popular protocol in smart homes because of its ability to handle multiple devices with low power consumption, making it ideal for controlling lights and other low-power appliances.",
+            "hint": "Consider how your home’s light bulbs can be controlled wirelessly.\n\n---"
+        },
+        {
+            "question": "Which smart device communication technology is best suited for transferring large files between two nearby devices?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi Direct",
+                "C": "Infrared (IR)",
+                "D": "LTE"
+            },
+            "answer": "B",
+            "explanation": "Wi-Fi Direct excels at transferring large amounts of data quickly over short distances, making it perfect for tasks like sharing photos or documents between compatible devices.",
+            "hint": "Think about sending a high-resolution photo to your printer.\n\n---"
+        },
+        {
+            "question": "Which smart device communication technology is typically used in wearable devices due to its low power consumption and short-range capability?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi",
+                "C": "GSM",
+                "D": "LTE"
+            },
+            "answer": "A",
+            "explanation": "Bluetooth's low energy variant (Bluetooth LE or BLE) is widely used in wearables because it offers the necessary battery efficiency while providing reliable communication over small distances.",
+            "hint": "Consider your fitness tracker’s long battery life.\n\n---"
+        },
+        {
+            "question": "In smart home systems, which technology allows devices to form a mesh network for better connectivity and redundancy?",
+            "options": {
+                "A": "Zigbee",
+                "B": "Z-Wave",
+                "C": "Bluetooth",
+                "D": "Wi-Fi"
+            },
+            "answer": "A",
+            "explanation": "Zigbee supports mesh networking, where multiple nodes can communicate with each other, creating a robust and redundant network that enhances overall device performance.",
+            "hint": "Think about multiple devices working together in your home.\n\n---"
+        },
+        {
+            "question": "Which protocol is designed specifically for the Internet of Things (IoT) and focuses on low power consumption and security?",
+            "options": {
+                "A": "Zigbee",
+                "B": "Bluetooth",
+                "C": "Wi-Fi",
+                "D": "Z-Wave"
+            },
+            "answer": "A",
+            "explanation": "Zigbee is tailored for IoT applications, offering both low-power operation and strong security features necessary for managing numerous connected devices.",
+            "hint": "Consider a smart lightbulb’s long battery life.\n\n---"
+        },
+        {
+            "question": "In the context of smart devices, which technology is commonly used to enable seamless communication between smartphones and other wearable gadgets?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "NFC",
+                "C": "Wi-Fi",
+                "D": "Zigbee"
+            },
+            "answer": "A",
+            "explanation": "Bluetooth facilitates direct connections between smartphones and wearables like fitness trackers or headphones, ensuring smooth data exchange without the need for a central server.",
+            "hint": "Think about connecting your smartwatch to your phone.\n\n---"
+        },
+        {
+            "question": "Which technology is often used in smart homes to control devices through voice commands?",
+            "options": {
+                "A": "Amazon Alexa Voice Service (AVS)",
+                "B": "NFC",
+                "C": "Bluetooth",
+                "D": "Zigbee"
+            },
+            "answer": "A",
+            "explanation": "Amazon Alexa Voice Service (AVS) enables voice-controlled home automation, allowing users to operate various devices with simple voice commands.",
+            "hint": "Think about asking your smart speaker to turn off the lights.\n\n---"
+        },
+        {
+            "question": "Which communication technology is best suited for devices that require high bandwidth and stability in a fixed location within a building?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi",
+                "C": "Zigbee",
+                "D": "Z-Wave"
+            },
+            "answer": "B",
+            "explanation": "Wi-Fi offers higher data rates and greater reliability, making it ideal for connecting multiple devices in a stable, fixed-location environment like a home or office.",
+            "hint": "Think about streaming high-definition video wirelessly."
+        }
+    ]
+}

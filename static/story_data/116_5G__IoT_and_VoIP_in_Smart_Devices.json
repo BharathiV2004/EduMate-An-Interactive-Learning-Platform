@@ -1,0 +1,169 @@
+{
+    "topic": "5G, IoT and VoIP in Smart Devices",
+    "story_name": "The Connected Home",
+    "characters": [
+        {
+            "name": "Sara",
+            "description": "A tech-savvy 23-year-old graphic designer.(Female,23 years old)",
+            "image_path": "/static/images/character_Sara.png",
+            "voice_id": "en-US-EmmaNeural"
+        },
+        {
+            "name": "Dr. Patel",
+            "description": "A 48-year-old technology professor, knowledgeable and patient.(Male,48 years old)",
+            "image_path": "/static/images/character_Dr.%2520Patel.png",
+            "voice_id": "zh-CN-YunyangNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "The Introduction",
+            "setting": "Sara's modern apartment filled with various smart devices.",
+            "scene_image_path": "/static/images/scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sara",
+                    "line": "Dr. Patel, can you explain how these new technologies work together in my home?",
+                    "audio_path": "/static/audio/scene_1_Sara_1160365383796318164.mp3"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "Absolutely, Sara! Let's start with the basics.",
+                    "audio_path": "/static/audio/scene_1_Dr.%2520Patel_7453716064389297088.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "Explaining 5G",
+            "setting": "A cozy living room with a large screen displaying network information.",
+            "scene_image_path": "/static/images/scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Patel",
+                    "line": "5G is like super-fast internet that makes your calls and videos clearer, with less delay.",
+                    "audio_path": "/static/audio/scene_2_Dr.%2520Patel_5352392591269356359.mp3"
+                },
+                {
+                    "character": "Sara",
+                    "line": "Wow, so it's perfect for my video calls then!",
+                    "audio_path": "/static/audio/scene_2_Sara_3509746833328055996.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "Introducing IoT Devices",
+            "setting": "A kitchen where a smart fridge stands by the refrigerator.",
+            "scene_image_path": "/static/images/scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Patel",
+                    "line": "IoT stands for Internet of Things. It means everyday devices can connect and communicate with each other.",
+                    "audio_path": "/static/audio/scene_3_Dr.%2520Patel_9169141066851761.mp3"
+                },
+                {
+                    "character": "Sara",
+                    "line": "Like, my smart fridge could call me when I need to buy milk?",
+                    "audio_path": "/static/audio/scene_3_Sara_1487161692225270449.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 4,
+            "scene_title": "Smart Home Applications",
+            "setting": "A well-lit office where various smart home devices are connected.",
+            "scene_image_path": "/static/images/scene_4.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Patel",
+                    "line": "In a smart home, devices can automatically connect and help with communication tasks.",
+                    "audio_path": "/static/audio/scene_4_Dr.%2520Patel_5477277496756237025.mp3"
+                },
+                {
+                    "character": "Sara",
+                    "line": "That sounds amazing! Can it schedule calls or send reminders for me?",
+                    "audio_path": "/static/audio/scene_4_Sara_2739901975809629535.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 5,
+            "scene_title": "The Smart Office",
+            "setting": "Sara's workplace filled with smart devices integrated into the office setup.",
+            "scene_image_path": "/static/images/scene_5.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sara",
+                    "line": "How does this work in my office? I mean, can my smart devices help there too?",
+                    "audio_path": "/static/audio/scene_5_Sara_7567903518558625817.mp3"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "Absolutely! Devices like smart speakers or watches can make or receive VoIP calls.",
+                    "audio_path": "/static/audio/scene_5_Dr.%2520Patel_8009404156190727985.mp3"
+                },
+                {
+                    "character": "Sara",
+                    "line": "So, my smart speaker could call me if something urgent happens at the office?",
+                    "audio_path": "/static/audio/scene_5_Sara_8593223762704282972.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 6,
+            "scene_title": "The Benefits of Smart Integration",
+            "setting": "A sunny balcony where Sara is enjoying a moment with her devices.",
+            "scene_image_path": "/static/images/scene_6.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Patel",
+                    "line": "The integration of these technologies makes daily tasks more efficient and convenient.",
+                    "audio_path": "/static/audio/scene_6_Dr.%2520Patel_5473124741855574898.mp3"
+                },
+                {
+                    "character": "Sara",
+                    "line": "It's like having a personal assistant, but itâ€™s all automated by my smart devices!",
+                    "audio_path": "/static/audio/scene_6_Sara_8730646033041361297.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 7,
+            "scene_title": "The Future of Smart Homes",
+            "setting": "A futuristic home filled with advanced technology.",
+            "scene_image_path": "/static/images/scene_7.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sara",
+                    "line": "What do you think the future holds for these technologies?",
+                    "audio_path": "/static/audio/scene_7_Sara_2912988210844878319.mp3"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "The possibilities are endless! Imagine homes that can predict your needs and adjust automatically.",
+                    "audio_path": "/static/audio/scene_7_Dr.%2520Patel_3633170719276740058.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 8,
+            "scene_title": "Conclusion",
+            "setting": "Sara's cozy living room as she reflects on her smart home setup.",
+            "scene_image_path": "/static/images/scene_8.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sara",
+                    "line": "Thanks, Dr. Patel! I'm excited to see what the future holds for my connected home.",
+                    "audio_path": "/static/audio/scene_8_Sara_8139689156980506479.mp3"
+                },
+                {
+                    "character": "Dr. Patel",
+                    "line": "You're welcome, Sara. Embrace these technologies and enjoy their benefits!",
+                    "audio_path": "/static/audio/scene_8_Dr.%2520Patel_5938153167735276077.mp3"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,102 @@
+{
+    "topic": "Smart Device Communication Technologies: 5G, IoT, VoIP",
+    "generated_at": "2025-05-10T15:27:32.750459",
+    "questions": [
+        {
+            "question": "What does IoT stand for?",
+            "options": {
+                "A": "Integrated Optical Technology",
+                "B": "Internet of Things",
+                "C": "Interactive Operating Technology",
+                "D": "Interactive Output Technology"
+            },
+            "answer": "B",
+            "explanation": "IoT refers to the network of physical devices, vehicles, home appliances, and other items embedded with sensors, software, and connectivity that enable these objects to connect and exchange data.",
+            "hint": "Think about connecting everyday things like your fridge or car.\n\n---"
+        },
+        {
+            "question": "Which 5G feature significantly enhances real-time communication capabilities?",
+            "options": {
+                "A": "Lower latency",
+                "B": "Increased bandwidth",
+                "C": "Higher power consumption",
+                "D": "Decreased range"
+            },
+            "answer": "A",
+            "explanation": "The reduced latency in 5G networks makes it ideal for applications requiring quick response times, such as autonomous vehicles and remote surgeries.",
+            "hint": "Think of how a video game needs to react instantly.\n\n---"
+        },
+        {
+            "question": "What is the primary purpose of VoIP technology?",
+            "options": {
+                "A": "To increase data storage capacity",
+                "B": "To facilitate voice communication over internet connections",
+                "C": "To enhance Wi-Fi signals",
+                "D": "To improve GPS accuracy"
+            },
+            "answer": "B",
+            "explanation": "VoIP allows users to make phone calls using an internet connection, offering more flexibility and potentially lower costs compared to traditional phone services.",
+            "hint": "Think about making a call without needing a traditional landline.\n\n---"
+        },
+        {
+            "question": "Which of the following is NOT a characteristic of 5G technology?",
+            "options": {
+                "A": "Higher data speeds",
+                "B": "Lower latency",
+                "C": "Increased range",
+                "D": "More reliable than 4G networks in all scenarios"
+            },
+            "answer": "D",
+            "explanation": "While 5G generally offers improved reliability, it may not always be more reliable than 4G under every circumstance.",
+            "hint": "Think about extreme weather conditions.\n\n---"
+        },
+        {
+            "question": "What is a key benefit of using IoT devices in smart homes?",
+            "options": {
+                "A": "Increased energy consumption",
+                "B": "Enhanced home security and efficiency",
+                "C": "More expensive maintenance costs",
+                "D": "Decreased connectivity between devices"
+            },
+            "answer": "B",
+            "explanation": "IoT devices can monitor and control various aspects of your home, improving security and efficiency through automated systems.",
+            "hint": "Think about how smart thermostats adjust temperature automatically.\n\n---"
+        },
+        {
+            "question": "How does 5G technology improve communication in remote areas?",
+            "options": {
+                "A": "By reducing the need for physical infrastructure",
+                "B": "Through higher bandwidth and better coverage",
+                "C": "By decreasing data usage significantly",
+                "D": "Through faster internet speeds only"
+            },
+            "answer": "B",
+            "explanation": "5G offers both enhanced bandwidth and broader network coverage, making it more suitable for remote and rural areas where connectivity was previously challenging.",
+            "hint": "Think about a widespread network blanket.\n\n---"
+        },
+        {
+            "question": "Which of the following is an example of IoT in action?",
+            "options": {
+                "A": "A computer running on Windows",
+                "B": "An automated sprinkler system controlled by sensors",
+                "C": "A refrigerator that plays music",
+                "D": "A smartphone with a high-resolution screen"
+            },
+            "answer": "B",
+            "explanation": "An automated sprinkler system connected to moisture sensors and weather forecasts is an example of IoT in use, optimizing water usage based on real-time conditions.",
+            "hint": "Think about how your home appliances can talk.\n\n---"
+        },
+        {
+            "question": "In the context of 5G, what does mmWave refer to?",
+            "options": {
+                "A": "Millimeter wave technology",
+                "B": "Microwave communication system",
+                "C": "Medium modulation width",
+                "D": "Maximum modulation amplitude"
+            },
+            "answer": "A",
+            "explanation": "mmWave refers to millimeter waves, which are part of the electromagnetic spectrum used by some 5G networks for high-frequency, short-range communications.",
+            "hint": "Think about very short radio waves."
+        }
+    ]
+}

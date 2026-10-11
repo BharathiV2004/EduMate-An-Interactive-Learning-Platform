@@ -1,0 +1,162 @@
+{
+    "topic": "Web Technology and Development",
+    "generated_at": "2025-05-14T04:09:03.745100",
+    "questions": [
+        {
+            "question": "Which method is used for creating dynamic and interactive user interfaces in React.js?",
+            "options": {
+                "A": "useState",
+                "B": "useEffect",
+                "C": "ReactDOM.render()",
+                "D": "JSX"
+            },
+            "answer": "D",
+            "explanation": "JSX, which stands for JavaScript XML, allows you to write HTML-like syntax right inside your JavaScript code. This makes building complex UIs a breeze by merging the power of both languages.",
+            "hint": "Think about how you can mix HTML and JavaScript.\n\n---"
+        },
+        {
+            "question": "Which package manager is widely used in the Node.js ecosystem?",
+            "options": {
+                "A": "npm",
+                "B": "Yarn",
+                "C": "Bower",
+                "D": "Composer"
+            },
+            "answer": "A",
+            "explanation": "npm stands for \"Node Package Manager\" and serves as the default package manager for Node.js. It’s incredibly popular because it not only simplifies dependency management but also hosts over a million open-source packages.",
+            "hint": "Think about how you manage dependencies in Node.js.\n\n---"
+        },
+        {
+            "question": "What does DRY stand for in web development?",
+            "options": {
+                "A": "Database Reuse and Deployment",
+                "B": "Data Representation and Yielding",
+                "C": "Don't Repeat Yourself",
+                "D": "Dynamic Response Yielding"
+            },
+            "answer": "C",
+            "explanation": "The principle of \"Don’t Repeat Yourself\" (DRY) encourages writing concise code that avoids repetition. It’s vital for maintaining clean, modular, and scalable web applications.",
+            "hint": "Think about avoiding duplicated lines in your code.\n\n---"
+        },
+        {
+            "question": "Which HTTP status code is used to indicate a successful server response?",
+            "options": {
+                "A": "404",
+                "B": "200",
+                "C": "500",
+                "D": "301"
+            },
+            "answer": "B",
+            "explanation": "A `200 OK` status means the request has succeeded. It’s like saying, \"Everything is working as expected!\" and is essential for confirming that a server request was processed without errors.",
+            "hint": "Think about when your browser shows a success message.\n\n---"
+        },
+        {
+            "question": "What is the purpose of React’s virtual DOM?",
+            "options": {
+                "A": "To improve rendering speed",
+                "B": "To manage state changes",
+                "C": "To handle network requests",
+                "D": "To store application data"
+            },
+            "answer": "A",
+            "explanation": "The virtual DOM in React is an in-memory representation of your real DOM. By diffing and updating only necessary elements, it significantly speeds up the rendering process.",
+            "hint": "Think about optimizing performance.\n\n---"
+        },
+        {
+            "question": "Which HTTP method is typically used for creating or updating resources on a server?",
+            "options": {
+                "A": "GET",
+                "B": "POST",
+                "C": "DELETE",
+                "D": "PUT"
+            },
+            "answer": "B",
+            "explanation": "`POST` requests are ideal for submitting data to be processed (e.g., sending form information). It’s often used to create new entries, though it can also update existing ones.",
+            "hint": "Think about adding or modifying something on a server.\n\n---"
+        },
+        {
+            "question": "Which type of caching mechanism is typically used by web browsers to store frequently accessed content?",
+            "options": {
+                "A": "CDN Caching",
+                "B": "Disk Cache",
+                "C": "Browser Cache",
+                "D": "RAM Cache"
+            },
+            "answer": "C",
+            "explanation": "The browser cache stores copies of web pages and their resources (like images, CSS files, etc.), which speeds up page load times for users. It’s a key part of enhancing user experience.",
+            "hint": "Think about how your browser remembers parts of websites.\n\n---"
+        },
+        {
+            "question": "Which lifecycle method in React is called right before the component updates its state?",
+            "options": {
+                "A": "componentDidMount",
+                "B": "componentDidUpdate",
+                "C": "componentWillUnmount",
+                "D": "shouldComponentUpdate"
+            },
+            "answer": "B",
+            "explanation": "`componentDidUpdate` fires after a component’s update. It’s perfect for performing side effects or cleanup tasks post-update.",
+            "hint": "Think about what happens right after an update.\n\n---"
+        },
+        {
+            "question": "What does the acronym REST stand for in web development?",
+            "options": {
+                "A": "Real Estate Transfer Service",
+                "B": "Representational State Transfer",
+                "C": "Recursive Entity Tracking System",
+                "D": "Resource and Exchange Trading"
+            },
+            "answer": "B",
+            "explanation": "REST stands for \"Representational State Transfer\" and is a set of constraints used to describe how APIs should interact. It enables stateless, cacheable communication.",
+            "hint": "Think about transferring states between resources.\n\n---"
+        },
+        {
+            "question": "Which tool is commonly used for debugging JavaScript code in the browser?",
+            "options": {
+                "A": "Chrome DevTools",
+                "B": "Firefox Developer Edition",
+                "C": "Edge F12 Tools",
+                "D": "Safari Web Inspector"
+            },
+            "answer": "A",
+            "explanation": "Google’s Chrome DevTools are a powerful suite of tools that allow developers to inspect, debug, and optimize web content.",
+            "hint": "Think about the browser's developer menu.\n\n---"
+        },
+        {
+            "question": "Which CSS property is used to define the background color of an element?",
+            "options": {
+                "A": "backgroundColor",
+                "B": "backColor",
+                "C": "bg-color",
+                "D": "backGroundColor"
+            },
+            "answer": "A",
+            "explanation": "`backgroundColor` is the correct property for defining a background color. It’s essential for styling and making web pages visually appealing.",
+            "hint": "Think about coloring elements.\n\n---"
+        },
+        {
+            "question": "What is the purpose of the `localStorage` API in JavaScript?",
+            "options": {
+                "A": "To manage state changes in components",
+                "B": "To store data persistently across sessions",
+                "C": "To handle HTTP requests",
+                "D": "To manage database connections"
+            },
+            "answer": "B",
+            "explanation": "`localStorage` allows you to store key-value pairs locally in a user’s browser. It persists data even after the session is closed, making it ideal for storing settings and other information.",
+            "hint": "Think about keeping data across page reloads.\n\n---"
+        },
+        {
+            "question": "Which event listener in React listens for changes in input fields?",
+            "options": {
+                "A": "onChange",
+                "B": "onClick",
+                "C": "onSubmit",
+                "D": "onInput"
+            },
+            "answer": "A",
+            "explanation": "The `onChange` event listener is commonly used to handle user interactions with form elements, updating the state based on new values.",
+            "hint": "Think about typing into an input field."
+        }
+    ]
+}

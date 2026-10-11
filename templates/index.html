@@ -1,0 +1,347 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+/* Starry Night Theme Styles */
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.9; }
+}
+
+/* Modal Styling */
+#authModal .modal-content {
+  background: rgba(10, 17, 40, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(138, 157, 199, 0.2);
+}
+
+#authModal .modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#authModal .nav-tabs {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+#authModal .nav-link {
+  color: var(--star-primary);
+  transition: all 0.3s ease;
+}
+
+#authModal .nav-link.active {
+  color: var(--star-accent);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+#authModal .form-control {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--star-bright);
+}
+
+#authModal .form-control:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--star-accent);
+  box-shadow: 0 0 10px rgba(248, 223, 140, 0.2);
+}
+
+#authModal .btn-primary {
+  background: linear-gradient(45deg, var(--night-bg-medium), var(--night-bg-light));
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+#authModal .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(138, 157, 199, 0.3);
+}
+
+#authModal .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, 
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent);
+  transform: rotate(45deg);
+  animation: buttonGlow 3s infinite;
+}
+
+@keyframes buttonGlow {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Hero Section Styling */
+#hero.hero {
+  background: linear-gradient(135deg, 
+    rgba(10, 17, 40, 0.9), 
+    rgba(27, 46, 94, 0.7));
+  position: relative;
+  overflow: hidden;
+}
+
+#hero h2 {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.btn-get-started {
+  background: linear-gradient(45deg, 
+    var(--star-primary), 
+    var(--star-accent));
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-get-started:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(138, 157, 199, 0.4);
+}
+
+
+</style>
+
+<!-- Login/Signup Modal -->
+<div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="false" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="authModalLabel">Welcome to Edumate</h5>
+        <button type="button" class="btn-close" disabled aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-4" id="authTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Login</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup" type="button" role="tab" aria-controls="signup" aria-selected="false">Sign Up</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="authTabsContent">
+          <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+            <form id="loginForm">
+              <div class="mb-3">
+                <label for="loginEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="loginEmail" required>
+              </div>
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="loginPassword" required>
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">Remember me</label>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+          </div>
+          
+          <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+            <form id="signupForm">
+              <div class="mb-3">
+                <label for="signupName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="signupName" required>
+              </div>
+              <div class="mb-3">
+                <label for="signupEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="signupEmail" required>
+              </div>
+              <div class="mb-3">
+                <label for="signupPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="signupPassword" required>
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" required>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <small class="text-muted">You must login to access our content</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+  <section id="hero" class="hero section dark-background">
+    <img src="static/img/edumate_logo_adv.png" alt="" data-aos="fade-in">
+    <div class="container">
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Check if user is already logged in
+  function checkLoginStatus() {
+    // Check for authentication token in localStorage or cookie
+    const authToken = localStorage.getItem('authToken') || getCookie('authToken');
+    
+    // If we have an auth token, verify it's still valid
+    if (authToken) {
+      fetch('/verify-auth', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+          'X-CSRFToken': getCookie('csrftoken')
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (!data.authenticated) {
+          // Token invalid or expired, show login modal
+          showAuthModal();
+        }
+        // If authenticated, do nothing and proceed with normal page flow
+      })
+      .catch(error => {
+        // On error, show login modal
+        console.error('Auth verification failed:', error);
+        showAuthModal();
+      });
+    } else {
+      // No token found, show login modal
+      showAuthModal();
+    }
+  }
+  
+  // Function to show auth modal
+  function showAuthModal() {
+    const authModal = new bootstrap.Modal(document.getElementById('authModal'), {
+      backdrop: 'static',
+      keyboard: false
+    });
+    authModal.show();
+  }
+  
+  // Call the login status check
+  checkLoginStatus();
+
+  // Shooting stars animation
+  function createShootingStar() {
+    const star = document.createElement('div');
+    star.style.cssText = `
+      position: fixed;
+      top: ${Math.random() * 100}%;
+      left: ${Math.random() * 100}%;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 10px white;
+      animation: shootingStar ${2 + Math.random() * 3}s linear infinite;
+      z-index: 9999;
+    `;
+    document.body.appendChild(star);
+    setTimeout(() => star.remove(), 5000);
+  }
+  setInterval(createShootingStar, 3000);
+
+  // Form handling
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    const rememberMe = document.getElementById('rememberMe').checked;
+    
+    fetch('/login', {
+      method: 'POST',
+      body: new URLSearchParams({ email, password, remember_me: rememberMe }),
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-CSRFToken': getCookie('csrftoken')
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        // Store authentication token
+        if (data.token) {
+          if (rememberMe) {
+            // If remember me is checked, store in localStorage for persistence
+            localStorage.setItem('authToken', data.token);
+          } else {
+            // Otherwise, store in sessionStorage (cleared when browser is closed)
+            sessionStorage.setItem('authToken', data.token);
+          }
+        }
+        
+        // Hide modal and refresh page content if needed
+        bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+      } else {
+        alert(data.message || 'Login failed. Please try again.');
+      }
+    })
+    .catch(error => {
+      console.error('Login error:', error);
+      alert('An error occurred during login. Please try again.');
+    });
+  });
+
+  document.getElementById('signupForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const username = document.getElementById('signupName').value;
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    if (password !== confirmPassword) {
+      alert("Passwords don't match!");
+      return;
+    }
+
+    fetch('/signup', {
+      method: 'POST',
+      body: new URLSearchParams({ username, email, password,confirmPassword }),
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-CSRFToken': getCookie('csrftoken')
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        // Store authentication token if provided
+        if (data.token) {
+          localStorage.setItem('authToken', data.token);
+        }
+        
+        // Hide modal and refresh page content if needed
+        bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+      } else {
+        alert(data.message || 'Signup failed. Please try again.');
+      }
+    })
+    .catch(error => {
+      console.error('Signup error:', error);
+      alert('An error occurred during signup. Please try again.');
+    });
+  });
+
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  }
+});
+</script>
+
+{% endblock %}

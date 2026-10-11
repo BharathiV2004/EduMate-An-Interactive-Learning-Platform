@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flashcard Battle</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --background: #f8f9fa;
+            --text: #2b2d42;
+            --success: #4cc9f0;
+            --error: #f72585;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .screen {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Lobby */
+        #lobby h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .input-group {
+            margin: 1rem 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Game */
+        #players {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .player {
+            background: var(--background);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        #question-box {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        #timer {
+            font-size: 2rem;
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+
+        #leaderboard table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+        }
+
+        .error {
+            color: var(--error);
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 2px solid var(--error);
+            border-radius: 0.5rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Lobby -->
+        <div id="lobby" class="screen">
+            <h1>Flashcard Battle ⚔️</h1>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Your username">
+            </div>
+            <button onclick="createRoom()">Create New Room</button>
+            <div class="input-group">
+                <input type="text" id="roomCode" placeholder="Room code">
+                <button onclick="joinRoom()">Join Existing Room</button>
+            </div>
+            <div id="error" class="error"></div>
+        </div>
+
+        <!-- Game -->
+        <div id="game" class="screen hidden">
+            <div id="players"></div>
+            
+            <div id="question-box" class="hidden">
+                <div id="question"></div>
+                <div id="timer"></div>
+                <form id="answerForm">
+                    <input type="text" id="answerInput" placeholder="Your answer...">
+                    <button type="submit">Submit Answer</button>
+                </form>
+            </div>
+
+            <div id="leaderboard" class="hidden">
+                <h2>Leaderboard 🏆</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Wins</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const socket = io()
+        let currentRoom = null
+        let isHost = false
+        let timerInterval
+
+        // Lobby functions
+        function createRoom() {
+            const username = document.getElementById('username').value.trim()
+            const error = validateUsername(username)
+            if (error) return showError(error)
+            
+            socket.emit('create_room', { username })
+        }
+
+        function joinRoom() {
+            const username = document.getElementById('username').value.trim()
+            const code = document.getElementById('roomCode').value.trim().toUpperCase()
+            
+            const userError = validateUsername(username)
+            if (userError) return showError(userError)
+            
+            if (!/^[A-Z0-9]{4}$/.test(code)) {
+                return showError('Invalid room code')
+            }
+            
+            socket.emit('join_room', { code, username })
+        }
+
+        // Game functions
+        function showGameScreen() {
+            document.getElementById('lobby').classList.add('hidden')
+            document.getElementById('game').classList.remove('hidden')
+        }
+
+        // Socket handlers
+        socket.on('room_created', data => {
+            currentRoom = data.code
+            isHost = true
+            showGameScreen()
+        })
+
+        socket.on('join_success', data => {
+            currentRoom = data.code
+            showGameScreen()
+        })
+
+        socket.on('player_update', players => {
+            document.getElementById('players').innerHTML = players
+                .map(p => `<div class="player">${p}</div>`)
+                .join('')
+        })
+
+        socket.on('game_start', () => {
+            document.getElementById('question-box').classList.remove('hidden')
+        })
+
+        socket.on('new_question', data => {
+            document.getElementById('question').textContent = data.question
+            document.getElementById('answerInput').disabled = false
+        })
+
+        socket.on('start_timer', duration => {
+            let time = duration
+            const timerEl = document.getElementById('timer')
+            
+            clearInterval(timerInterval)
+            timerInterval = setInterval(() => {
+                timerEl.textContent = time
+                time--
+                
+                if (time < 0) {
+                    clearInterval(timerInterval)
+                    timerEl.textContent = "⏰ Time's up!"
+                    document.getElementById('answerInput').disabled = true
+                }
+            }, 1000)
+        })
+
+        socket.on('answer_feedback', data => {
+            document.getElementById('answerInput').style.backgroundColor = data.correct ? '#d4edda' : '#f8d7da'
+            setTimeout(() => {
+                document.getElementById('answerInput').style.backgroundColor = ''
+            }, 1000)
+        })
+
+        socket.on('game_over', data => {
+            clearInterval(timerInterval)
+            document.getElementById('question-box').classList.add('hidden')
+            
+            // Update leaderboard
+            const leaderboardBody = document.getElementById('leaderboardBody')
+            leaderboardBody.innerHTML = data.leaderboard
+                .map(([user, stats]) => `
+                    <tr>
+                        <td>${user}</td>
+                        <td>${stats.wins}</td>
+                        <td>${stats.points}</td>
+                    </tr>
+                `).join('')
+            
+            document.getElementById('leaderboard').classList.remove('hidden')
+        })
+
+        // Form handling
+        document.getElementById('answerForm').addEventListener('submit', e => {
+            e.preventDefault()
+            const answer = document.getElementById('answerInput').value.trim()
+            if (!answer) return
+            
+            socket.emit('submit_answer', {
+                code: currentRoom,
+                answer
+            })
+            document.getElementById('answerInput').value = ''
+            document.getElementById('answerInput').disabled = true
+        })
+
+        // Helpers
+        function validateUsername(username) {
+            if (username.length < 3) return 'Username too short'
+            if (username.length > 20) return 'Username too long'
+            if (!/^\w+$/.test(username)) return 'Invalid characters'
+            return ''
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('error')
+            errorEl.textContent = message
+            errorEl.style.display = 'block'
+            setTimeout(() => errorEl.style.display = 'none', 5000)
+        }
+    </script>
+</body>
+</html>

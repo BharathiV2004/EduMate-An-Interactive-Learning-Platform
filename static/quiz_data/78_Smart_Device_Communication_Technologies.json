@@ -1,0 +1,114 @@
+{
+    "topic": "Smart Device Communication Technologies",
+    "generated_at": "2025-05-10T15:35:22.929371",
+    "questions": [
+        {
+            "question": "What technology is primarily used to enable direct communication between two nearby Bluetooth-enabled devices?",
+            "options": {
+                "A": "Wi-Fi Direct",
+                "B": "NFC (Near Field Communication)",
+                "C": "Bluetooth Low Energy (BLE)",
+                "D": "Wi-Fi"
+            },
+            "answer": "B",
+            "explanation": "Imagine using your phone and smartwatch to instantly share a file—NFC allows them to connect directly without the need for an internet connection.",
+            "hint": "Think about tapping or touching two devices together.\n\n---"
+        },
+        {
+            "question": "Which of these is not a wireless communication protocol?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Z-Wave",
+                "C": "USB",
+                "D": "Zigbee"
+            },
+            "answer": "C",
+            "explanation": "USB, while incredibly useful, isn't for wireless communication. It's the cable that brings your smart device into direct connection with other devices via electricity.",
+            "hint": "Think of something you can plug in and out.\n\n---"
+        },
+        {
+            "question": "In which scenario would 5G technology be most beneficial over traditional 4G?",
+            "options": {
+                "A": "Downloading large files from the internet",
+                "B": "Streaming high-definition video",
+                "C": "Controlling a smart thermostat remotely",
+                "D": "Sending short text messages between friends"
+            },
+            "answer": "A",
+            "explanation": "5G is like supercharging your data delivery. It can handle massive amounts of information, making it perfect for downloading huge files in seconds.",
+            "hint": "Think about how much faster you want to be.\n\n---"
+        },
+        {
+            "question": "What technology is best suited for connecting multiple devices within a home or building?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi",
+                "C": "Zigbee",
+                "D": "NFC"
+            },
+            "answer": "B",
+            "explanation": "Imagine your house as a network of smart devices, all talking to each other through the air. That's what Wi-Fi does, making it easy for various gadgets to communicate and share data.",
+            "hint": "Think about how many devices you have in your home.\n\n---"
+        },
+        {
+            "question": "Which technology is designed specifically for low-power, long-range communication?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Zigbee",
+                "C": "NFC",
+                "D": "5G"
+            },
+            "answer": "B",
+            "explanation": "Imagine a tiny device like an outdoor security camera needing to send data without using too much power. That's where Zigbee shines with its energy efficiency.",
+            "hint": "Think about how far you want your device to communicate.\n\n---"
+        },
+        {
+            "question": "What technology is used for secure, short-range wireless communication between devices?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi Direct",
+                "C": "NFC (Near Field Communication)",
+                "D": "5G"
+            },
+            "answer": "C",
+            "explanation": "NFC, like a digital handshake, allows quick and easy data exchange over very short distances—perfect for making mobile payments or sharing files.",
+            "hint": "Think about how close you need to be.\n\n---"
+        },
+        {
+            "question": "In which scenario would Bluetooth Low Energy (BLE) technology be most appropriate?",
+            "options": {
+                "A": "Streaming 4K video on your TV",
+                "B": "Controlling a smart lock from across the room",
+                "C": "Downloading an app from the internet",
+                "D": "Broadcasting live sports events"
+            },
+            "answer": "B",
+            "explanation": "BLE is ideal for devices that need to conserve power while still maintaining communication, like controlling a smart lock with your smartphone.",
+            "hint": "Think about how much battery life you want.\n\n---"
+        },
+        {
+            "question": "Which technology is commonly used for home automation and allows multiple devices to work together seamlessly?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Zigbee",
+                "C": "Wi-Fi Direct",
+                "D": "NFC"
+            },
+            "answer": "B",
+            "explanation": "Imagine a smart home where all your gadgets—like lights, thermostats, and security systems—work in harmony. That's what Zigbee does by allowing devices to connect and communicate without needing the internet.",
+            "hint": "Think about how many devices you want to control together.\n\n---"
+        },
+        {
+            "question": "What technology would be best for establishing a temporary wireless connection between two nearby mobile phones?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi",
+                "C": "NFC (Near Field Communication)",
+                "D": "5G"
+            },
+            "answer": "C",
+            "explanation": "NFC is perfect for quickly and securely sharing data, like making a mobile payment or transferring a file to another phone.",
+            "hint": "Think about how close you are."
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crossword Puzzle</title>
+    <link rel="stylesheet" href="/static/css/crossword_style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="lobby" class="screen">
+            <h1>Crossword Puzzle</h1>
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Your Name" required>
+            </div>
+            
+            <div class="button-group">
+                <button id="create-game">Create Game</button>
+                <button id="join-game">Join Game</button>
+            </div>
+            <div id="join-form" class="hidden">
+                <input type="text" id="room-id" placeholder="Room ID">
+                <button id="confirm-join">Join</button>
+            </div>
+        </div>
+
+        <div id="game" class="screen hidden">
+            <div class="game-header">
+                <h2>Room: <span id="room-display"></span></h2>
+                <div id="player-scores"></div>
+            </div>
+            
+            <div class="game-area">
+                <div class="crossword-container">
+                    <div id="crossword-grid"></div>
+                </div>
+                
+                <div class="clues-container">
+                    <div class="clues-section">
+                        <h3>Across</h3>
+                        <ul id="across-clues"></ul>
+                    </div>
+                    <div class="clues-section">
+                        <h3>Down</h3>
+                        <ul id="down-clues"></ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="submit-section">
+                <button id="submit-answers">Check Answers</button>
+                <div id="result-message"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/crossword_script.js"></script>
+</body>
+</html>

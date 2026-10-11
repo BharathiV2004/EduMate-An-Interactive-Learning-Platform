@@ -1,0 +1,89 @@
+{
+    "title": "5G, IoT, VoIP in Smart Devices",
+    "pdf_path": "notes\\5G,_IoT,_VoIP_in_Smart_Devices_notes.pdf",
+    "sections": {
+        "main_notes": [
+            {
+                "title": "5G, IoT, and VoIP in Smart Devices",
+                "subtopics": []
+            },
+            {
+                "title": "5G",
+                "subtopics": []
+            },
+            {
+                "title": "Super-fast internet connection",
+                "subtopics": []
+            },
+            {
+                "title": "Enhances clarity and reduces delay in VoIP calls",
+                "subtopics": []
+            },
+            {
+                "title": "Improves mobile video call quality",
+                "subtopics": []
+            },
+            {
+                "title": "Facilitates high-quality conversations",
+                "subtopics": []
+            },
+            {
+                "title": "IoT (Internet of Things)",
+                "subtopics": []
+            },
+            {
+                "title": "Everyday devices connected to the internet",
+                "subtopics": []
+            },
+            {
+                "title": "Can make or receive VoIP calls",
+                "subtopics": []
+            },
+            {
+                "title": "Example: Smart speaker or watch",
+                "subtopics": []
+            },
+            {
+                "title": "Smart Homes and Offices",
+                "subtopics": []
+            },
+            {
+                "title": "Devices in homes and workplaces can automatically connect for communication",
+                "subtopics": []
+            },
+            {
+                "title": "Scheduling calls or sending reminders",
+                "subtopics": []
+            }
+        ],
+        "key_terms": [
+            {
+                "term": "5G",
+                "definition": "A fifth-generation mobile network technology that offers high-speed internet, low latency, and increased capacity."
+            },
+            {
+                "term": "IoT (Internet of Things)",
+                "definition": "A system of interconnected devices, vehicles, home appliances, and other items embedded with electronics, software, sensors, and network connectivity to exchange data and perform tasks automatically."
+            },
+            {
+                "term": "VoIP (Voice over Internet Protocol)",
+                "definition": "A method of making telephone calls using a broadband internet connection instead of a traditional phone line."
+            }
+        ],
+        "examples": [
+            "Your smart fridge calling you when it detects that the milk level is low.",
+            "Smart speakers scheduling a video call with your colleagues during a work meeting.",
+            "Wearable devices automatically sending reminders to take medication or attend scheduled appointments."
+        ],
+        "connections": [
+            "5G and IoT are closely related as both technologies enable seamless communication and data exchange among smart devices.",
+            "VoIP integrates well with 5G and IoT, enhancing the capabilities of smart devices by providing clear voice calls over the internet.",
+            "Smart homes and offices benefit from these technologies through automated scheduling, reminders, and improved communication."
+        ],
+        "questions": [
+            "How does 5G improve the quality of VoIP calls compared to previous generations of mobile networks?",
+            "What are some potential applications of IoT in smart devices for personal and professional use beyond making and receiving VoIP calls?",
+            "In what ways can the integration of 5G, IoT, and VoIP contribute to the development of smart homes and offices?"
+        ]
+    }
+}

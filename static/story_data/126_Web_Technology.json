@@ -1,0 +1,164 @@
+{
+    "topic": "Web Technology",
+    "story_name": "The Digital Journey",
+    "characters": [
+        {
+            "name": "Sam",
+            "description": "A 20-year-old web developer with a passion for coding and design.(Male,20 years old)",
+            "image_path": "/static/images/character_Sam.png",
+            "voice_id": "en-US-AnaNeural"
+        },
+        {
+            "name": "Ella",
+            "description": "Sam’s 18-year-old younger sister who loves exploring the internet but is clueless about how it works.(Female,18 years old)",
+            "image_path": "/static/images/character_Ella.png",
+            "voice_id": "en-US-EmmaNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "Introduction to Web Technology",
+            "setting": "Sam's home office, filled with computers and coding materials.",
+            "scene_image_path": "/static/images/scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sam",
+                    "line": "Hey Ella! Ever wondered how websites work?",
+                    "audio_path": "/static/audio/scene_1_Sam_8803048711182253209.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "Nope, I just use them. But now that you mention it, they seem magical!",
+                    "audio_path": "/static/audio/scene_1_Ella_5073892552213998016.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "Explaining the Browser",
+            "setting": "Same as Scene 1, but now Sam is showing Ella a browser window.",
+            "scene_image_path": "/static/images/scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sam",
+                    "line": "A web browser like Chrome or Firefox acts like your guide to the internet world.",
+                    "audio_path": "/static/audio/scene_2_Sam_5585488773933349911.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "So, when I type in a website’s address, it just magically appears?",
+                    "audio_path": "/static/audio/scene_2_Ella_5200373228080006657.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "The Web Page and Server",
+            "setting": "Same as Scene 1, but now Sam explains using an online example.",
+            "scene_image_path": "/static/images/scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sam",
+                    "line": "Well, when you enter a URL, your browser sends a request to the server.",
+                    "audio_path": "/static/audio/scene_3_Sam_4389710041419340902.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "A server? Isn't that where they keep all the data?",
+                    "audio_path": "/static/audio/scene_3_Ella_3125721385763101166.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 4,
+            "scene_title": "The Process Behind It",
+            "setting": "Same as Scene 1, but now Sam is drawing a flowchart on a whiteboard.",
+            "scene_image_path": "/static/images/scene_4.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sam",
+                    "line": "Exactly! Think of it like this: You type in an address, your request goes to the server, and the server responds with a web page.",
+                    "audio_path": "/static/audio/scene_4_Sam_8820062971787829019.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "Wait, so websites are just documents that live online?",
+                    "audio_path": "/static/audio/scene_4_Ella_4931873346853986970.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 5,
+            "scene_title": "The Various Languages",
+            "setting": "Same as Scene 1, but now Sam is showing Ella various coding languages.",
+            "scene_image_path": "/static/images/scene_5.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sam",
+                    "line": "Yes, they're like recipes for building those web pages. HTML, CSS, and JavaScript all have their roles.",
+                    "audio_path": "/static/audio/scene_5_Sam_4825247617952534862.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "Oh! So that’s why websites look different when you inspect them.",
+                    "audio_path": "/static/audio/scene_5_Ella_8241726353388407965.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 6,
+            "scene_title": "The Role of Back-End Languages",
+            "setting": "Same as Scene 1, but now Sam is explaining with an example.",
+            "scene_image_path": "/static/images/scene_6.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sam",
+                    "line": "You see, some sites use languages like Python or Java on the back end to handle dynamic content.",
+                    "audio_path": "/static/audio/scene_6_Sam_6299336235364698005.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "That’s pretty cool! So those languages are behind the scenes?",
+                    "audio_path": "/static/audio/scene_6_Ella_142838826489415262.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 7,
+            "scene_title": "The Role of Databases",
+            "setting": "Same as Scene 1, but now Sam is explaining about databases.",
+            "scene_image_path": "/static/images/scene_7.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sam",
+                    "line": "Absolutely. Databases store all that data like user information or product details.",
+                    "audio_path": "/static/audio/scene_7_Sam_1006774595629906558.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "So websites need both servers and databases to function properly?",
+                    "audio_path": "/static/audio/scene_7_Ella_1694715696976579206.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 8,
+            "scene_title": "The Future of Web Development",
+            "setting": "Same as Scene 1, but now Sam and Ella are looking at the future trends.",
+            "scene_image_path": "/static/images/scene_8.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sam",
+                    "line": "Yes, it’s evolving. Technologies like Golang or C# can make development more efficient.",
+                    "audio_path": "/static/audio/scene_8_Sam_1613135523112767365.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "Wow, I want to learn all about this! Maybe one day I'll create my own website.",
+                    "audio_path": "/static/audio/scene_8_Ella_9124851288458067533.mp3"
+                }
+            ]
+        }
+    ]
+}

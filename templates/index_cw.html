@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Crossword Puzzle Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        /* Enhanced Color Variables */
+        :root {
+            --cosmic-primary: #8a84d6;
+            --cosmic-secondary: #b594e5;
+            --cosmic-accent: #FFE066;
+            --cosmic-bright: #F8F9FA;
+            --text-primary: #E9ECEF;
+            --text-secondary: #CED4DA;
+            --text-accent: #FFEE99;
+            --space-bg-dark: #0c0a28;
+            --space-bg-medium: #1e1650;
+            --aurora-green: rgba(120, 236, 189, 0.3);
+            --aurora-blue: rgba(105, 159, 238, 0.2);
+            --aurora-purple: rgba(179, 136, 235, 0.3);
+        }
+
+        /* Cosmic Background */
+        body {
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, var(--space-bg-dark), var(--space-bg-medium));
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, var(--cosmic-bright), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, var(--cosmic-primary), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 160px, var(--cosmic-secondary), rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: twinkle 8s infinite alternate ease-in-out;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.01); }
+        }
+
+        /* Container Styling */
+        .container {
+            background: rgba(17, 14, 51, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(138, 132, 214, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(13, 12, 79, 0.3);
+            padding: 2.5rem;
+            margin: 4rem auto;
+            max-width: 800px;
+            animation: containerFloat 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes containerFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+
+        /* Typography Enhancements */
+        h1 {
+            color: var(--cosmic-accent);
+            text-shadow: 0 0 12px rgba(255, 224, 102, 0.4);
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 2.5rem;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--cosmic-primary), transparent);
+        }
+
+        /* Form Elements */
+        .form-label {
+            color: var(--cosmic-primary) !important;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            background: rgba(138, 132, 214, 0.1) !important;
+            border: 2px solid rgba(138, 132, 214, 0.3) !important;
+            color: var(--text-primary) !important;
+            padding: 1rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control::placeholder {
+            color: var(--text-secondary) !important;
+            opacity: 0.7 !important;
+        }
+
+        .form-control:focus {
+            background: rgba(138, 132, 214, 0.15) !important;
+            border-color: var(--cosmic-primary) !important;
+            box-shadow: 0 0 20px rgba(138, 132, 214, 0.2) !important;
+        }
+
+        /* Button Styling */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--cosmic-primary), #7269c4);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 12px;
+            color: var(--cosmic-bright) !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        /* Category Tags */
+        .topic-examples {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(138, 132, 214, 0.1);
+            border-radius: 12px;
+            border-left: 4px solid var(--cosmic-accent);
+        }
+
+        .example-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .example-tag {
+            background: rgba(255, 224, 102, 0.15) !important;
+            color: var(--text-accent) !important;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 224, 102, 0.3) !important;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .example-tag:hover {
+            background: rgba(255, 224, 102, 0.25) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--space-bg-dark);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        #preloader::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: var(--cosmic-accent);
+            animation: spin 1.5s linear infinite;
+        }
+
+        #preloader::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: var(--cosmic-bright);
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Shooting Stars */
+        .shooting-star {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: var(--cosmic-bright);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+                      0 0 0 8px rgba(255, 255, 255, 0.1),
+                      0 0 20px var(--cosmic-bright);
+            animation: shootingStars 3s linear infinite;
+        }
+
+        @keyframes shootingStars {
+            0% { transform: translateX(-100%) translateY(-100%); opacity: 0; }
+            30% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { transform: translateX(100vw) translateY(100vh); opacity: 0; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="preloader"></div>
+
+    <div class="container">
+            <div class="mb-4">
+        <a href="courses.html" class="btn btn-outline-light">
+            <i class="fas fa-arrow-left me-2"></i> Back to Edumate
+        </a>
+    </div>
+        <h1 class="text-center">WordMaze - Journey Through Words</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <form method="POST" action="{{ url_for('create_puzzle_cw') }}">
+                    {{ form.hidden_tag() }}
+                    <div class="mb-4">
+                        <label for="topic" class="form-label">Enter Puzzle Theme</label>
+                        <input type="text" class="form-control" id="topic" name="topic" 
+                               placeholder="Example: Astronomy, Animals, Movies" required>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <span class="btn-text">Generate Crossword</span>
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="topic-examples mt-4">
+                    <p class="mb-3" style="color: var(--cosmic-primary)">Popular Themes:</p>
+                    <div class="example-tags">
+                        <span class="example-tag">Astronomy</span>
+                        <span class="example-tag">Animals</span>
+                        <span class="example-tag">Movies</span>
+                        <span class="example-tag">Technology</span>
+                        <span class="example-tag">History</span>
+                        <span class="example-tag">Sports</span>
+                        <span class="example-tag">Web Technology</span>
+                        <span class="example-tag">HTML</span>
+                        <span class="example-tag">Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('preloader').remove();
+                }, 500);
+            }, 1000);
+        });
+
+        // Shooting stars
+        function createShootingStar() {
+            const star = document.createElement('div');
+            star.className = 'shooting-star';
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            document.body.appendChild(star);
+            
+            setTimeout(() => star.remove(), 3000);
+        }
+        
+        setInterval(createShootingStar, 5000);
+
+        // Example tag interaction
+        document.querySelectorAll('.example-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                document.getElementById('topic').value = tag.textContent;
+            });
+        });
+
+        // Cursor trail
+        document.addEventListener('mousemove', (e) => {
+            const cursorTrail = document.createElement('div');
+            cursorTrail.style.position = 'fixed';
+            cursorTrail.style.width = '4px';
+            cursorTrail.style.height = '4px';
+            cursorTrail.style.background = 'rgba(138, 132, 214, 0.3)';
+            cursorTrail.style.borderRadius = '50%';
+            cursorTrail.style.boxShadow = '0 0 8px rgba(138, 132, 214, 0.4)';
+            cursorTrail.style.pointerEvents = 'none';
+            cursorTrail.style.left = `${e.clientX}px`;
+            cursorTrail.style.top = `${e.clientY}px`;
+            cursorTrail.style.zIndex = '9999';
+            cursorTrail.style.opacity = '0.7';
+            document.body.appendChild(cursorTrail);
+
+            setTimeout(() => cursorTrail.remove(), 300);
+        });
+    </script>
+</body>
+</html>

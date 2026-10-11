@@ -1,0 +1,186 @@
+{
+    "topic": "Smart Device Communication Technologies: 5G, IoT, VoIP",
+    "generated_at": "2025-05-10T16:39:54.528265",
+    "questions": [
+        {
+            "question": "In which scenario would VoIP technology be most beneficial?",
+            "options": {
+                "A": "Sending text messages to a friend",
+                "B": "Making a video call from your smartphone",
+                "C": "Reading emails on your computer",
+                "D": "Checking the weather on your smartwatch"
+            },
+            "answer": "B",
+            "explanation": "VoIP allows for high-quality voice and video calls over the internet, making it perfect for real-time audio and visual communication. It's like having a face-to-face conversation with someone halfway around the world without needing a traditional phone line.",
+            "hint": "Think of a phone call on your smartphone.\n\n---"
+        },
+        {
+            "question": "What is a key feature of IoT that enables smart devices to interact with each other seamlessly?",
+            "options": {
+                "A": "High battery life",
+                "B": "Interoperability",
+                "C": "Water resistance",
+                "D": "Large screen size"
+            },
+            "answer": "B",
+            "explanation": "Interoperability allows different devices from various manufacturers to work together, creating a cohesive ecosystem. For example, your home thermostat can adjust the temperature based on when you get home, thanks to interoperable IoT protocols.",
+            "hint": "Think of smart homes where all devices communicate.\n\n---"
+        },
+        {
+            "question": "Which technology uses frequency division multiplexing (FDM) to support multiple communication channels?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "VoIP",
+                "D": "Wi-Fi"
+            },
+            "answer": "A",
+            "explanation": "5G utilizes FDM to divide the spectrum into various channels, allowing for simultaneous data transmission. This is akin to having multiple lanes on a highway, ensuring smooth and efficient data flow.",
+            "hint": "Think of different lanes on a road.\n\n---"
+        },
+        {
+            "question": "In an IoT network, which device would most likely serve as the primary node connecting other devices?",
+            "options": {
+                "A": "Smartphone",
+                "B": "Gateway Device",
+                "C": "Smart TV",
+                "D": "Wearable Device"
+            },
+            "answer": "B",
+            "explanation": "A gateway acts as a central hub, managing communication between different devices and networks. It's like a traffic controller in a busy city, directing traffic to ensure all parts of the network function smoothly.",
+            "hint": "Think of a control center managing an IoT ecosystem.\n\n---"
+        },
+        {
+            "question": "Which technology offers lower latency compared to traditional cellular networks?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "VoIP",
+                "D": "LTE (4G)"
+            },
+            "answer": "A",
+            "explanation": "5G’s ultra-low latency makes it ideal for real-time applications, such as autonomous vehicles or remote surgeries. It's like having a direct line of communication with instant responses.",
+            "hint": "Think of lightning-fast internet speeds.\n\n---"
+        },
+        {
+            "question": "What is the main advantage of VoIP over traditional phone calls?",
+            "options": {
+                "A": "Lower cost",
+                "B": "Better sound quality",
+                "C": "Longer call duration",
+                "D": "More colorful emojis"
+            },
+            "answer": "A",
+            "explanation": "VoIP can significantly reduce costs by utilizing existing internet infrastructure, making it a more economical choice. It's like turning your home broadband into a virtual phone line—cheaper and more efficient.",
+            "hint": "Think of saving money on calls.\n\n---"
+        },
+        {
+            "question": "In an IoT system, which type of device typically acts as the bridge between local devices and the cloud?",
+            "options": {
+                "A": "Smart Device",
+                "B": "Gateway Device",
+                "C": "Sensor Node",
+                "D": "Actuator Module"
+            },
+            "answer": "B",
+            "explanation": "A gateway device acts as a translator, forwarding data from local IoT nodes to cloud servers. It's like a smart intermediary that ensures all communication is properly directed.",
+            "hint": "Think of a bridge connecting two worlds.\n\n---"
+        },
+        {
+            "question": "Which technology can support the highest number of connected devices simultaneously?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "VoIP",
+                "D": "Satellite Communication"
+            },
+            "answer": "A",
+            "explanation": "5G’s vast capacity allows for numerous devices to connect and communicate at once, making it suitable for large-scale IoT deployments. Imagine a stadium with thousands of smart devices all communicating seamlessly.",
+            "hint": "Think of a crowded event.\n\n---"
+        },
+        {
+            "question": "What is the primary purpose of using VoIP in business settings?",
+            "options": {
+                "A": "Enhancing security",
+                "B": "Increasing video call quality",
+                "C": "Reducing communication costs",
+                "D": "Improving battery life on devices"
+            },
+            "answer": "C",
+            "explanation": "VoIP reduces long-distance calling and data transmission costs, making it a cost-effective solution for businesses. It’s like getting a better deal on your phone plan without compromising on quality.",
+            "hint": "Think of saving money in business communications.\n\n---"
+        },
+        {
+            "question": "In an IoT network, which component is responsible for collecting data from the environment?",
+            "options": {
+                "A": "Gateway Device",
+                "B": "Smart Device",
+                "C": "Sensor Node",
+                "D": "Actuator Module"
+            },
+            "answer": "C",
+            "explanation": "A sensor node collects and transmits environmental data to other devices in the network. Think of it as a smart eye or ear that feeds information back to the system.",
+            "hint": "Think of collecting data from your environment.\n\n---"
+        },
+        {
+            "question": "Which technology can provide real-time tracking and location services for IoT devices?",
+            "options": {
+                "A": "5G",
+                "B": "GPS",
+                "C": "Wi-Fi",
+                "D": "Bluetooth"
+            },
+            "answer": "B",
+            "explanation": "GPS is used for precise location tracking, which is crucial for many IoT applications like fleet management or asset tracking. It's like having a satellite-guided navigation system for your smart devices.",
+            "hint": "Think of tracking locations on a map.\n\n---"
+        },
+        {
+            "question": "In an IoT ecosystem, what role does the cloud play?",
+            "options": {
+                "A": "Acts as a storage device",
+                "B": "Provides data analysis and processing capabilities",
+                "C": "Serves as a power source",
+                "D": "Functions as a physical sensor"
+            },
+            "answer": "B",
+            "explanation": "The cloud offers powerful data analytics and processing, enabling complex operations in IoT systems. It's like having a supercomputer in the sky to manage all the data collected by your devices.",
+            "hint": "Think of cloud services managing big data.\n\n---"
+        },
+        {
+            "question": "Which technology is known for its ability to support high-definition video calls?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "VoIP",
+                "D": "4G LTE"
+            },
+            "answer": "A",
+            "explanation": "5G’s high bandwidth supports high-resolution video streaming, making it perfect for HD video calls. It's like having a super-fast internet connection that ensures crystal-clear video quality.",
+            "hint": "Think of clear video streams.\n\n---"
+        },
+        {
+            "question": "In an IoT network, which device would be most suitable for monitoring and controlling environmental conditions?",
+            "options": {
+                "A": "Smart Speaker",
+                "B": "Thermostat",
+                "C": "Fitness Tracker",
+                "D": "Smart Light Bulb"
+            },
+            "answer": "B",
+            "explanation": "A thermostat is ideal for monitoring and controlling temperature settings in smart homes or industrial environments. It's like having a smart thermostat that can adjust the heat based on your preferences.",
+            "hint": "Think of regulating temperatures.\n\n---"
+        },
+        {
+            "question": "Which technology can provide seamless communication even when devices are far apart?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "VoIP",
+                "D": "Wi-Fi"
+            },
+            "answer": "A",
+            "explanation": "5G’s wide coverage area allows for reliable communication over long distances, making it perfect for remote operations or large-scale deployments. It's like having a signal that can reach anywhere.",
+            "hint": "Think of long-range connectivity."
+        }
+    ]
+}

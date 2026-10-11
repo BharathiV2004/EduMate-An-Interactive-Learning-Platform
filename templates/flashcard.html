@@ -1,0 +1,703 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Based Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a6baf;
+            --primary-light: #a7c4ff;
+            --primary-dark: #2c4370;
+            --secondary: #ffb74d;
+            --accent: #4dd0e1;
+            --light: #f5f9ff;
+            --dark: #2a3547;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container_body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f9ff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-image: radial-gradient(circle at 10% 20%, rgba(167, 196, 255, 0.1) 0%, rgba(167, 196, 255, 0.2) 90%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-family: 'Fredoka One', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions {
+            text-align: center;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .game-container {
+            perspective: 1000px;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            box-sizing: border-box;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .question-face {
+            background: linear-gradient(135deg, #e8f0fe, #c9d8f8);
+            border: 3px solid var(--primary-light);
+        }
+
+        .answer-face {
+            background: linear-gradient(135deg, #fff8e1, #ffe8b3);
+            border: 3px solid var(--secondary);
+            transform: rotateY(180deg);
+        }
+
+        .detail-face {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border: 3px solid var(--accent);
+            transform: rotateY(180deg);
+            display: none;
+        }
+
+        .card-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .card-text {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .card-number {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            font-size: 1rem;
+            color: rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        button {
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-prev {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-next {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .progress-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 50px;
+            height: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 50px;
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .game-container {
+                height: 350px;
+            }
+
+            .card-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .game-container {
+                height: 300px;
+            }
+
+            .card-text {
+                font-size: 1.1rem;
+            }
+
+            button {
+                padding: 10px 20px;
+            }
+        }
+                /* Cosmic Color Scheme */
+        :root {
+            --star-primary: #8a9dc7;
+            --star-secondary: #b5c7e3;
+            --star-accent: #f8df8c;
+            --star-bright: #ffffff;
+            --night-bg-dark: #0a1128;
+            --night-bg-medium: #1b2e5e;
+            --night-bg-light: #2e4482;
+            --aurora-green: rgba(120, 236, 189, 0.3);
+            --aurora-blue: rgba(105, 159, 238, 0.2);
+            --aurora-purple: rgba(179, 136, 235, 0.3);
+        }
+
+        /* Cosmic Background Effects */
+        .container_body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--star-bright);
+            background: linear-gradient(to bottom, var(--night-bg-dark), var(--night-bg-medium), var(--night-bg-light));
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .container_body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, var(--star-bright), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, var(--star-primary), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 160px, var(--star-secondary), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, var(--star-accent), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, var(--star-bright), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 160px 120px, var(--star-primary), rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: twinkle 8s infinite alternate ease-in-out;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        /* Flashcard Cosmic Styling */
+        .flashcard-face {
+            background: rgba(255, 255, 255, 0.05) !important;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+        }
+
+        .question-face {
+            background: linear-gradient(135deg, rgba(138, 157, 199, 0.1), rgba(10, 17, 40, 0.3)) !important;
+        }
+
+        .answer-face {
+            background: linear-gradient(135deg, rgba(248, 223, 140, 0.1), rgba(10, 17, 40, 0.3)) !important;
+        }
+
+        .detail-face {
+            background: linear-gradient(135deg, rgba(120, 236, 189, 0.1), rgba(10, 17, 40, 0.3)) !important;
+        }
+
+        /* Cosmic Button Styling */
+        button {
+            background: linear-gradient(45deg, var(--night-bg-medium), var(--night-bg-light)) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            color: var(--star-bright) !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                                      transparent, 
+                                      rgba(255, 255, 255, 0.1), 
+                                      transparent);
+            transform: rotate(45deg);
+            animation: buttonGlow 3s infinite;
+        }
+
+        /* Progress Bar Styling */
+        .progress-bar {
+            background: linear-gradient(90deg, var(--star-primary), var(--star-accent)) !important;
+        }
+
+        /* Keyframe Animations */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.01); }
+        }
+
+        @keyframes buttonGlow {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+/* Bright Cosmic Color Scheme */
+:root {
+    --star-primary: #a8b9f0;
+    --star-secondary: #d3e0ff;
+    --star-accent: #ffe47a;
+    --star-bright: #ffffff;
+    --night-bg-dark: #060c1d;
+    --night-bg-medium: #111f47;
+    --night-bg-light: #243a7a;
+    --aurora-green: rgba(144, 255, 216, 0.4);
+    --aurora-blue: rgba(138, 179, 255, 0.3);
+    --aurora-purple: rgba(194, 145, 255, 0.4);
+}
+
+/* Cosmic Background */
+.container_body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--star-bright);
+    background: radial-gradient(ellipse at bottom, var(--night-bg-dark), var(--night-bg-medium), var(--night-bg-light));
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container_body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, var(--star-bright), transparent),
+        radial-gradient(1px 1px at 40px 70px, var(--star-primary), transparent),
+        radial-gradient(1px 1px at 50px 160px, var(--star-secondary), transparent),
+        radial-gradient(2px 2px at 90px 40px, var(--star-accent), transparent),
+        radial-gradient(2px 2px at 130px 80px, var(--star-bright), transparent),
+        radial-gradient(1px 1px at 160px 120px, var(--star-primary), transparent);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: twinkle 8s infinite alternate ease-in-out;
+    z-index: 0;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 3px var(--star-bright));
+}
+
+/* Flashcard Cosmic Glass Effect */
+.flashcard-face {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.15), 0 0 12px var(--star-accent);
+}
+
+.question-face {
+    background: linear-gradient(135deg, rgba(138, 157, 199, 0.15), rgba(10, 17, 40, 0.3)) !important;
+}
+
+.answer-face {
+    background: linear-gradient(135deg, rgba(255, 228, 122, 0.15), rgba(10, 17, 40, 0.3)) !important;
+}
+
+.detail-face {
+    background: linear-gradient(135deg, rgba(144, 255, 216, 0.15), rgba(10, 17, 40, 0.3)) !important;
+}
+
+/* Cosmic Button Styling */
+button {
+    background: linear-gradient(60deg, var(--star-accent), var(--star-secondary));
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: var(--night-bg-dark) !important;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 0 5px white;
+    box-shadow: 0 0 10px var(--star-accent);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3), transparent);
+    transform: rotate(45deg);
+    animation: buttonGlow 3s infinite ease-in-out;
+}
+
+/* Progress Bar Styling */
+.progress-bar {
+    background: linear-gradient(90deg, var(--star-primary), var(--star-accent)) !important;
+}
+
+/* Keyframe Animations */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.02); }
+}
+
+@keyframes buttonGlow {
+    0% { transform: rotate(45deg) translateX(-100%); }
+    100% { transform: rotate(45deg) translateX(100%); }
+}
+header h1,
+header .progress-text {
+    color: var(--star-secondary); /* Use your bright cosmic color */
+    font-weight: 600;
+    margin-bottom: 0.2em;
+}
+
+header {
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container_body">
+    <div class="container">
+        <header>
+            <h1>Learning By Flipping...</h1>
+            <p class="progress-text">Card 1 of 3</p>
+        </header>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <div class="game-container">
+            <div class="flashcard">
+                <div class="flashcard-face question-face">
+                    <div class="card-content">
+                        <div class="card-title">Question</div>
+                        <div class="card-text"></div>
+                        <div class="card-number"></div>
+                    </div>
+                </div>
+                <div class="flashcard-face answer-face">
+                    <div class="card-content">
+                        <div class="card-title">Answer</div>
+                        <div class="card-text"></div>
+                        <div class="card-number"></div>
+                    </div>
+                </div>
+                <div class="flashcard-face detail-face">
+                    <div class="card-content">
+                        <div class="card-title">Details</div>
+                        <div class="card-text"></div>
+                        <div class="card-number"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn-prev" disabled>
+                <span>Previous</span>
+            </button>
+            <button class="btn-next">
+                <span>Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+    <script>
+        // Flashcard data from Flask
+        const flashcardData = {{ card_data|tojson|safe if card_data else '{"cards":[]}'|safe }};
+    
+        // Rest of your existing JavaScript code...
+        console.log("Loaded flashcard data:", flashcardData);  // For debugging
+
+        // DOM Elements
+        const flashcard = document.querySelector('.flashcard');
+        const questionFace = document.querySelector('.question-face');
+        const answerFace = document.querySelector('.answer-face');
+        const detailFace = document.querySelector('.detail-face');
+        const questionText = questionFace.querySelector('.card-text');
+        const answerText = answerFace.querySelector('.card-text');
+        const detailText = detailFace.querySelector('.card-text');
+        const cardNumbers = document.querySelectorAll('.card-number');
+        const prevButton = document.querySelector('.btn-prev');
+        const nextButton = document.querySelector('.btn-next');
+        const progressText = document.querySelector('.progress-text');
+        const progressBar = document.querySelector('.progress-bar');
+
+        // State variables
+        let currentCardIndex = 0;
+        let currentFace = 'question';
+
+        // Initialize the game
+        function initGame() {
+            // Check if we have valid flashcard data
+            if (!flashcardData || !flashcardData.cards || flashcardData.cards.length === 0) {
+                questionText.textContent = "No flashcards available";
+                nextButton.disabled = true;
+                prevButton.disabled = true;
+                progressText.textContent = "0 cards";
+                return;
+            }
+
+            updateCard();
+            updateControls();
+            
+            flashcard.addEventListener('click', flipCard);
+            prevButton.addEventListener('click', prevCard);
+            nextButton.addEventListener('click', nextCard);
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') nextCard();
+                if (e.key === 'ArrowLeft') prevCard();
+                if (e.key === ' ' || e.key === 'Enter') flipCard();
+            });
+        }
+
+        function updateCard() {
+            const card = flashcardData.cards[currentCardIndex];
+            
+            // Handle both data structures (front/back and flat properties)
+            if (card.front) {
+                questionText.textContent = card.front;
+                answerText.textContent = card.back.answer;
+                detailText.innerHTML = `
+                    <strong>Analogy:</strong> ${card.back.analogy || "N/A"}<br><br>
+                    <strong>Common Mistake:</strong> ${card.back.common_mistake || "N/A"}
+                `;
+            } else {
+                questionText.textContent = card.question || "Question text missing";
+                answerText.textContent = card.answer || "Answer text missing";
+                detailText.innerHTML = `
+                    <strong>Analogy:</strong> ${card.analogy || "N/A"}<br><br>
+                    <strong>Common Mistake:</strong> ${card.common_mistake || "N/A"}
+                `;
+            }
+            
+            cardNumbers.forEach(el => {
+                el.textContent = `${currentCardIndex + 1}/${flashcardData.cards.length}`;
+            });
+            
+            resetToQuestion();
+            updateProgress();
+        }
+
+        function resetToQuestion() {
+            currentFace = 'question';
+            flashcard.classList.remove('flipped');
+            answerFace.style.display = 'flex';
+            detailFace.style.display = 'none';
+        }
+
+        function flipCard() {
+            if (currentFace === 'question') {
+                currentFace = 'answer';
+                flashcard.classList.add('flipped');
+            } else if (currentFace === 'answer') {
+                currentFace = 'detail';
+                answerFace.style.display = 'none';
+                detailFace.style.display = 'flex';
+            } else {
+                // Flip back to question
+                currentFace = 'question';
+                flashcard.classList.remove('flipped');
+                answerFace.style.display = 'flex';
+                detailFace.style.display = 'none';
+            }
+        }
+
+        function prevCard() {
+            if (currentCardIndex > 0) {
+                currentCardIndex--;
+                updateCard();
+                updateControls();
+            }
+        }
+
+        function nextCard() {
+            if (currentCardIndex < flashcardData.cards.length - 1) {
+                currentCardIndex++;
+                updateCard();
+                updateControls();
+            } else {
+                // Option: Loop back to first card or show completion message
+                currentCardIndex = 0;
+                updateCard();
+            }
+        }
+
+        function updateControls() {
+            prevButton.disabled = currentCardIndex === 0;
+            nextButton.disabled = currentCardIndex === flashcardData.cards.length - 1;
+            
+            if (flashcardData.cards.length <= 1) {
+                nextButton.disabled = true;
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentCardIndex + 1) / flashcardData.cards.length) * 100;
+            progressBar.style.width = `${progress}%`;
+            progressText.textContent = `Card ${currentCardIndex + 1} of ${flashcardData.cards.length}`;
+        }
+
+        // Start the game
+        initGame();
+    </script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create aurora effect
+            const aurora = document.createElement('div');
+            aurora.className = 'aurora';
+            
+            const auroraLayer1 = document.createElement('div');
+            auroraLayer1.className = 'aurora-layer-1';
+            aurora.appendChild(auroraLayer1);
+            
+            const auroraLayer2 = document.createElement('div');
+            auroraLayer2.className = 'aurora-layer-2';
+            aurora.appendChild(auroraLayer2);
+            
+            const auroraLayer3 = document.createElement('div');
+            auroraLayer3.className = 'aurora-layer-3';
+            aurora.appendChild(auroraLayer3);
+            
+            document.body.appendChild(aurora);
+
+            // Shooting stars
+            const shootingStar = document.createElement('div');
+            shootingStar.className = 'shooting-star';
+            document.body.appendChild(shootingStar);
+        });
+    </script>
+</body>
+</html>
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+{% endblock %}

@@ -1,0 +1,92 @@
+{
+    "topic": "5G, IoT and VoIP in Smart Devices",
+    "story_name": "The Tech Wizard",
+    "characters": [
+        {
+            "name": "Mia",
+            "description": "A tech-savvy 23-year-old digital marketer.(Female, 23 years old)",
+            "image_path": "/static/images/character_Mia.png",
+            "voice_id": "en-US-EmmaNeural"
+        },
+        {
+            "name": "Dr. Lee",
+            "description": "An experienced technology expert, 48 years old, patient and insightful.(Male, 48 years old)",
+            "image_path": "/static/images/character_Dr.%20Lee.png",
+            "voice_id": "zh-CN-YunyangNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "The Introduction",
+            "setting": "Mia's modern living room with various smart devices.",
+            "scene_image_path": "/static/images/scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "Dr. Lee, can you explain how these new technologies work together?",
+                    "audio_path": "/static/audio/scene_1_Mia_712814949487344598.mp3"
+                },
+                {
+                    "character": "Dr. Lee",
+                    "line": "Absolutely, let me start with the basics.",
+                    "audio_path": "/static/audio/scene_1_Dr.%20Lee_6843881876669668676.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "Exploring 5G Technology",
+            "setting": "Same as before.",
+            "scene_image_path": "/static/images/scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Lee",
+                    "line": "5G is a super-fast internet connection that reduces delay and enhances voice quality.",
+                    "audio_path": "/static/audio/scene_2_Dr.%20Lee_7099729751507414157.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "So, it's perfect for high-quality video calls?",
+                    "audio_path": "/static/audio/scene_2_Mia_2978882757280417720.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "Introducing IoT in Everyday Devices",
+            "setting": "Mia's kitchen with her smart fridge.",
+            "scene_image_path": "/static/images/scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Lee",
+                    "line": "Yes, IoT allows everyday devices to connect and communicate. For example, your smart fridge can call you when you're out of milk.",
+                    "audio_path": "/static/audio/scene_3_Dr.%20Lee_91591136957187546.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "That sounds convenient! My fridge could even place an order for more?",
+                    "audio_path": "/static/audio/scene_3_Mia_5480641595294779693.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 4,
+            "scene_title": "Smart Homes and Offices",
+            "setting": "Same as before.",
+            "scene_image_path": "/static/images/scene_4.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Lee",
+                    "line": "In smart homes and offices, devices can automatically connect to help with communication tasks, like scheduling calls or sending reminders.",
+                    "audio_path": "/static/audio/scene_4_Dr.%20Lee_1987663536686818835.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "So, my home assistant can organize everything for me? That would be amazing!",
+                    "audio_path": "/static/audio/scene_4_Mia_3641732731258076899.mp3"
+                }
+            ]
+        }
+    ]
+}

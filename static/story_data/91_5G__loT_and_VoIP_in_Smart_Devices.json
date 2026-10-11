@@ -1,0 +1,151 @@
+{
+    "topic": "5G, loT and VoIP in Smart Devices",
+    "story_name": "The Future Home",
+    "characters": [
+        {
+            "name": "Mia",
+            "description": "A tech-savvy 24-year-old college student who is always on the lookout for new gadgets. (Female, 24 years old)",
+            "image_path": "/static/images/character_Mia.png",
+            "voice_id": "en-US-EmmaNeural"
+        },
+        {
+            "name": "Dr. Lee",
+            "description": "A 55-year-old professor of telecommunications, knowledgeable and passionate about emerging technologies. (Male, 55 years old)",
+            "image_path": "/static/images/character_Dr.%20Lee.png",
+            "voice_id": "zh-CN-YunyangNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "The Introduction",
+            "setting": "Mia’s cozy living room filled with smart devices.",
+            "scene_image_path": "/static/images/scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "Dr. Lee, I just got a new smart fridge that can call me when it's out of food! Isn't that amazing?",
+                    "audio_path": "/static/audio/scene_1_Mia_1469314056881622644.mp3"
+                },
+                {
+                    "character": "Dr. Lee",
+                    "line": "Indeed, Mia! It's part of the IoT revolution. Let me explain more.",
+                    "audio_path": "/static/audio/scene_1_Dr.%20Lee_2291262955950468626.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "Understanding 5G",
+            "setting": "A modern office with large windows and views of a city skyline.",
+            "scene_image_path": "/static/images/scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Lee",
+                    "line": "5G is like supercharged Wi-Fi that makes everything faster and smoother.",
+                    "audio_path": "/static/audio/scene_2_Dr.%20Lee_6127853854203199587.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "So, it means clearer calls on my phone, right?",
+                    "audio_path": "/static/audio/scene_2_Mia_3031360204873701786.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "Exploring IoT in Action",
+            "setting": "Mia’s kitchen where various smart devices are showcased.",
+            "scene_image_path": "/static/images/scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Lee",
+                    "line": "IoT connects everyday objects to the internet. Your fridge is just one example.",
+                    "audio_path": "/static/audio/scene_3_Dr.%20Lee_361137647025860384.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "My smartwatch can also make calls? That sounds cool!",
+                    "audio_path": "/static/audio/scene_3_Mia_159123501706036109.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 4,
+            "scene_title": "Smart Home Automation",
+            "setting": "Mia’s living room with various connected devices.",
+            "scene_image_path": "/static/images/scene_4.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "So, if I set my smart lights to turn on when I enter the room, that’s IoT too?",
+                    "audio_path": "/static/audio/scene_4_Mia_7930805844612080676.mp3"
+                },
+                {
+                    "character": "Dr. Lee",
+                    "line": "Exactly! It's all about automating your home with seamless communication.",
+                    "audio_path": "/static/audio/scene_4_Dr.%20Lee_1624545025832857367.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 5,
+            "scene_title": "VoIP and Its Benefits",
+            "setting": "Mia’s study area filled with books and computer equipment.",
+            "scene_image_path": "/static/images/scene_5.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "But how does this relate to VoIP? Is it just another way of making calls?",
+                    "audio_path": "/static/audio/scene_5_Mia_8498314911465968212.mp3"
+                },
+                {
+                    "character": "Dr. Lee",
+                    "line": "VoIP, or Voice over Internet Protocol, allows you to make phone calls using the internet instead of traditional landlines.",
+                    "audio_path": "/static/audio/scene_5_Dr.%20Lee_1778383026894898843.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "So, my smart devices can use VoIP too?",
+                    "audio_path": "/static/audio/scene_5_Mia_5145155370409387078.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 6,
+            "scene_title": "The Future of Smart Devices",
+            "setting": "Mia’s bedroom with a virtual reality setup.",
+            "scene_image_path": "/static/images/scene_6.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "This all sounds like the future, but when can I get these smart devices in my home?",
+                    "audio_path": "/static/audio/scene_6_Mia_3919595485364364356.mp3"
+                },
+                {
+                    "character": "Dr. Lee",
+                    "line": "Many cities are already rolling out 5G networks, and IoT is rapidly growing. Soon, your home will be more connected than ever.",
+                    "audio_path": "/static/audio/scene_6_Dr.%20Lee_4875346573560934304.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 7,
+            "scene_title": "The Conclusion",
+            "setting": "Mia’s backyard with a small garden.",
+            "scene_image_path": "/static/images/scene_7.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "It all seems so exciting! I can't wait to see what new smart devices come next.",
+                    "audio_path": "/static/audio/scene_7_Mia_5667651145493916206.mp3"
+                },
+                {
+                    "character": "Dr. Lee",
+                    "line": "The future is indeed bright, and technology will continue to make our lives easier and more connected.",
+                    "audio_path": "/static/audio/scene_7_Dr.%20Lee_1356388710206298110.mp3"
+                }
+            ]
+        }
+    ]
+}

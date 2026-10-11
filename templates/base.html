@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Edumate  Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="static/css/main.css" rel="stylesheet">
+  <style>
+    :root {
+  --star-primary: #8a9dc7;
+  --star-secondary: #b5c7e3;
+  --star-accent: #f8df8c;
+  --star-bright: #ffffff;
+  --night-bg-dark: #0a1128;
+  --night-bg-medium: #1b2e5e;
+  --night-bg-light: #2e4482;
+  --aurora-green: rgba(120, 236, 189, 0.3);
+  --aurora-blue: rgba(105, 159, 238, 0.2);
+  --aurora-purple: rgba(179, 136, 235, 0.3);
+}
+
+/* ======= Starry Night Background Animation ======= */
+body {
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, var(--night-bg-dark), var(--night-bg-medium), var(--night-bg-light));
+  position: relative;
+  color: var(--star-bright);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, var(--star-bright), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40px 70px, var(--star-primary), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 50px 160px, var(--star-secondary), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, var(--star-accent), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, var(--star-bright), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 160px 120px, var(--star-primary), rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: twinkle 8s infinite alternate ease-in-out;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+/* Twinkling Star Animation */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.01);
+  }
+}
+
+/* Milky Way Effect */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(217deg, rgba(94, 114, 235, 0.05), rgba(255,0,0,0) 70.71%),
+              linear-gradient(127deg, rgba(104, 109, 224, 0.05), rgba(0,255,0,0) 70.71%),
+              linear-gradient(336deg, rgba(67, 97, 238, 0.08), rgba(0,0,255,0) 70.71%);
+  transform: rotate(-15deg);
+  z-index: -2;
+  opacity: 0.4;
+  animation: milkyWayFlow 30s infinite alternate ease-in-out;
+}
+
+@keyframes milkyWayFlow {
+  0% {
+    transform: rotate(-15deg) translateY(-5%);
+  }
+  100% {
+    transform: rotate(-18deg) translateY(5%);
+  }
+}
+
+/* Shooting Star Animation */
+.shooting-star {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 3px;
+  height: 3px;
+  background: var(--star-bright);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+              0 0 0 8px rgba(255, 255, 255, 0.1),
+              0 0 20px var(--star-bright);
+  animation: shootingStars 6s linear infinite;
+}
+
+@keyframes shootingStars {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120vw) translateY(120vh);
+    opacity: 0;
+  }
+}
+
+/* Additional Shooting Stars */
+.shooting-star::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  width: 2px;
+  height: 2px;
+  background: var(--star-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1),
+              0 0 0 6px rgba(255, 255, 255, 0.1),
+              0 0 15px var(--star-accent);
+  animation: shootingStars 8s 3s linear infinite;
+}
+
+/* Aurora Effect */
+.aurora {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -3;
+  overflow: hidden;
+}
+
+.aurora .aurora-layer-1 {
+  position: absolute;
+  bottom: -5%;
+  left: -50%;
+  width: 200%;
+  height: 50%;
+  background: var(--aurora-green);
+  filter: blur(30px);
+  border-radius: 50%;
+  transform-origin: center center;
+  animation: auroraWave 20s infinite alternate ease-in-out;
+}
+
+.aurora .aurora-layer-2 {
+  position: absolute;
+  bottom: -10%;
+  left: -50%;
+  width: 200%;
+  height: 60%;
+  background: var(--aurora-blue);
+  filter: blur(40px);
+  border-radius: 50%;
+  transform-origin: center center;
+  animation: auroraWave2 25s infinite alternate-reverse ease-in-out;
+}
+
+.aurora .aurora-layer-3 {
+  position: absolute;
+  bottom: -15%;
+  left: -50%;
+  width: 200%;
+  height: 40%;
+  background: var(--aurora-purple);
+  filter: blur(35px);
+  border-radius: 50%;
+  transform-origin: center center;
+  animation: auroraWave3 22s infinite alternate ease-in-out;
+}
+
+@keyframes auroraWave {
+  0% {
+    transform: translateX(-5%) scaleY(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(5%) scaleY(1.1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes auroraWave2 {
+  0% {
+    transform: translateX(3%) scaleY(1.1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(-3%) scaleY(0.9);
+    opacity: 0.8;
+  }
+}
+
+@keyframes auroraWave3 {
+  0% {
+    transform: translateX(-4%) scaleY(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(4%) scaleY(1.2);
+    opacity: 0.5;
+  }
+}
+
+/* ======= 3D Element Enhancement ======= */
+
+/* Card Elements 3D Effect */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 15px 35px rgba(31, 38, 135, 0.25);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Button Cosmic Glow */
+.btn-getstarted, .btn-primary, .btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.4s ease;
+  background: linear-gradient(45deg, var(--night-bg-medium), var(--night-bg-light)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-getstarted::before, .btn-primary::before, .btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, 
+                              transparent, 
+                              rgba(255, 255, 255, 0.1), 
+                              transparent);
+  transform: rotate(45deg);
+  z-index: -1;
+  transition: all 0.6s ease;
+  animation: buttonGlow 3s infinite;
+}
+
+@keyframes buttonGlow {
+  0% {
+    transform: rotate(45deg) translateX(-100%);
+  }
+  100% {
+    transform: rotate(45deg) translateX(100%);
+  }
+}
+
+.btn-getstarted:hover, .btn-primary:hover, .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(13, 28, 79, 0.5);
+}
+
+/* Navigation Menu Cosmic Enhancement */
+.navmenu ul li a {
+  
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navmenu ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--star-accent), transparent);
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+}
+
+.navmenu ul li a:hover::after,
+.navmenu ul li a.active::after {
+  width: 80%;
+}
+
+.navmenu ul li a.active {
+  color: var(--star-accent) !important;
+  text-shadow: 0 0 10px rgba(248, 223, 140, 0.5);
+}
+
+/* Logo Animation */
+.logo img {
+  transition: all 0.5s ease;
+  animation: logoGlow 5s infinite alternate;
+}
+
+@keyframes logoGlow {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+  }
+  100% {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+  }
+}
+
+/* Section Headers Cosmic Style */
+.section-header h2 {
+  position: relative;
+  z-index: 1;
+  color: var(--star-bright);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.section-header h2::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+                              transparent, 
+                              var(--star-primary), 
+                              var(--star-bright), 
+                              var(--star-primary), 
+                              transparent);
+  z-index: -1;
+}
+
+/* Cosmic Scroll Animation */
+#scroll-top {
+  background: rgba(30, 50, 100, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(13, 28, 79, 0.3);
+  animation: pulseGlow 3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(13, 28, 79, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px var(--star-primary);
+  }
+}
+
+/* Footer Cosmic Enhancement */
+.footer {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: linear-gradient(to top, var(--night-bg-dark), var(--night-bg-medium)) !important;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, 
+                             transparent, 
+                             var(--star-primary), 
+                             var(--star-bright), 
+                             var(--star-primary), 
+                             transparent);
+  z-index: 2;
+}
+
+.social-links a {
+  background: rgba(240, 230, 230, 0.741) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.4s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-5px) rotate(5deg);
+  background: rgba(255, 255, 255, 0.666) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating Elements Animation */
+.float-element {
+  animation: floating 6s infinite alternate ease-in-out;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Add this class to elements you want to float */
+.float-delay-1 {
+  animation-delay: 1s;
+}
+
+.float-delay-2 {
+  animation-delay: 2s;
+}
+
+.float-delay-3 {
+  animation-delay: 3s;
+}
+
+/* Additional color modifications for the starry night theme */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--star-bright);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+p, li {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Modern Glass Morphism Effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+}
+
+/* Animated Link Underline Effect */
+a.animated-link {
+  position: relative;
+  text-decoration: none;
+  color: var(--star-bright);
+}
+
+a.animated-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background: linear-gradient(90deg, transparent, var(--star-accent), transparent);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.5s ease;
+}
+
+a.animated-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Header Cosmic Enhancement */
+.header {
+  background: rgba(10, 17, 40, 0.8) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Content Enhancement */
+.content-section {
+  position: relative;
+  z-index: 1;
+}
+
+.content-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, 
+                               rgba(46, 68, 130, 0.2) 0%, 
+                               rgba(10, 17, 40, 0) 70%);
+  z-index: -1;
+}
+
+/* 3D Cosmic Card Animation */
+.cosmic-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  background: linear-gradient(145deg, 
+                             rgba(30, 46, 94, 0.2), 
+                             rgba(10, 17, 40, 0.4));
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+
+.cosmic-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+                             rgba(255, 255, 255, 0), 
+                             rgba(255, 255, 255, 0.1), 
+                             rgba(255, 255, 255, 0));
+  z-index: 1;
+  transition: all 0.6s ease;
+  animation: cardShine 6s infinite;
+}
+
+@keyframes cardShine {
+  0% {
+    left: -100%;
+  }
+  20%, 100% {
+    left: 200%;
+  }
+}
+
+.cosmic-card:hover {
+  transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Cosmic Input Styling */
+input, textarea, select {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: var(--star-bright) !important;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 0 15px rgba(138, 157, 199, 0.3) !important;
+}
+
+/* Stellar Divider */
+.stellar-divider {
+  position: relative;
+  height: 3px;
+  background: linear-gradient(90deg, 
+                           transparent, 
+                           var(--star-primary), 
+                           var(--star-bright), 
+                           var(--star-primary), 
+                           transparent);
+  margin: 30px 0;
+  opacity: 0.6;
+}
+
+.stellar-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--star-bright);
+  box-shadow: 0 0 10px var(--star-bright),
+              0 0 20px var(--star-bright),
+              0 0 30px var(--star-accent);
+  animation: pulseGlow 3s infinite alternate;
+}
+
+/* Star Cursor Trail */
+.star-cursor {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  background: var(--star-bright);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 0 10px var(--star-bright),
+              0 0 20px var(--star-accent);
+}
+
+/* Cosmic Tooltip */
+.cosmic-tooltip {
+  position: relative;
+}
+
+.cosmic-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 17, 40, 0.9);
+  backdrop-filter: blur(8px);
+  color: var(--star-bright);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cosmic-tooltip:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Preloader Enhancement */
+#preloader {
+  background: var(--night-bg-dark);
+}
+
+#preloader:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin-top: -30px;
+  margin-left: -30px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--star-accent);
+  animation: spin 1.5s linear infinite;
+}
+
+#preloader:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  margin-left: -20px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--star-bright);
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* For dark content sections */
+.dark-content {
+  color: var(--star-bright);
+}
+
+.dark-content h1, .dark-content h2, .dark-content h3, 
+.dark-content h4, .dark-content h5, .dark-content h6 {
+  color: var(--star-bright);
+}
+
+.dark-content p, .dark-content li {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Additional 3D animation for hero section */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  animation: heroFloat 8s infinite alternate ease-in-out;
+}
+
+@keyframes heroFloat {
+  0% {
+    transform: translateY(0) translateZ(0);
+  }
+  100% {
+    transform: translateY(-10px) translateZ(30px);
+  }
+}
+
+/* Parallax Star Effect */
+.parallax-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  transform: translateZ(-10px) scale(2);
+  z-index: -1;
+}
+.button-element, 
+input[type="file"],
+button,
+.btn {
+    position: relative;
+    z-index: 10 !important; /* Increase this value */
+    pointer-events: auto !important;
+}
+body::before, 
+body::after, 
+.shooting-star, 
+.aurora, 
+.parallax-stars {
+    pointer-events: none !important;
+}
+/* Dropdown Fix - Add this to your CSS */
+.dropdown,
+.dropdown-menu,
+.dropdown-toggle,
+select,
+.form-select,
+.select-wrapper {
+    position: relative;
+    z-index: 100 !important; /* Higher z-index than animations */
+    pointer-events: auto !important;
+}
+
+/* Ensure dropdown content appears above animations */
+.dropdown-menu {
+    background: rgba(10, 17, 40, 0.95) !important; /* Dark background to match theme */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Fix for dropdown items */
+.dropdown-item,
+.dropdown-menu a {
+    color: var(--star-bright) !important;
+}
+
+.dropdown-item:hover,
+.dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: var(--star-accent) !important;
+}
+
+/* Make sure animation elements don't block interactions */
+body::before, 
+body::after, 
+.shooting-star, 
+.aurora, 
+.aurora-layer-1,
+.aurora-layer-2,
+.aurora-layer-3,
+.parallax-stars {
+    pointer-events: none !important;
+}
+/* Bootstrap-specific dropdown fixes */
+.dropdown-toggle::after {
+    color: var(--star-accent);
+}
+
+.show>.dropdown-toggle {
+    color: var(--star-bright) !important;
+}
+
+/* Fix dropdown position */
+.dropdown-menu.show {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+/* Form Elements Night Theme Fix */
+
+/* Dropdowns - Select elements */
+select,
+.form-select,
+.dropdown-toggle,
+.dropdown > button {
+    background: rgba(10, 17, 40, 0.8) !important;
+    color: var(--star-bright) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(5px);
+}
+
+/* Dropdown menus */
+.dropdown-menu {
+    background: rgba(10, 17, 40, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown-item {
+    color: var(--star-bright) !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background: rgba(46, 68, 130, 0.4) !important;
+    color: var(--star-accent) !important;
+}
+
+/* Text areas and inputs */
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+.form-control {
+    background: rgba(10, 17, 40, 0.7) !important;
+    color: var(--star-bright) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(5px);
+}
+
+/* Placeholder text */
+::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1;
+}
+
+/* Text area content color */
+textarea {
+    color: var(--star-bright) !important;
+}
+
+/* Focus states for better visibility */
+select:focus,
+textarea:focus,
+input:focus,
+.form-control:focus {
+    background: rgba(27, 46, 94, 0.8) !important;
+    border-color: var(--star-accent) !important;
+    box-shadow: 0 0 10px rgba(248, 223, 140, 0.3) !important;
+    color: var(--star-bright) !important;
+}
+
+/* Option elements inside select */
+option {
+    background-color: var(--night-bg-medium) !important;
+    color: var(--star-bright) !important;
+}
+
+/* File input styling */
+input[type="file"] {
+    background: rgba(10, 17, 40, 0.7) !important;
+    color: var(--star-bright) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 0.5rem;
+}
+
+input[type="file"]::file-selector-button {
+    background: rgba(46, 68, 130, 0.5) !important;
+    color: var(--star-bright) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 4px;
+    padding: 0.25rem 0.75rem;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: rgba(46, 68, 130, 0.8) !important;
+    transform: translateY(-2px);
+}
+
+/* Firefox specific file input */
+input[type="file"]::-webkit-file-upload-button {
+    background: rgba(46, 68, 130, 0.5) !important;
+    color: var(--star-bright) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Form labels */
+label {
+    color: var(--star-bright) !important;
+    margin-bottom: 0.25rem;
+}
+/* Fix for Description Text Field */
+textarea,
+.form-control,
+[contenteditable="true"] {
+    position: relative !important;
+    z-index: 1000 !important; /* Very high z-index */
+    pointer-events: auto !important;
+    background: rgba(10, 17, 40, 0.8) !important;
+    color: var(--star-bright) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 0 10px rgba(10, 17, 40, 0.5) !important;
+}
+
+/* Ensure no overlapping elements block interaction */
+body::before, 
+body::after, 
+.shooting-star, 
+.aurora, 
+.aurora-layer-1,
+.aurora-layer-2,
+.aurora-layer-3,
+.parallax-stars {
+    pointer-events: none !important;
+    z-index: -1 !important; /* Push behind content */
+}
+
+/* Fix for the specific description field */
+#description,
+textarea[placeholder*="Description"],
+textarea[aria-label*="Description"],
+.description-field,
+textarea:nth-of-type(1) {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: rgba(10, 17, 40, 0.85) !important;
+    color: white !important;
+    border: 2px solid rgba(138, 157, 199, 0.4) !important;
+    box-shadow: 0 0 15px rgba(10, 17, 40, 0.6) !important;
+    font-size: 1rem !important;
+    padding: 12px !important;
+    resize: vertical !important;
+    min-height: 100px !important;
+}
+
+/* Fix click and focus */
+textarea:focus,
+.form-control:focus {
+    outline: none !important;
+    border-color: var(--star-accent) !important;
+    box-shadow: 0 0 15px rgba(248, 223, 140, 0.3) !important;
+}
+
+/* Ensure JS events don't get blocked */
+.textarea-wrapper,
+.form-group,
+.input-group {
+    position: relative !important;
+    z-index: 1000 !important;
+}
+/* Cosmic Loading Animation */
+.cosmic-loader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 17, 40, 0.85);
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cosmic-loader.active {
+  display: flex;
+}
+
+/* Galaxy Spinner */
+.galaxy-spinner {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.galaxy-spinner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--star-accent);
+  border-bottom-color: var(--star-primary);
+  animation: galaxySpin 2s linear infinite;
+}
+
+.galaxy-spinner::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--star-bright);
+  border-bottom-color: var(--star-secondary);
+  animation: galaxySpin 1.5s linear infinite reverse;
+}
+
+@keyframes galaxySpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Cosmic Center */
+.cosmic-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, var(--star-bright), var(--star-accent));
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--star-accent),
+              0 0 40px var(--star-bright);
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Flying Stars */
+.flying-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--star-bright);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--star-bright),
+              0 0 20px var(--star-accent);
+}
+
+.flying-star:nth-child(1) {
+  top: 60%;
+  left: 40%;
+  animation: fly 3s infinite alternate ease-in-out;
+}
+
+.flying-star:nth-child(2) {
+  top: 40%;
+  left: 60%;
+  animation: fly 4s infinite alternate-reverse ease-in-out;
+}
+
+.flying-star:nth-child(3) {
+  top: 30%;
+  left: 50%;
+  animation: fly 5s infinite alternate ease-in-out;
+}
+
+@keyframes fly {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(30px, -20px) scale(1.5);
+  }
+}
+
+/* Loading Text */
+.cosmic-loader-text {
+  margin-top: 30px;
+  color: var(--star-bright);
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--star-primary);
+  animation: textGlow 2s infinite alternate;
+}
+
+@keyframes textGlow {
+  0% {
+    opacity: 0.7;
+    text-shadow: 0 0 5px var(--star-primary);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 20px var(--star-bright);
+  }
+}
+.cosmic-loader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 17, 40, 0.9);
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cosmic-loader.active {
+  display: flex !important;
+}
+
+/* Galaxy Spinner */
+.galaxy-spinner {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.galaxy-spinner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #f8df8c;
+  border-bottom-color: #8a9dc7;
+  animation: galaxySpin 2s linear infinite;
+}
+
+.galaxy-spinner::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #ffffff;
+  border-bottom-color: #b5c7e3;
+  animation: galaxySpin 1.5s linear infinite reverse;
+}
+
+@keyframes galaxySpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Cosmic Center */
+.cosmic-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #ffffff, #f8df8c);
+  border-radius: 50%;
+  box-shadow: 0 0 20px #f8df8c, 0 0 40px #ffffff;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Stars */
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px #f8df8c;
+}
+
+.star-1 {
+  top: 40%;
+  left: 40%;
+  animation: fly 3s infinite alternate ease-in-out;
+}
+
+.star-2 {
+  top: 45%;
+  left: 60%;
+  animation: fly 4s infinite alternate-reverse ease-in-out;
+}
+
+.star-3 {
+  top: 35%;
+  left: 50%;
+  animation: fly 5s infinite alternate ease-in-out;
+}
+
+@keyframes fly {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(30px, -20px) scale(1.5);
+  }
+}
+
+/* Loading Text */
+.cosmic-loader-text {
+  margin-top: 30px;
+  color: #ffffff;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #8a9dc7;
+  animation: textGlow 2s infinite alternate;
+}
+
+@keyframes textGlow {
+  0% {
+    opacity: 0.7;
+    text-shadow: 0 0 5px #8a9dc7;
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 20px #ffffff;
+  }
+}
+/* Navigation Menu Text Enhancement */
+.navmenu ul li a {
+  color: var(--star-bright) !important; /* Force white color */
+  opacity: 1 !important; /* Ensure full opacity */
+  font-weight: 500 !important; /* Medium weight for better visibility */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important; /* Dark shadow for contrast */
+}
+
+.navmenu ul li a:hover,
+.navmenu ul li a:focus {
+  color: var(--star-accent) !important; /* Brighter accent on hover */
+  opacity: 1 !important;
+  text-shadow: 0 0 15px rgba(248, 223, 140, 0.4) !important;
+}
+
+.navmenu ul li a.active {
+  color: var(--star-accent) !important; /* Active item accent color */
+  font-weight: 600 !important;
+  text-shadow: 0 0 20px rgba(248, 223, 140, 0.5) !important;
+}
+
+/* If still not bright enough, increase star-bright value */
+:root {
+  --star-bright: #ffffff; /* Pure white */
+  --star-accent: #ffe16b; /* Brighter yellow accent */
+}
+.navmenu ul li a {
+  color: #fff !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7) !important;
+  filter: brightness(1.2) !important;
+}
+
+  </style>
+
+</head>
+
+<body class="index-page">
+
+    
+ 
+
+
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    
+          <a href="{{ url_for('index') }}" class="logo d-flex align-items-center me-auto{% if request.endpoint == 'index' %} active{% endif %}">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="static/img/edumate_logo.png" alt="not available" style="width:175px; height:250px;"> -->
+            <!-- <img src="static/img/edumate_logo_adv.png" alt="not available" style="width:175px; height:250px;"> -->
+            
+          </a>
+    
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="{{ url_for('index') }}" {% if request.endpoint == 'index' %}class="active"{% endif %}>Home</a></li>
+              <!-- <li><a href="{{ url_for('about') }}" {% if request.endpoint == 'about' %}class="active"{% endif %}>About</a></li>  -->
+              <li><a href="{{ url_for('courses') }}" {% if request.endpoint == 'courses' %}class="active"{% endif %}>QuizGenie</a></li>
+              <li><a href="{{ url_for('notes') }}" {% if request.endpoint == 'notes' %}class="active"{% endif %}>NotesMaker</a></li>
+                  <li><a href="{{ url_for('summarizer') }}" {% if request.endpoint == 'summarizer' %}class="active"{% endif %}>Summarizer</a></li>
+              <li><a href="{{ url_for('trainers') }}" {% if request.endpoint == 'trainers' %}class="active"{% endif %}>FlashLearn</a></li>
+              <li><a href="{{ url_for('events') }}" {% if request.endpoint == 'events' %}class="active"{% endif %}>Story Based Learning</a></li>
+              <!-- <li><a href="{{ url_for('pricing') }}" {% if request.endpoint == 'pricing' %}class="active"{% endif %}>Pricing</a></li> -->
+              <li><a href="{{ url_for('cb_index') }}" {% if request.endpoint == 'cb_index' %}class="active"{% endif %}>Code Blocks</a></li>
+              <li><a href="{{ url_for('language_selection') }}" {% if request.endpoint == 'language_selection' %}class="active"{% endif %}>Code Quest</a></li>
+              <li><a href="{{ url_for('index_flip') }}" {% if request.endpoint == 'index_flip' %}class="active"{% endif %}>Neuro Flip</a></li>
+              <li><a href="{{ url_for('index_ws') }}" {% if request.endpoint == 'index_ws' %}class="active"{% endif %}>WordScape</a></li>
+              <li><a href="{{ url_for('index_cw') }}" {% if request.endpoint == 'index_cw' %}class="active"{% endif %}>WordMaze</a></li>
+              <li class="dropdown">
+                <!-- <a href="#"><span>Job Simplifier</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a> -->
+                <ul>
+                  <li><a href="{{ url_for('notes') }}" {% if request.endpoint == 'notes' %}class="active"{% endif %}>NotesMaker/a></li>
+                  <li><a href="{{ url_for('summarizer') }}" {% if request.endpoint == 'summarizer' %}class="active"{% endif %}>Summarizer</a></li>
+                </ul>
+              </li>
+              <!-- <li><a href="{{ url_for('contact') }}" {% if request.endpoint == 'contact' %}class="active"{% endif %}>Contact</a></li> -->
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+    
+          <!-- <a class="btn-getstarted" href="{{ url_for('courses') }}" {% if request.endpoint == 'courses' %}class="active"{% endif %}>Get Started</a> -->
+    
+        </div>
+        
+      </header>
+
+
+
+      {% block content %}
+      {% endblock%}
+
+      <footer id="footer" class="footer position-relative light-background">
+
+        <div class="container footer-top">
+          <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 footer-about">
+              <a href="{{ url_for('index') }}" 
+       class="logo d-flex align-items-center{% if request.endpoint == 'index' %} active{% endif %}">
+                <span class="sitename">Edumate</span>
+              </a>
+              <div class="footer-contact pt-3">
+                <p>India, Ind 535022</p>
+                <p class="mt-3"><strong>Phone:</strong> <span>+91 9876 543 210</span></p>
+                <p><strong>Email:</strong> <span>edumate@example.edu</span></p>
+              </div>
+              <div class="social-links d-flex mt-4">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+    
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="courses.html">QuizGenie</a></li>
+                <li><a href="summarizer.html">Summarizer</a></li>
+                <li><a href="notesmake.html">NotesMaker</a></li>
+                <!-- <li><a href="trainers.html">Flashcard</a></li> -->
+                <li><a href="cb_index.html">Code Blocks</a></li>
+                <li><a href="language_selection.html">Code Quest</a></li>
+
+                 <li><a href="index_ws.html"></a>WordScape</li>
+              </ul>
+            </div>
+    
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li><a href="courses.html">QuizGenie</a></li>
+                <li><a href="summarizer.html">Summarizer</a></li>
+                <li><a href="notesmake.html">NotesMaker</a></li>
+                <!-- <li><a href="trainers.html">Flashcard</a></li> -->
+                <li><a href="cb_index.html">Code Blocks</a></li>
+                <li><a href="language_selection.html">Code Quest</a></li>
+                <li><a href="index_ws.html">WordScape</a></li>
+              </ul>
+            </div>
+    
+          </div>
+        </div>
+    
+        <div class="container copyright text-center mt-4">
+          <p>© <span>Copyright</span> <strong class="px-1 sitename">Edumate</strong> <span>All Rights Reserved</span></p>
+        </div>
+    
+      </footer>
+
+      <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+  <div id="cosmic-loader" class="cosmic-loader">
+  <div class="galaxy-spinner">
+    <div class="cosmic-center"></div>
+  </div>
+  <div class="star star-1"></div>
+  <div class="star star-2"></div>
+  <div class="star star-3"></div>
+  <div class="cosmic-loader-text">Generating Cosmic Quiz...</div>
+</div>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="static/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  // Create elements for the starry night effect
+  const body = document.body;
+  
+  // Create shooting star container
+  const shootingStar = document.createElement('div');
+  shootingStar.className = 'shooting-star';
+  body.appendChild(shootingStar);
+  
+  // Create aurora effect container
+  const aurora = document.createElement('div');
+  aurora.className = 'aurora';
+  
+  const auroraLayer1 = document.createElement('div');
+  auroraLayer1.className = 'aurora-layer-1';
+  aurora.appendChild(auroraLayer1);
+  
+  const auroraLayer2 = document.createElement('div');
+  auroraLayer2.className = 'aurora-layer-2';
+  aurora.appendChild(auroraLayer2);
+  
+  const auroraLayer3 = document.createElement('div');
+  auroraLayer3.className = 'aurora-layer-3';
+  aurora.appendChild(auroraLayer3);
+  
+  body.appendChild(aurora);
+  
+  // Add floating animation to selected elements
+  const floatElements = document.querySelectorAll('.card, .hero-img');
+  floatElements.forEach((element, index) => {
+    element.classList.add('float-element', `float-delay-${index % 3 + 1}`);
+  });
+  
+  // Create star cursor trail
+  const addStarCursor = () => {
+    const cursorTrail = document.createElement('div');
+    cursorTrail.className = 'star-cursor';
+    document.body.appendChild(cursorTrail);
+    
+    setTimeout(() => {
+      cursorTrail.style.opacity = '0.7';
+      setTimeout(() => {
+        cursorTrail.remove();
+      }, 1000);
+    }, 10);
+  };
+  
+  // Add star cursor on mouse move
+  document.addEventListener('mousemove', (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    
+    const cursorTrail = document.createElement('div');
+    cursorTrail.className = 'star-cursor';
+    cursorTrail.style.left = `${x}px`;
+    cursorTrail.style.top = `${y}px`;
+    document.body.appendChild(cursorTrail);
+    
+    setTimeout(() => {
+      cursorTrail.style.opacity = '0.7';
+      setTimeout(() => {
+        cursorTrail.remove();
+      }, 500);
+    }, 10);
+  });
+  
+  // Add parallax effect to stars
+  window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    const parallaxElements = document.querySelectorAll('.parallax-stars');
+    
+    parallaxElements.forEach(element => {
+      const speed = 0.5;
+      element.style.transform = `translateY(${scrollPosition * speed}px) translateZ(-10px) scale(2)`;
+    });
+  });
+});
+document.addEventListener('DOMContentLoaded', function() {
+  // Find all textareas, especially the description field
+  const textareas = document.querySelectorAll('textarea');
+  
+  textareas.forEach(textarea => {
+    // Remove any potentially problematic event handlers
+    const newTextarea = textarea.cloneNode(true);
+    textarea.parentNode.replaceChild(newTextarea, textarea);
+    
+    // Add a click handler to ensure focus works
+    newTextarea.addEventListener('click', function(e) {
+      e.stopPropagation();
+      this.focus();
+    });
+  });
+  
+  // Specifically target description field if it has an ID
+  const descField = document.getElementById('description');
+  if (descField) {
+    descField.addEventListener('click', function(e) {
+      e.stopPropagation();
+      this.focus();
+    });
+  }
+});
+document.addEventListener('DOMContentLoaded', function() {
+  // Create loader elements
+  const cosmicLoader = document.createElement('div');
+  cosmicLoader.className = 'cosmic-loader';
+  
+  const galaxySpinner = document.createElement('div');
+  galaxySpinner.className = 'galaxy-spinner';
+  
+  const cosmicCenter = document.createElement('div');
+  cosmicCenter.className = 'cosmic-center';
+  galaxySpinner.appendChild(cosmicCenter);
+  
+  // Add flying stars
+  for (let i = 0; i < 3; i++) {
+    const star = document.createElement('div');
+    star.className = 'flying-star';
+    cosmicLoader.appendChild(star);
+  }
+  
+  const loaderText = document.createElement('div');
+  loaderText.className = 'cosmic-loader-text';
+  loaderText.innerText = 'Generating Cosmic Quiz...';
+  
+  cosmicLoader.appendChild(galaxySpinner);
+  cosmicLoader.appendChild(loaderText);
+  document.body.appendChild(cosmicLoader);
+  
+  // Find generate quiz button
+  // const generateBtn = document.querySelector('#generateQuiz, button:contains("Generate Quiz"), .btn-primary, .generate-button, button[type="submit"]');
+  
+  // if (generateBtn) {
+  //   // Preserve original click handler
+  //   const originalClick = generateBtn.onclick;
+    
+  //   generateBtn.onclick = function(e) {
+  //     // Show loader
+  //     cosmicLoader.classList.add('active');
+      
+  //     // Optional: Disable button to prevent multiple clicks
+  //     this.disabled = true;
+      
+  //     // If there was an original handler, call it
+  //     if (typeof originalClick === 'function') {
+  //       originalClick.call(this, e);
+  //     }
+      
+  //     // For demo purposes, hide loader after 3 seconds
+  //     // In production, you would hide when the actual generation completes
+  //     setTimeout(function() {
+  //       cosmicLoader.classList.remove('active');
+  //       generateBtn.disabled = false;
+  //     }, 3000);
+      
+  //     // If the form is actually being submitted, we don't want to prevent that
+  //     return true;
+  //   };
+  
+
+});
+
+  </script>
+  
+  </body>
+    
+</html>

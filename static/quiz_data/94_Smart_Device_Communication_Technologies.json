@@ -1,0 +1,90 @@
+{
+    "topic": "Smart Device Communication Technologies",
+    "generated_at": "2025-05-13T17:23:58.170494",
+    "questions": [
+        {
+            "question": "What technology enables smartphones to connect wirelessly and transfer data over short distances?",
+            "options": {
+                "A": "NFC",
+                "B": "Wi-Fi",
+                "C": "Bluetooth",
+                "D": "Zigbee"
+            },
+            "answer": "C",
+            "explanation": "Bluetooth is like a high-tech version of a walkie-talkie, allowing your phone to chat with other gadgets like headphones or speakers without needing visible signals. It’s ubiquitous and essential for keeping everything in sync.",
+            "hint": "Think about hands-free Bluetooth headsets.\n\n---"
+        },
+        {
+            "question": "Which smart device communication technology uses the least amount of power?",
+            "options": {
+                "A": "Zigbee",
+                "B": "Bluetooth 5.0",
+                "C": "Z-Wave",
+                "D": "Wi-Fi"
+            },
+            "answer": "C",
+            "explanation": "Imagine a tiny battery-powered gadget that can send messages without draining your energy quickly—Z-Wave is designed for such efficient communication, making it ideal for low-power applications like smart doorbells and window sensors.",
+            "hint": "Think of a whisper you can barely hear.\n\n---"
+        },
+        {
+            "question": "What technology is commonly used in smart thermostats to communicate with other devices?",
+            "options": {
+                "A": "Zigbee",
+                "B": "Wi-Fi",
+                "C": "Bluetooth 5.0",
+                "D": "Z-Wave"
+            },
+            "answer": "B",
+            "explanation": "Smart thermostats often rely on Wi-Fi because it can handle large amounts of data and connect to the internet, allowing your thermostat to update itself and control other smart devices like lights and fans.",
+            "hint": "Think about connecting a device to a cloud service.\n\n---"
+        },
+        {
+            "question": "Which protocol is best suited for large-scale deployment in home automation systems?",
+            "options": {
+                "A": "Zigbee",
+                "B": "Bluetooth 5.0",
+                "C": "Wi-Fi",
+                "D": "Z-Wave"
+            },
+            "answer": "C",
+            "explanation": "For extensive smart home networks, Wi-Fi shines because it offers a robust connection that can support many devices across the house, making your home smarter and more interconnected.",
+            "hint": "Think of a wide network coverage like in public places.\n\n---"
+        },
+        {
+            "question": "What technology is used for secure short-range wireless communication between smartphones and payment terminals?",
+            "options": {
+                "A": "NFC",
+                "B": "Bluetooth 5.0",
+                "C": "Z-Wave",
+                "D": "Zigbee"
+            },
+            "answer": "A",
+            "explanation": "NFC, or Near Field Communication, is the tech behind tap-and-go payments in your phone. It’s perfect for quick, secure transactions between devices that are close to each other.",
+            "hint": "Think of swiping a card at a store.\n\n---"
+        },
+        {
+            "question": "Which smart device communication technology allows for bidirectional data transfer and has a higher speed compared to others?",
+            "options": {
+                "A": "Bluetooth 5.0",
+                "B": "Zigbee",
+                "C": "Z-Wave",
+                "D": "Wi-Fi"
+            },
+            "answer": "D",
+            "explanation": "For fast and reliable data exchange, Wi-Fi is the go-to choice. It offers high speeds and can handle multiple devices simultaneously, making it ideal for streaming video or transferring large files.",
+            "hint": "Think of downloading a large file quickly.\n\n---"
+        },
+        {
+            "question": "What technology enables smart devices to form a network where each device can communicate with others directly without a central hub?",
+            "options": {
+                "A": "Z-Wave",
+                "B": "Wi-Fi Direct",
+                "C": "Bluetooth Mesh",
+                "D": "Zigbee"
+            },
+            "answer": "B",
+            "explanation": "Wi-Fi Direct is like forming a temporary local network where every device knows how to talk to its neighbors directly, perfect for ad-hoc scenarios like sharing files between phones.",
+            "hint": "Think of creating an impromptu Wi-Fi network in a conference room."
+        }
+    ]
+}

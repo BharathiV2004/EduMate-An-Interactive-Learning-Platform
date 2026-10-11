@@ -1,0 +1,560 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ puzzle.title }}</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #0078d7;
+        }
+        .instructions {
+            background-color: #e6f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #b3e0ff;
+        }
+        .puzzle-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .grid-container {
+            flex: 1;
+            min-width: 400px;
+        }
+        .clues-container {
+            flex: 1;
+            min-width: 300px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(17, 30px);
+            gap: 1px;
+            background-color: #ddd;
+            padding: 5px;
+            border-radius: 5px;
+            margin: 0 auto;
+        }
+        .cell {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            text-transform: uppercase;
+        }
+        .cell.selected {
+            background-color: #ffcc00;
+        }
+        .cell.found {
+            background-color: #90ee90;
+        }
+        .clue-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .clue-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            border-left: 5px solid #0078d7;
+        }
+        .clue-item.solved {
+            border-left-color: #4CAF50;
+            background-color: #f0fff0;
+        }
+        .clue-answer {
+            margin-top: 5px;
+            display: flex;
+            gap: 10px;
+        }
+        .clue-answer input {
+            flex-grow: 1;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .clue-answer button {
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .clue-answer button:hover {
+            background-color: #005a9e;
+        }
+        .found-words {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .found-words h3 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        .found-words ul {
+            columns: 2;
+            padding-left: 20px;
+        }
+        .found-word {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #005a9e;
+        }
+        .btn.reset {
+            background-color: #ff4d4d;
+        }
+        .btn.reset:hover {
+            background-color: #e60000;
+        }
+        .flash-messages {
+            list-style-type: none;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            color: #155724;
+        }
+        .word-message {
+            text-align: center;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #d4edda;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ puzzle.title }}</h1>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <div class="instructions">
+        <p>{{ puzzle.instructions }}</p>
+    </div>
+
+    <div class="puzzle-container">
+        <div class="grid-container">
+            <div class="grid" id="word-search-grid">
+                {% for row in puzzle.grid %}
+                    {% for cell in row %}
+                        <div class="cell" data-row="{{ loop.parent.loop.index0 }}" data-col="{{ loop.index0 }}">{{ cell }}</div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            <div class="word-message" id="word-message"></div>
+            <div class="found-words">
+                <h3>Found Words</h3>
+                <ul id="found-words-list">
+                    <!-- Found words will be added here dynamically -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="clues-container">
+            <h2>Clues</h2>
+            <ul class="clue-list">
+                {% for clue in puzzle.clues %}
+                    <li class="clue-item" id="clue-{{ clue.id }}">
+                        <strong>{{ clue.id }}. {{ clue.text }}</strong>
+                        <div class="clue-answer">
+                            <input type="text" id="answer-{{ clue.id }}" placeholder="Your answer...">
+                            <button onclick="checkAnswer({{ clue.id }})">Check</button>
+                        </div>
+                        <div class="answer-feedback" id="feedback-{{ clue.id }}"></div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="actions">
+        <a href="/reset_progress" class="btn reset">Reset Progress</a>
+        <button class="btn" onclick="showAllAnswers()">Show Answers</button>
+    </div>
+
+    <script>
+        // Variables for tracking cell selection
+        let selectedCells = [];
+        let isDragging = false;
+        let currentWord = '';
+        let foundWords = [];
+
+        // DOM elements
+        const grid = document.getElementById('word-search-grid');
+        const wordMessage = document.getElementById('word-message');
+        const foundWordsList = document.getElementById('found-words-list');
+
+        // Load user progress
+        fetch('/get_progress')
+            .then(response => response.json())
+            .then(data => {
+                foundWords = data.found_words || [];
+                updateFoundWordsList();
+                highlightFoundWords();
+            });
+
+        // Initialize the grid
+        document.addEventListener('DOMContentLoaded', function() {
+            const cells = document.querySelectorAll('.cell');
+            
+            cells.forEach(cell => {
+                // Mouse events for desktop
+                cell.addEventListener('mousedown', startSelection);
+                cell.addEventListener('mouseover', continueSelection);
+                
+                // Touch events for mobile
+                cell.addEventListener('touchstart', handleTouchStart);
+                cell.addEventListener('touchmove', handleTouchMove);
+                cell.addEventListener('touchend', endSelection);
+            });
+            
+            // End selection when mouse is released anywhere
+            document.addEventListener('mouseup', endSelection);
+        });
+
+        // Handle touch start
+        function handleTouchStart(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const cell = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (cell && cell.classList.contains('cell')) {
+                startSelection.call(cell, e);
+            }
+        }
+
+        // Handle touch move
+        function handleTouchMove(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const cell = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (cell && cell.classList.contains('cell')) {
+                continueSelection.call(cell, e);
+            }
+        }
+
+        // Start cell selection
+        function startSelection(e) {
+            clearSelection();
+            isDragging = true;
+            addToSelection(this);
+        }
+
+        // Continue selection while dragging
+        function continueSelection(e) {
+            if (!isDragging) return;
+
+            const row = parseInt(this.dataset.row);
+            const col = parseInt(this.dataset.col);
+            
+            // If this is the first cell after the initial one, determine direction
+            if (selectedCells.length === 1) {
+                const firstCell = selectedCells[0];
+                const firstRow = parseInt(firstCell.dataset.row);
+                const firstCol = parseInt(firstCell.dataset.col);
+                
+                // Calculate direction
+                const rowDiff = row - firstRow;
+                const colDiff = col - firstCol;
+                
+                // Only allow selections in 8 directions
+                if (rowDiff !== 0 || colDiff !== 0) {
+                    // Clear cells between first and current in the determined direction
+                    clearCellsBetween(firstRow, firstCol, row, col);
+                }
+            }
+            
+            addToSelection(this);
+            updateCurrentWord();
+        }
+
+        // Clear cells between two points in a straight line
+        function clearCellsBetween(startRow, startCol, endRow, endCol) {
+            // Get direction
+            const rowDir = Math.sign(endRow - startRow);
+            const colDir = Math.sign(endCol - startCol);
+            
+            // Calculate steps
+            const steps = Math.max(
+                Math.abs(endRow - startRow),
+                Math.abs(endCol - startCol)
+            );
+            
+            // Clear selection except the first cell
+            selectedCells = [selectedCells[0]];
+            document.querySelectorAll('.cell.selected').forEach(cell => {
+                if (cell !== selectedCells[0]) {
+                    cell.classList.remove('selected');
+                }
+            });
+            
+            // Add cells in the path
+            for (let i = 1; i <= steps; i++) {
+                const row = startRow + (i * rowDir);
+                const col = startCol + (i * colDir);
+                const cell = document.querySelector(`.cell[data-row="${row}"][data-col="${col}"]`);
+                if (cell) {
+                    addToSelection(cell);
+                }
+            }
+        }
+
+        // End selection process
+        function endSelection() {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            // Check if the selected word is valid
+            if (currentWord.length > 1) {
+                checkFoundWord(currentWord, selectedCells);
+            }
+        }
+
+        // Add a cell to the current selection
+        function addToSelection(cell) {
+            if (!selectedCells.includes(cell)) {
+                selectedCells.push(cell);
+                cell.classList.add('selected');
+            }
+        }
+
+        // Clear the current selection
+        function clearSelection() {
+            selectedCells.forEach(cell => {
+                cell.classList.remove('selected');
+            });
+            selectedCells = [];
+            currentWord = '';
+        }
+
+        // Update the current word based on selected cells
+        function updateCurrentWord() {
+            currentWord = selectedCells.map(cell => cell.textContent.toLowerCase()).join('');
+        }
+
+        // Check if the found word is valid
+        function checkFoundWord(word, cells) {
+            const cellData = cells.map(cell => ({
+                row: parseInt(cell.dataset.row),
+                col: parseInt(cell.dataset.col)
+            }));
+            
+            fetch('/check_found_word', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    word: word,
+                    cells: cellData
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.correct) {
+                    // Mark cells as found
+                    selectedCells.forEach(cell => {
+                        cell.classList.add('found');
+                    });
+                    
+                    // Show success message
+                    showWordMessage(`Found: ${data.word.toUpperCase()}!`, 'success');
+                    
+                    // Update found words list
+                    foundWords = data.found_words;
+                    updateFoundWordsList();
+                }
+                
+                // Clear selection after checking
+                setTimeout(clearSelection, 500);
+            });
+        }
+
+        // Show a message when a word is found
+        function showWordMessage(message, type) {
+            wordMessage.textContent = message;
+            wordMessage.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
+            wordMessage.style.display = 'block';
+            
+            setTimeout(() => {
+                wordMessage.style.display = 'none';
+            }, 2000);
+        }
+
+        // Update the found words list
+        function updateFoundWordsList() {
+            foundWordsList.innerHTML = '';
+            foundWords.forEach(word => {
+                const li = document.createElement('li');
+                li.className = 'found-word';
+                li.textContent = word.toUpperCase();
+                foundWordsList.appendChild(li);
+            });
+        }
+
+        // Highlight already found words in the grid
+        function highlightFoundWords() {
+            // Create a map to efficiently find answers
+            const answerMap = {};
+            {% for answer in puzzle.answers %}
+                answerMap['{{ answer.answer.lower() }}'] = {{ answer.locations|tojson }};
+            {% endfor %}
+            
+            foundWords.forEach(word => {
+                const locations = answerMap[word.toLowerCase()];
+                if (locations) {
+                    locations.forEach(loc => {
+                        highlightWord(loc.row, loc.col, loc.direction, word.length, loc.reversed);
+                    });
+                }
+            });
+        }
+
+        // Highlight a word in the grid
+        function highlightWord(startRow, startCol, direction, length, reversed) {
+            let rowIncrement = 0;
+            let colIncrement = 0;
+            
+            // Set direction increments
+            if (direction === 'horizontal') {
+                colIncrement = reversed ? -1 : 1;
+            } else if (direction === 'vertical') {
+                rowIncrement = reversed ? -1 : 1;
+            } else if (direction === 'diagonal') {
+                rowIncrement = reversed ? -1 : 1;
+                colIncrement = reversed ? -1 : 1;
+            }
+            
+            // Highlight each cell in the word
+            for (let i = 0; i < length; i++) {
+                const row = startRow + (i * rowIncrement);
+                const col = startCol + (i * colIncrement);
+                const cell = document.querySelector(`.cell[data-row="${row}"][data-col="${col}"]`);
+                if (cell) {
+                    cell.classList.add('found');
+                }
+            }
+        }
+
+        // Check clue answer
+        function checkAnswer(clueId) {
+            const input = document.getElementById(`answer-${clueId}`);
+            const answer = input.value.trim();
+            
+            fetch('/check_answer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    clue_id: clueId,
+                    answer: answer
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const feedback = document.getElementById(`feedback-${clueId}`);
+                const clueItem = document.getElementById(`clue-${clueId}`);
+                
+                if (data.correct) {
+                    feedback.textContent = '✓ Correct!';
+                    feedback.style.color = 'green';
+                    clueItem.classList.add('solved');
+                    input.disabled = true;
+                } else {
+                    feedback.textContent = '✗ Try again';
+                    feedback.style.color = 'red';
+                    setTimeout(() => {
+                        feedback.textContent = '';
+                    }, 1500);
+                }
+            });
+        }
+
+        // Show all answers for debugging/testing
+        function showAllAnswers() {
+            {% for clue in puzzle.clues %}
+                const input{{ clue.id }} = document.getElementById('answer-{{ clue.id }}');
+                input{{ clue.id }}.value = '{{ clue.answer }}';
+                checkAnswer({{ clue.id }});
+            {% endfor %}
+            
+            // Create a map to efficiently find answers
+            const answerMap = {};
+            {% for answer in puzzle.answers %}
+                answerMap['{{ answer.answer.lower() }}'] = {{ answer.locations|tojson }};
+            {% endfor %}
+            
+            // Highlight all words
+            for (const [word, locations] of Object.entries(answerMap)) {
+                locations.forEach(loc => {
+                    highlightWord(loc.row, loc.col, loc.direction, word.length, loc.reversed);
+                });
+                
+                // Add to found words if not already found
+                if (!foundWords.includes(word)) {
+                    foundWords.push(word);
+                }
+            }
+            
+            updateFoundWordsList();
+        }
+    </script>
+</body>
+</html>

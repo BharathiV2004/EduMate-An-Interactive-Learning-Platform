@@ -1,0 +1,114 @@
+{
+    "topic": "Smart Device Communication Technologies",
+    "generated_at": "2025-05-14T01:12:07.522362",
+    "questions": [
+        {
+            "question": "Which smart home technology allows devices from different manufacturers to work together on the same network?",
+            "options": {
+                "A": "Zigbee",
+                "B": "Z-Wave",
+                "C": "Bluetooth Mesh",
+                "D": "Thread"
+            },
+            "answer": "D",
+            "explanation": "Thread is an open-source protocol that enables multiple vendors' products to communicate and interoperate seamlessly within a single smart home ecosystem, much like how various devices can work together in a well-coordinated orchestra.",
+            "hint": "Consider the term \"open-source.\"\n\n---"
+        },
+        {
+            "question": "What technology is primarily used for short-range wireless communication between two nearby devices?",
+            "options": {
+                "A": "5G",
+                "B": "Wi-Fi",
+                "C": "Bluetooth",
+                "D": "LTE"
+            },
+            "answer": "C",
+            "explanation": "Bluetooth excels in providing a simple, low-power method for exchanging data over short distances, ideal for connecting headphones to smartphones or fitness trackers to watches.",
+            "hint": "Think about the name \"bluetooth.\"\n\n---"
+        },
+        {
+            "question": "Which smart device communication technology is known for its low power consumption and mesh networking capabilities?",
+            "options": {
+                "A": "NFC",
+                "B": "Bluetooth Low Energy (BLE)",
+                "C": "Zigbee",
+                "D": "Z-Wave"
+            },
+            "answer": "C",
+            "explanation": "Zigbee supports a robust network of interconnected devices, often used in home automation systems like smart lights and thermostats. Its low power consumption ensures that these devices can operate on small batteries for extended periods.",
+            "hint": "Think about a mesh network.\n\n---"
+        },
+        {
+            "question": "In the context of smart device communication, which protocol is specifically designed for peer-to-peer communication without a central server?",
+            "options": {
+                "A": "MQTT",
+                "B": "CoAP",
+                "C": "HTTP/2",
+                "D": "DTLS"
+            },
+            "answer": "B",
+            "explanation": "Constrained Application Protocol (CoAP) was developed to facilitate lightweight interactions between small and resource-constrained devices, making it perfect for IoT applications where direct communication is needed.",
+            "hint": "Consider the term \"peer-to-peer.\"\n\n---"
+        },
+        {
+            "question": "What technology enables multiple devices within a smart home to communicate with each other without needing an internet connection?",
+            "options": {
+                "A": "Zigbee",
+                "B": "BLE",
+                "C": "NFC",
+                "D": "Thread"
+            },
+            "answer": "A",
+            "explanation": "Zigbee is designed for low data rate, low-power consumption networking among devices in the same local area, enabling them to work together seamlessly within a smart home environment.",
+            "hint": "Think about self-contained networks.\n\n---"
+        },
+        {
+            "question": "Which technology allows multiple Wi-Fi enabled devices to communicate directly with each other without going through an access point?",
+            "options": {
+                "A": "5G",
+                "B": "Wi-Fi Direct",
+                "C": "LTE",
+                "D": "Bluetooth"
+            },
+            "answer": "B",
+            "explanation": "Wi-Fi Direct enables direct device-to-device communication, perfect for sharing files or setting up a peer-to-peer network without the need for a central Wi-Fi router.",
+            "hint": "Think about direct connection.\n\n---"
+        },
+        {
+            "question": "What technology is commonly used in smart home devices to enable secure and reliable low-power wireless communications?",
+            "options": {
+                "A": "NFC",
+                "B": "Bluetooth Low Energy (BLE)",
+                "C": "Zigbee",
+                "D": "Z-Wave"
+            },
+            "answer": "C",
+            "explanation": "Zigbee is designed for low-power, high-connectivity networks that can support a large number of devices in a single network. It’s widely used in smart home applications due to its reliability and security.",
+            "hint": "Think about energy-efficient networking.\n\n---"
+        },
+        {
+            "question": "In the context of IoT, which technology is best suited for connecting small sensors or gadgets with limited processing power?",
+            "options": {
+                "A": "5G",
+                "B": "Wi-Fi",
+                "C": "Zigbee",
+                "D": "NFC"
+            },
+            "answer": "C",
+            "explanation": "Zigbee is ideal for connecting low-power devices such as environmental sensors and home automation tools due to its ability to support a large number of nodes in a network.",
+            "hint": "Think about resource-constrained devices.\n\n---"
+        },
+        {
+            "question": "Which smart device communication technology supports both secure authentication and encryption, making it suitable for high-security applications?",
+            "options": {
+                "A": "BLE",
+                "B": "Zigbee",
+                "C": "Z-Wave",
+                "D": "Thread"
+            },
+            "answer": "D",
+            "explanation": "Thread not only provides low-power networking but also includes security features such as strong authentication and encryption to protect against unauthorized access.",
+            "hint": "Consider the term \"high-security.\""
+        }
+    ]
+}

@@ -1,0 +1,324 @@
+/* ==============================
+   Root Variables (Colors & Glow)
+   ============================== */
+   :root {
+    --neon-blue: #0ff0fc;
+    --neon-purple: #9600ff;
+    --dark-bg: #0a0a12;
+    --darker-bg: #050508;
+    --subtle-glow: 0 0 5px rgba(15, 240, 252, 0.3);
+    --strong-glow: 0 0 8px var(--neon-blue), 0 0 16px var(--neon-blue), 0 0 24px var(--neon-blue);
+  }
+  
+  /* ==============================
+     Base Styles
+     ============================== */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    background-color: var(--darker-bg);
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  /* ==============================
+     Loading Screen
+     ============================== */
+  #loading {
+    position: fixed;
+    inset: 0;
+    background: var(--dark-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  #loading h2 {
+    color: var(--neon-blue);
+    font-size: 2rem;
+    text-shadow: var(--subtle-glow);
+    animation: flicker 1.5s infinite alternate;
+  }
+  
+  #progress-bar {
+    width: 80%;
+    height: 10px;
+    margin-top: 30px;
+    background: rgba(15, 240, 252, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  #progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+    transition: width 0.5s ease-out;
+  }
+  
+  /* ==============================
+     Title Screen (ENTRY)
+     ============================== */
+  #title-screen {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, #10101a, #07070d);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    z-index: 90;
+  }
+  
+  #title-screen h1 {
+    font-size: 3.5rem;
+    color: #c8f6ff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    margin-bottom: 20px;
+  }
+  
+  #title-screen p {
+    max-width: 600px;
+    font-size: 1.2rem;
+    color: #ccc;
+    line-height: 1.6;
+  }
+  
+  /* ==============================
+     Scene Title Overlay
+     ============================== */
+  #scene-title {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(10, 10, 18, 0.85);
+    padding: 15px 30px;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    color: var(--neon-blue);
+    border: 1px solid var(--neon-blue);
+    box-shadow: var(--subtle-glow);
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 3;
+  }
+  
+  #scene-title.active {
+    opacity: 1;
+  }
+  
+  /* ==============================
+     Story Container & Image
+     ============================== */
+  #story-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  #scene-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8) contrast(1.2);
+    z-index: 1;
+  }
+  
+  /* ==============================
+     Dialogue Box
+     ============================== */
+  #dialogue-container {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 800px;
+    z-index: 2;
+  }
+  
+  .dialogue-box {
+    background: rgba(10, 10, 18, 0.9);
+    border: 1px solid var(--neon-blue);
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    opacity: 0;
+    transition: opacity 0.5s;
+    box-shadow: var(--subtle-glow);
+  }
+  
+  .dialogue-box.active {
+    opacity: 1;
+  }
+  
+  .character-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--neon-blue);
+    box-shadow: var(--subtle-glow);
+  }
+  
+  .dialogue-content {
+    flex: 1;
+  }
+  
+  .character-name {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--neon-blue);
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px var(--neon-blue);
+  }
+  
+  .dialogue-text {
+    font-size: 1.1rem;
+    color: #eee;
+    line-height: 1.6;
+  }
+  
+  /* ==============================
+     Completion Screen
+     ============================== */
+  #completion-screen {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, var(--dark-bg), var(--darker-bg));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  #completion-screen h1 {
+    font-size: 3.5rem;
+    color: var(--neon-blue);
+    text-shadow: var(--strong-glow);
+    margin-bottom: 20px;
+  }
+  
+  #completion-screen p {
+    font-size: 1.3rem;
+    color: #ccc;
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  
+  /* ==============================
+     Buttons
+     ============================== */
+  button {
+    background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 10px rgba(15, 240, 252, 0.5);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(15, 240, 252, 0.8);
+  }
+  
+  button:active {
+    transform: translateY(1px);
+  }
+  
+  button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    transform: rotate(30deg);
+    transition: left 0.5s;
+    z-index: 0;
+  }
+  
+  button:hover::before {
+    left: 100%;
+  }
+  
+  /* ==============================
+     Utility Classes
+     ============================== */
+  .hidden {
+    display: none !important;
+  }
+  
+  audio {
+    display: none;
+  }
+  
+  /* ==============================
+     Animations
+     ============================== */
+  @keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes pulse {
+    from { text-shadow: var(--subtle-glow); }
+    to { text-shadow: var(--strong-glow); }
+  }
+  
+  /* ==============================
+     Responsive Design
+     ============================== */
+  @media (max-width: 768px) {
+    #title-screen h1,
+    #completion-screen h1 {
+      font-size: 2.5rem;
+    }
+  
+    .dialogue-box {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+  
+    .character-image {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+    }
+  
+    #scene-title {
+      font-size: 1.2rem;
+      width: 90%;
+    }
+  
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+    }
+  }
+  

@@ -1,0 +1,114 @@
+{
+    "topic": "Smart Device Communication Technologies: 5G, IoT, VoIP",
+    "generated_at": "2025-05-08T00:39:56.956099",
+    "questions": [
+        {
+            "question": "In which technology do users experience a near-instantaneous delay of under 1 millisecond?",
+            "options": {
+                "A": "IoT",
+                "B": "VoIP",
+                "C": "5G",
+                "D": "Wi-Fi"
+            },
+            "answer": "C",
+            "explanation": "5G stands out for its ultra-low latency, enabling high-speed data transfers and real-time applications like remote surgery. It's the backbone of modern smart city infrastructures.",
+            "hint": "Think speed.\n\n---"
+        },
+        {
+            "question": "Which technology is best suited for voice communication over the internet?",
+            "options": {
+                "A": "IoT",
+                "B": "5G",
+                "C": "VoIP",
+                "D": "NFC"
+            },
+            "answer": "C",
+            "explanation": "Voice over Internet Protocol (VoIP) converts analog voice signals into digital data packets, transmitted via the internet. This technology powers everything from Skype calls to office PBX systems.",
+            "hint": "Think about your home phone service.\n\n---"
+        },
+        {
+            "question": "What is a primary application of 5G in smart device communication?",
+            "options": {
+                "A": "Home automation",
+                "B": "Smart city traffic management",
+                "C": "Wearable fitness tracking",
+                "D": "Smart home appliances"
+            },
+            "answer": "B",
+            "explanation": "With its high speeds and low latency, 5G powers real-time data processing crucial for applications like autonomous driving and smart city infrastructure.",
+            "hint": "Think about traffic lights.\n\n---"
+        },
+        {
+            "question": "Which technology can enable a smart device to connect with other devices without human intervention?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi",
+                "C": "IoT",
+                "D": "LTE"
+            },
+            "answer": "C",
+            "explanation": "The Internet of Things (IoT) allows devices to communicate and share data independently, facilitating seamless interactions like automated home systems.",
+            "hint": "Think about your smart fridge.\n\n---"
+        },
+        {
+            "question": "Which technology is crucial for enabling voice communication in a remote call between two users?",
+            "options": {
+                "A": "5G",
+                "B": "VoIP",
+                "C": "Bluetooth",
+                "D": "Wi-Fi"
+            },
+            "answer": "B",
+            "explanation": "Voice over Internet Protocol (VoIP) makes it possible to conduct clear, high-quality calls across the internet. It's essential for services like Zoom and WhatsApp voice messages.",
+            "hint": "Think about your computer calling capabilities.\n\n---"
+        },
+        {
+            "question": "Which of these technologies allows for a seamless transition between different networks?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "LTE",
+                "D": "Wi-Fi Direct"
+            },
+            "answer": "C",
+            "explanation": "Long-Term Evolution (LTE), often part of 4G, ensures smooth handovers when devices move from one network to another. This is vital for maintaining connections in urban environments.",
+            "hint": "Think about staying connected.\n\n---"
+        },
+        {
+            "question": "Which technology uses radio waves to enable communication between short-range devices?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "5G",
+                "C": "IoT",
+                "D": "Wi-Fi"
+            },
+            "answer": "A",
+            "explanation": "Bluetooth is a wireless technology used for exchanging data over short distances from fixed and mobile devices, such as smartphones and computers.",
+            "hint": "Think about your earbuds.\n\n---"
+        },
+        {
+            "question": "Which of these technologies can significantly enhance the reliability of smart city services?",
+            "options": {
+                "A": "5G",
+                "B": "IoT",
+                "C": "Wi-Fi",
+                "D": "NFC"
+            },
+            "answer": "A",
+            "explanation": "5G's enhanced coverage and reliability make it ideal for supporting critical infrastructure in smart cities, ensuring robust service delivery.",
+            "hint": "Think about reliable connectivity.\n\n---"
+        },
+        {
+            "question": "Which technology enables the secure transfer of data between devices within a local network?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi Direct",
+                "C": "IoT",
+                "D": "5G"
+            },
+            "answer": "B",
+            "explanation": "Wi-Fi Direct allows two or more devices to communicate directly without the need for an access point, ideal for quick file sharing and direct device-to-device communication.",
+            "hint": "Think about transferring files wirelessly."
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "topic": "photosynthesis",
+    "generated_at": "2025-04-21T18:24:40.139461",
+    "questions": [
+        {
+            "question": "Which gas is primarily used by plants during the process of photosynthesis?",
+            "options": {
+                "A": "Oxygen (O₂)",
+                "B": "Carbon Dioxide (CO₂)",
+                "C": "Nitrogen (N₂)",
+                "D": "Water Vapor (H₂O)"
+            },
+            "answer": "B",
+            "explanation": "Plants breathe in CO₂ and exhale O₂, much like us. Think of it as a reverse carbon cycle—they take what we expel and turn it into food and oxygen.",
+            "hint": "Consider the air we breathe out versus what plants need to grow.\n\n---"
+        },
+        {
+            "question": "Which process is primarily responsible for the production of glucose during photosynthesis?",
+            "options": {
+                "A": "Respiration",
+                "B": "Transpiration",
+                "C": "Calvin Cycle",
+                "D": "Photolysis"
+            },
+            "answer": "C",
+            "explanation": "The Calvin Cycle is like a factory within the plant, turning CO₂ and energy from the light reactions into glucose. It's the assembly line where sugar is made.",
+            "hint": "Think about what happens after sunlight hits a leaf.\n\n---"
+        },
+        {
+            "question": "What molecule acts as the primary pigment that absorbs light energy in photosynthesis?",
+            "options": {
+                "A": "Carotenoids",
+                "B": "Chlorophyll",
+                "C": "Anthocyanins",
+                "D": "Phycobilins"
+            },
+            "answer": "B",
+            "explanation": "Chlorophyll is green and abundant in leaves. It's like the sun’s favorite color, absorbing red and blue wavelengths while reflecting green back to our eyes.",
+            "hint": "Think about why plants appear green.\n\n---"
+        },
+        {
+            "question": "Which of the following statements best describes the role of stomata during photosynthesis?",
+            "options": {
+                "A": "They release oxygen into the atmosphere.",
+                "B": "They absorb light energy from the sun.",
+                "C": "They control the exchange of gases between the plant and its environment.",
+                "D": "They transport glucose to other parts of the plant."
+            },
+            "answer": "C",
+            "explanation": "Stomata are tiny pores that open and close to let CO₂ in for photosynthesis and release O₂. It’s like a plant's respiratory system, ensuring it gets what it needs while breathing out what isn’t used.",
+            "hint": "Think about how you breathe—open and close your mouth and nose."
+        }
+    ]
+}

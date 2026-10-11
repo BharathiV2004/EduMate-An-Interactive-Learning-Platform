@@ -1,0 +1,86 @@
+{
+    "topic": "Web Technology Topics",
+    "card_count": 10,
+    "cards": [
+        {
+            "front": "What is the primary purpose of a web server?",
+            "back": {
+                "answer": "A web server hosts and delivers web content, such as HTML pages, to clients via HTTP.",
+                "analogy": "It's like a shop in a mall where customers can browse and purchase items through a store’s website.",
+                "common_mistake": "Many people confuse it with a database server, which stores data rather than serving it."
+            }
+        },
+        {
+            "front": "How does a browser cache web content?",
+            "back": {
+                "answer": "Browsers save frequently accessed web resources to speed up subsequent visits to websites.",
+                "analogy": "It's like keeping your favorite snacks in your backpack so you don’t have to buy them every time.",
+                "common_mistake": "Users often think that clearing the cache deletes all their browsing history, which is not true."
+            }
+        },
+        {
+            "front": "What role does the Domain Name System (DNS) play?",
+            "back": {
+                "answer": "DNS translates human-readable domain names into IP addresses for web server locations.",
+                "analogy": "It’s like a phone book that helps you find someone's house address based on their name.",
+                "common_mistake": "Many users believe DNS is only used by ISPs, but it’s actually accessed by every computer making an internet request."
+            }
+        },
+        {
+            "front": "What is the main function of HTML?",
+            "back": {
+                "answer": "HTML defines the structure and content of web pages using tags.",
+                "analogy": "It’s like building instructions for a Lego set that tells you how to put together different pieces to make something meaningful.",
+                "common_mistake": "People often confuse it with CSS, which actually styles the layout rather than defining its structure."
+            }
+        },
+        {
+            "front": "How does HTTPS improve website security?",
+            "back": {
+                "answer": "HTTPS uses SSL/TLS protocols to secure data transmitted between clients and servers, preventing interception.",
+                "analogy": "It’s like using a locked mailbox for sensitive documents so only the intended recipient can open it.",
+                "common_mistake": "Users may think all websites should use HTTPS, but some simple informational sites don’t need it."
+            }
+        },
+        {
+            "front": "What is the role of JavaScript in web applications?",
+            "back": {
+                "answer": "JavaScript adds interactive elements and dynamic behavior to web pages.",
+                "analogy": "It’s like a magic trick that makes static cards come alive with movement and interaction.",
+                "common_mistake": "Many believe JavaScript only works on websites, but it can also be used for non-web applications."
+            }
+        },
+        {
+            "front": "What is the difference between HTTP 1.0 and HTTP 2?",
+            "back": {
+                "answer": "HTTP/2 introduced improvements such as multiplexing, header compression, and server push to enhance performance over its predecessor.",
+                "analogy": "It’s like upgrading from an old radio with static to a modern FM radio with clear sound and additional features.",
+                "common_mistake": "People often think there is no difference, leading them to use outdated protocols which can reduce web page speed."
+            }
+        },
+        {
+            "front": "What does responsive design ensure in web development?",
+            "back": {
+                "answer": "Responsive design ensures websites adapt their layout for different screen sizes and devices.",
+                "analogy": "It’s like designing a coat that fits well whether you wear it over your head or draped around your shoulders.",
+                "common_mistake": "Users might think all websites are already responsive, but this is not always the case."
+            }
+        },
+        {
+            "front": "What role does a Content Delivery Network (CDN) play?",
+            "back": {
+                "answer": "A CDN caches and delivers content from multiple locations worldwide to improve performance.",
+                "analogy": "It’s like having several stores across a country so customers can get their favorite products quickly without long travel times.",
+                "common_mistake": "Many people believe CDNs only serve static assets, but they can also handle dynamic content."
+            }
+        },
+        {
+            "front": "What is the role of cookies in web technology?",
+            "back": {
+                "answer": "Cookies store small pieces of data on the client side to track user sessions and preferences.",
+                "analogy": "It’s like leaving a note for yourself at your desk so you remember what you were working on earlier.",
+                "common_mistake": "Users often worry about privacy issues, but don’t realize that many websites require cookies just to function properly."
+            }
+        }
+    ]
+}

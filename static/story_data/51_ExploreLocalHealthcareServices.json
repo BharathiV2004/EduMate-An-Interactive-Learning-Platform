@@ -1,0 +1,182 @@
+{
+    "topic": "ExploreLocalHealthcareServices",
+    "story_name": "The Healthcare Navigator",
+    "characters": [
+        {
+            "name": "Emma",
+            "description": "A 24-year-old college student who is health-conscious and tech-savvy. (Female, 24 years old)",
+            "image_path": "/static/images/character_Emma.png",
+            "voice_id": "zh-CN-XiaoxiaoNeural"
+        },
+        {
+            "name": "Dr. Samantha",
+            "description": "A 38-year-old healthcare provider passionate about improving local healthcare systems. (Female, 38 years old)",
+            "image_path": "/static/images/character_Dr.%20Samantha.png",
+            "voice_id": "zh-CN-YunyangNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "Introduction",
+            "setting": "Emma's cozy apartment with a laptop on the table.",
+            "scene_image_path": "/static/images/scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Emma",
+                    "line": "Hey Dr. Sam, I've been feeling under the weather lately and need to find nearby hospitals quickly.",
+                    "audio_path": "/static/audio/scene_1_Emma_6686411390269331471.mp3"
+                },
+                {
+                    "character": "Dr. Samantha",
+                    "line": "Great question! Let me show you how to use our new local healthcare navigation system.",
+                    "audio_path": "/static/audio/scene_1_Dr.%20Samantha_8277779304924521380.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "System Explanation",
+            "setting": "A virtual tour of a hospital map interface.",
+            "scene_image_path": "/static/images/scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Samantha",
+                    "line": "First, we'll determine your current location using GeoIPLookup to find nearby hospitals.",
+                    "audio_path": "/static/audio/scene_2_Dr.%20Samantha_8378612494324958595.mp3"
+                },
+                {
+                    "character": "Emma",
+                    "line": "That sounds useful! How does it work?",
+                    "audio_path": "/static/audio/scene_2_Emma_4558458615910375648.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "Radius Search",
+            "setting": "Emma's apartment with the interactive map displayed on her laptop.",
+            "scene_image_path": "/static/images/scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Samantha",
+                    "line": "The system performs a radius search to find hospitals within a 2 km range from your location.",
+                    "audio_path": "/static/audio/scene_3_Dr.%20Samantha_6273580411792224390.mp3"
+                },
+                {
+                    "character": "Emma",
+                    "line": "So, I can see which hospitals are close by without even leaving my computer?",
+                    "audio_path": "/static/audio/scene_3_Emma_4859724961558981762.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 4,
+            "scene_title": "Display Map",
+            "setting": "Emma's apartment with the interactive map displayed on her laptop.",
+            "scene_image_path": "/static/images/scene_4.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Samantha",
+                    "line": "Yes, and it will show you the locations of nearby hospitals and road networks using OpenStreetMap.",
+                    "audio_path": "/static/audio/scene_4_Dr.%20Samantha_8070694279249587736.mp3"
+                },
+                {
+                    "character": "Emma",
+                    "line": "That makes finding directions so much easier!",
+                    "audio_path": "/static/audio/scene_4_Emma_8214787858766683417.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 5,
+            "scene_title": "Problems Faced",
+            "setting": "A classroom setting during a healthcare seminar.",
+            "scene_image_path": "/static/images/scene_5.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Samantha",
+                    "line": "In many areas, there are diagnostic gaps due to limited resources in health systems.",
+                    "audio_path": "/static/audio/scene_5_Dr.%20Samantha_3520948131742891597.mp3"
+                },
+                {
+                    "character": "Emma",
+                    "line": "So, it's hard for doctors to predict critical conditions quickly?",
+                    "audio_path": "/static/audio/scene_5_Emma_4852151372069685504.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 6,
+            "scene_title": "Solutions Implemented - Disease Diagnosis",
+            "setting": "A hospital lab with medical equipment and charts on the walls.",
+            "scene_image_path": "/static/images/scene_6.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Samantha",
+                    "line": "We've implemented a solution using Random Forest Classification to predict diseases based on symptom data.",
+                    "audio_path": "/static/audio/scene_6_Dr.%20Samantha_206266385589222196.mp3"
+                },
+                {
+                    "character": "Emma",
+                    "line": "That sounds like it could really help doctors make faster diagnoses!",
+                    "audio_path": "/static/audio/scene_6_Emma_2655593488904041320.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 7,
+            "scene_title": "Solutions Implemented - Mental Health Support",
+            "setting": "A mental health support clinic with a relaxed atmosphere.",
+            "scene_image_path": "/static/images/scene_7.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Samantha",
+                    "line": "For mental health, we've implemented MultiLayer Perceptron for detailed analysis of conditions.",
+                    "audio_path": "/static/audio/scene_7_Dr.%20Samantha_8230637435395301347.mp3"
+                },
+                {
+                    "character": "Emma",
+                    "line": "That's amazing! It means people can get better help without always having to go in person.",
+                    "audio_path": "/static/audio/scene_7_Emma_5752270970146525976.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 8,
+            "scene_title": "Solutions Implemented - Care Management",
+            "setting": "Emma and Dr. Samantha discussing on a video call.",
+            "scene_image_path": "/static/images/scene_8.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Samantha",
+                    "line": "We've created an integrated online platform for care management, including appointment booking and patient data handling.",
+                    "audio_path": "/static/audio/scene_8_Dr.%20Samantha_6261792972361537926.mp3"
+                },
+                {
+                    "character": "Emma",
+                    "line": "This means I can manage my health more easily from home!",
+                    "audio_path": "/static/audio/scene_8_Emma_3585290731854713894.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 9,
+            "scene_title": "Conclusion",
+            "setting": "Back in Emma's apartment with the interactive map displayed on her laptop.",
+            "scene_image_path": "/static/images/scene_9.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Samantha",
+                    "line": "With these tools, we're making healthcare more accessible and effective for everyone.",
+                    "audio_path": "/static/audio/scene_9_Dr.%20Samantha_1203672126956425856.mp3"
+                },
+                {
+                    "character": "Emma",
+                    "line": "That's really exciting! Thank you for showing me how it all works!",
+                    "audio_path": "/static/audio/scene_9_Emma_2989287680704275668.mp3"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+{
+    "topic": "Web Technology Topics",
+    "card_count": 10,
+    "cards": [
+        {
+            "front": "What is the main purpose of a web server?",
+            "back": {
+                "answer": "A web server's primary function is to host, process, and deliver web content in response to client requests.",
+                "analogy": "Think of it like a store that stocks and dispenses products when customers make purchases or requests.",
+                "common_mistake": "Many people confuse web servers with databases, assuming they both manage user data."
+            }
+        },
+        {
+            "front": "What distinguishes HTTP from HTTPS?",
+            "back": {
+                "answer": "HTTP is the protocol for transferring data over a network without encryption, while HTTPS uses SSL/TLS to secure the connection and protect data during transmission.",
+                "analogy": "Imagine HTTP as an unsecured walkway where anyone can see what you carry, whereas HTTPS is like walking through a tunnel that hides your belongings from prying eyes.",
+                "common_mistake": "Some think that using HTTP instead of HTTPS does not affect website security or user privacy."
+            }
+        },
+        {
+            "front": "What role does HTML play in web development?",
+            "back": {
+                "answer": "HTML (HyperText Markup Language) serves as the backbone of web pages, defining their structure and content through tags and elements.",
+                "analogy": "Think of HTML as the blueprint for a house; it outlines where windows go, walls are built, etc., but doesn't cover or furnish them.",
+                "common_mistake": "Many believe that HTML is used to style websites, when in fact CSS (Cascading Style Sheets) handles visual aspects."
+            }
+        },
+        {
+            "front": "What is the purpose of using AJAX in web development?",
+            "back": {
+                "answer": "AJAX allows parts of a web page to be updated asynchronously by exchanging data with a server behind the scenes without reloading the entire page.",
+                "analogy": "Imagine a waiter who can update your bill or bring you new items (data) while keeping the rest of the restaurant table (page) untouched.",
+                "common_mistake": "Some think that AJAX makes websites faster by removing the need for any server interaction."
+            }
+        },
+        {
+            "front": "How does a web application differ from a static website?",
+            "back": {
+                "answer": "A web application is interactive and can perform tasks such as processing user input, storing data on a server, or sending requests to APIs. Static websites only display content without dynamic functionality.",
+                "analogy": "Think of a static website as a brochure that provides information but cannot be customized; a web application is like an interactive kiosk where users can interact with the content and get personalized responses.",
+                "common_mistake": "Many confuse static sites with those built using PHP or other server-side technologies, assuming they are inherently dynamic."
+            }
+        },
+        {
+            "front": "What does a CDN (Content Delivery Network) do?",
+            "back": {
+                "answer": "A CDN distributes content across multiple servers located in different geographic locations to reduce load times and increase the availability of web content.",
+                "analogy": "Imagine a CD distributor that sends out copies of a song from nearby warehouses so everyone can get it faster, rather than having one central warehouse ship to all locations.",
+                "common_mistake": "Some think that a CDN only improves aesthetics by making websites look better on different devices."
+            }
+        },
+        {
+            "front": "What is the role of cookies in web technology?",
+            "back": {
+                "answer": "Cookies are small pieces of data stored on a user's device by websites to track their preferences and browsing history, but can also be used for security purposes.",
+                "analogy": "Think of cookies as the notes you leave on your desk to remind yourself about important tasks; similarly, they help remember what you've done online or save login information.",
+                "common_mistake": "Many believe that all cookies are harmful and should be disabled, overlooking their utility in providing personalized experiences."
+            }
+        },
+        {
+            "front": "What is the significance of responsive design?",
+            "back": {
+                "answer": "Responsive design allows websites to adapt to different devices and screen sizes, ensuring a consistent user experience across various platforms.",
+                "analogy": "Imagine a pair of clothes that can change size and fit perfectly no matter if you wear them at home or on vacation; this flexibility ensures comfort everywhere.",
+                "common_mistake": "Some think responsive design means the site looks exactly the same regardless of device, which isn't always true as it focuses more on usability rather than identical appearance."
+            }
+        },
+        {
+            "front": "How does a web framework assist developers?",
+            "back": {
+                "answer": "Web frameworks provide pre-written code and tools to simplify development processes, allowing for faster and more efficient creation of web applications.",
+                "analogy": "Think of a construction kit that comes with all the pieces you need to build a house; it saves time by providing the structure and leaving only customization for you.",
+                "common_mistake": "Some believe that using a framework eliminates the need for any custom coding or design, when in fact frameworks are meant to complement developer skills."
+            }
+        },
+        {
+            "front": "What role does serverless computing play in web technology?",
+            "back": {
+                "answer": "Serverless computing allows developers to write applications without managing servers by automatically scaling and handling infrastructure needs behind the scenes.",
+                "analogy": "Imagine a cloud that magically adjusts its size based on how many users need water; you just ask for what you need, and it provides it efficiently.",
+                "common_mistake": "Some think serverless means there are no servers involved at all, when in reality these services still rely on backend infrastructure but manage it for the user."
+            }
+        }
+    ]
+}

@@ -1,0 +1,112 @@
+{
+    "topic": "5G, IoT and VoIP in Smart Devices",
+    "story_name": "The Smart Home Revolution",
+    "characters": [
+        {
+            "name": "Mia",
+            "description": "A tech-savvy 24-year-old software engineer.(Female,24 years old)",
+            "image_path": "/static/images/character_Mia.png",
+            "voice_id": "en-US-EmmaNeural"
+        },
+        {
+            "name": "Mr. Thompson",
+            "description": "Mia’s wise father, a retired tech entrepreneur, aged 60.(Male,60 years old)",
+            "image_path": "/static/images/character_Mr.%20Thompson.png",
+            "voice_id": "en-US-AnaNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "The Smart Kitchen",
+            "setting": "Mia's modern kitchen with high-tech appliances.",
+            "scene_image_path": "/static/images/scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "Dad, why don't you answer this call? It's through the fridge!",
+                    "audio_path": "/static/audio/scene_1_Mia_2897006690585875204.mp3"
+                },
+                {
+                    "character": "Mr. Thompson",
+                    "line": "That’s smart! But how does the fridge make calls?",
+                    "audio_path": "/static/audio/scene_1_Mr.%20Thompson_8705160124607721861.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "With 5G and VoIP technology, Dad. The internet is everywhere now.",
+                    "audio_path": "/static/audio/scene_1_Mia_9150712766951328837.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "Exploring IoT Devices",
+            "setting": "Mia’s living room with various connected devices.",
+            "scene_image_path": "/static/images/scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "Hey Dad, did you know your smart watch can call me too?",
+                    "audio_path": "/static/audio/scene_2_Mia_7336331053100150104.mp3"
+                },
+                {
+                    "character": "Mr. Thompson",
+                    "line": "Really? That's amazing! How does that work?",
+                    "audio_path": "/static/audio/scene_2_Mr.%20Thompson_437338257119720533.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "IoT stands for the Internet of Things. It means everyday devices like watches and fridges can connect to the internet.",
+                    "audio_path": "/static/audio/scene_2_Mia_2240878514475021607.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "Smart Home Automation",
+            "setting": "Mia’s home office, filled with smart devices.",
+            "scene_image_path": "/static/images/scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "With smart homes, we can automate almost everything. Like scheduling calls or setting reminders.",
+                    "audio_path": "/static/audio/scene_3_Mia_8279769452928065441.mp3"
+                },
+                {
+                    "character": "Mr. Thompson",
+                    "line": "That sounds like a future I didn't know was possible! How do you set that up?",
+                    "audio_path": "/static/audio/scene_3_Mr.%20Thompson_4212015928805616501.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "It's simple. Just connect the device to your home network and use an app on your phone to control it.",
+                    "audio_path": "/static/audio/scene_3_Mia_5842040148011953597.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 4,
+            "scene_title": "A Day in Mia’s Life",
+            "setting": "A typical day at Mia's home, showing how smart devices are integrated.",
+            "scene_image_path": "/static/images/scene_4.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Mia",
+                    "line": "Good morning, Dad! Your smart alarm just woke you up.",
+                    "audio_path": "/static/audio/scene_4_Mia_3842264812900316862.mp3"
+                },
+                {
+                    "character": "Mr. Thompson",
+                    "line": "That's impressive. How does the alarm connect to my phone?",
+                    "audio_path": "/static/audio/scene_4_Mr.%20Thompson_4662399406032343531.mp3"
+                },
+                {
+                    "character": "Mia",
+                    "line": "It uses IoT and VoIP technology to sync with your calendar and send notifications.",
+                    "audio_path": "/static/audio/scene_4_Mia_1167179550233635097.mp3"
+                }
+            ]
+        }
+    ]
+}

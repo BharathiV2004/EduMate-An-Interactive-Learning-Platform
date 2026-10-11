@@ -1,0 +1,765 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Smart Notes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Global Variables - Star Colors */
+        :root {
+            --star-primary: #8a9dc7;
+            --star-secondary: #b5c7e3;
+            --star-accent: #f8df8c;
+            --star-bright: #ffffff;
+            --night-bg-dark: #0a1128;
+            --night-bg-medium: #1b2e5e;
+            --night-bg-light: #2e4482;
+            --aurora-green: rgba(120, 236, 189, 0.3);
+            --aurora-blue: rgba(105, 159, 238, 0.2);
+            --aurora-purple: rgba(179, 136, 235, 0.3);
+        }
+
+        /* Base Elements */
+        body {
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, var(--night-bg-dark), var(--night-bg-medium), var(--night-bg-light));
+            position: relative;
+            color: var(--star-bright);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Starry Night Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, var(--star-bright), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, var(--star-primary), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 160px, var(--star-secondary), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, var(--star-accent), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, var(--star-bright), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 160px 120px, var(--star-primary), rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: twinkle 8s infinite alternate ease-in-out;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        /* Milky Way Effect */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(217deg, rgba(94, 114, 235, 0.05), rgba(255,0,0,0) 70.71%),
+                        linear-gradient(127deg, rgba(104, 109, 224, 0.05), rgba(0,255,0,0) 70.71%),
+                        linear-gradient(336deg, rgba(67, 97, 238, 0.08), rgba(0,0,255,0) 70.71%);
+            transform: rotate(-15deg);
+            z-index: -2;
+            opacity: 0.4;
+            animation: milkyWayFlow 30s infinite alternate ease-in-out;
+        }
+
+        /* Animations */
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale(1.01);
+            }
+        }
+
+        @keyframes milkyWayFlow {
+            0% {
+                transform: rotate(-15deg) translateY(-5%);
+            }
+            100% {
+                transform: rotate(-18deg) translateY(5%);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(138, 157, 199, 0.3); }
+            100% { box-shadow: 0 0 20px rgba(138, 157, 199, 0.6); }
+        }
+
+        /* Header Styling */
+        .pdf-header {
+            background: linear-gradient(135deg, var(--night-bg-medium), var(--night-bg-light));
+            color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .pdf-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                                    transparent, 
+                                    rgba(255, 255, 255, 0.1), 
+                                    transparent);
+            animation: headerShine 8s infinite;
+        }
+
+        @keyframes headerShine {
+            0% { left: -100%; }
+            20%, 100% { left: 100%; }
+        }
+
+        .pdf-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1.5rem;
+        }
+
+        .pdf-header .btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            padding: 0.8rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .pdf-header .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main Content Sections */
+        .note-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .note-section:hover {
+            box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .note-section h2 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--star-bright);
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .note-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                                    var(--night-bg-light), 
+                                    var(--star-accent), 
+                                    var(--night-bg-light));
+        }
+
+        .section-icon {
+            font-size: 2rem;
+            margin-right: 0.8rem;
+            color: var(--star-accent);
+            text-shadow: 0 0 10px rgba(248, 223, 140, 0.5);
+        }
+
+        /* Topic Styling */
+        .topic {
+            background: rgba(43, 57, 104, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .topic:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .topic h4 {
+            color: var(--star-accent);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.8rem;
+        }
+
+        /* Subtopic Styling - Hierarchical Organization */
+        .subtopics-container {
+            padding-left: 1rem;
+        }
+
+        .subtopic {
+            background: rgba(30, 41, 82, 0.3);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--star-primary);
+            transition: all 0.3s ease;
+        }
+
+        .subtopic:hover {
+            border-left-color: var(--star-accent);
+            background: rgba(36, 51, 102, 0.4);
+        }
+
+        .subtopic h5 {
+            color: var(--star-secondary);
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Details Styling - Third Level Indentation */
+        .details-container {
+            padding-left: 1.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .detail-item {
+            position: relative;
+            padding: 0.5rem 0.8rem;
+            margin-bottom: 0.5rem;
+            border-radius: 6px;
+            color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        .detail-item:hover {
+            background: rgba(255, 255, 255, 0.07);
+            color: var(--star-bright);
+        }
+
+        .detail-item::before {
+            content: '›';
+            position: absolute;
+            left: -15px;
+            color: var(--star-accent);
+            font-weight: bold;
+        }
+
+        /* Key Terms Styling */
+        .term-card {
+            background: rgba(30, 41, 82, 0.3);
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .term-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .term-card dt {
+            font-weight: 700;
+            color: var(--star-accent);
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .term-card dd {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0;
+        }
+
+        /* Examples and Questions Styling */
+        .list-group-item {
+            background: rgba(30, 41, 82, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.8rem;
+            border-radius: 8px !important;
+            padding: 1rem 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .list-group-item:hover {
+            background: rgba(36, 51, 102, 0.4);
+            transform: translateX(5px);
+        }
+
+        /* Connections Styling */
+        .connection-item {
+            background: rgba(30, 41, 82, 0.3);
+            border-left: 3px solid var(--star-secondary);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .connection-item:hover {
+            background: rgba(36, 51, 102, 0.4);
+            border-left-color: var(--star-accent);
+            transform: translateX(5px);
+        }
+
+        .connection-icon {
+            margin-right: 0.8rem;
+            color: var(--star-accent);
+        }
+
+        /* Back Button */
+        .back-button {
+            background: rgba(30, 41, 82, 0.5);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--star-bright);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background: rgba(36, 51, 102, 0.7);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-button i {
+            margin-right: 0.5rem;
+        }
+
+        /* Additional Floating Elements */
+        .float-element {
+            animation: float 6s infinite alternate ease-in-out;
+        }
+
+        /* Aurora Effect */
+        .aurora {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            pointer-events: none;
+            z-index: -3;
+            overflow: hidden;
+        }
+
+        .aurora .aurora-layer {
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            filter: blur(40px);
+            border-radius: 50%;
+            transform-origin: center center;
+        }
+
+        .aurora .aurora-layer-1 {
+            background: var(--aurora-green);
+            animation: auroraWave 20s infinite alternate ease-in-out;
+        }
+
+        .aurora .aurora-layer-2 {
+            background: var(--aurora-blue);
+            animation: auroraWave2 25s infinite alternate-reverse ease-in-out;
+        }
+
+        .aurora .aurora-layer-3 {
+            background: var(--aurora-purple);
+            animation: auroraWave3 22s infinite alternate ease-in-out;
+        }
+
+        @keyframes auroraWave {
+            0% { transform: translateX(-5%) scaleY(0.9); opacity: 0.5; }
+            100% { transform: translateX(5%) scaleY(1.1); opacity: 0.7; }
+        }
+
+        @keyframes auroraWave2 {
+            0% { transform: translateX(3%) scaleY(1.1); opacity: 0.4; }
+            100% { transform: translateX(-3%) scaleY(0.9); opacity: 0.6; }
+        }
+
+        @keyframes auroraWave3 {
+            0% { transform: translateX(-4%) scaleY(1); opacity: 0.3; }
+            100% { transform: translateX(4%) scaleY(1.2); opacity: 0.5; }
+        }
+
+        /* Collapsible Section Animation */
+        .collapsing {
+            transition: height 0.35s ease;
+        }
+
+        .collapsed-indicator {
+            transition: transform 0.3s ease;
+        }
+
+        .collapsed .collapsed-indicator {
+            transform: rotate(-90deg);
+        }
+
+        /* Shooting Star Effect */
+        .shooting-star {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 3px;
+            background: var(--star-bright);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+                        0 0 0 8px rgba(255, 255, 255, 0.1),
+                        0 0 20px var(--star-bright);
+            animation: shootingStar 6s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes shootingStar {
+            0% {
+                transform: translate(0, 0);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(100vw, 100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+    <style>
+    /* Simplified Variables */
+    :root {
+        --star-primary: #8a9dc7;
+        --star-accent: #f8df8c;
+        --night-bg-dark: #0a1128;
+        --night-bg-medium: #1b2e5e;
+    }
+
+    /* Base Simplification */
+    body {
+        background: var(--night-bg-dark);
+        color: #e8eef4;
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        line-height: 1.6;
+    }
+
+    /* Header Simplification */
+    .pdf-header {
+        background: var(--night-bg-medium);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .pdf-header h1 {
+        font-size: 2.2rem;
+        color: var(--star-accent);
+        margin-bottom: 1rem;
+    }
+
+    /* Section Styling */
+    .note-section {
+        background: var(--night-bg-medium);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .note-section h2 {
+        font-size: 1.4rem;
+        color: var(--star-accent);
+        border-bottom: 2px solid var(--star-primary);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Content Hierarchy */
+    .topic {
+        margin-bottom: 1.5rem;
+    }
+
+    .topic-title {
+        color: var(--star-primary);
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+    }
+
+    .subtopic {
+        margin-left: 1rem;
+        padding-left: 1rem;
+        border-left: 2px solid rgba(138, 157, 199, 0.3);
+        margin-bottom: 1rem;
+    }
+
+    .detail-item {
+        margin-left: 2rem;
+        color: #d0d9e6;
+    }
+
+    /* Cards */
+    .term-card {
+        background: rgba(27, 46, 94, 0.5);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(138, 157, 199, 0.2);
+    }
+
+    .term-card dt {
+        color: var(--star-accent);
+        font-weight: 600;
+    }
+
+    /* Interactive Elements */
+    .list-group-item {
+        background: rgba(27, 46, 94, 0.3);
+        border: 1px solid rgba(138, 157, 199, 0.1);
+        border-radius: 6px;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+
+    .btn:hover {
+        opacity: 0.9;
+    }
+
+    /* Utilities */
+    .text-accent {
+        color: var(--star-accent);
+    }
+
+    .border-accent {
+        border-color: var(--star-accent);
+    }
+    .back-button {
+    text-decoration: none !important;
+}
+
+/* Optional: Remove underline on hover states too */
+.back-button:hover,
+.back-button:focus {
+    text-decoration: none !important;
+}
+</style>
+</head>
+<body>
+    <!-- Starry Night Effects -->
+    <div class="aurora">
+        <div class="aurora-layer aurora-layer-1"></div>
+        <div class="aurora-layer aurora-layer-2"></div>
+        <div class="aurora-layer aurora-layer-3"></div>
+    </div>
+    <div class="shooting-star"></div>
+
+    <div class="container py-5">
+        <!-- Header Section -->
+        <div class="pdf-header text-center">
+            <h1>{{ title }}</h1>
+            {% if pdf_path %}
+            <a href="{{ url_for('static', filename=pdf_path) }}" 
+               class="btn btn-light btn-lg"
+               download>
+                Download PDF
+            </a>
+            {% endif %}
+        </div>
+<!-- Main Notes Section -->
+{% if sections.main_notes %}
+<div class="note-section">
+    <h2 data-bs-toggle="collapse" data-bs-target="#collapseMainNotes" role="button" aria-expanded="true" aria-controls="collapseMainNotes" style="cursor: pointer;">
+        Main Notes
+        <i class="collapsed-indicator ms-auto bi bi-chevron-down"></i>
+    </h2>
+    <div class="collapse show" id="collapseMainNotes">
+        <div class="all-topics">
+            <p style="font-weight: bold; font-size: 1.2rem;">{{ sections.main_notes }}</p>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+        <!-- Key Terms Section -->
+        {% if sections.key_terms %}
+        <div class="note-section">
+            <h2 data-bs-toggle="collapse" data-bs-target="#collapseKeyTerms" role="button" aria-expanded="true" aria-controls="collapseKeyTerms" style="cursor: pointer;">
+                Key Terms
+                <i class="collapsed-indicator ms-auto bi bi-chevron-down"></i>
+            </h2>
+            <div class="collapse show" id="collapseKeyTerms">
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    {% for term in sections.key_terms %}
+                    <div class="col">
+                        <div class="term-card">
+                            <dt>{{ term.term }}</dt>
+                            <dd>{{ term.definition }}</dd>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Examples Section -->
+        {% if sections.examples %}
+        <div class="note-section">
+            <h2 data-bs-toggle="collapse" data-bs-target="#collapseExamples" role="button" aria-expanded="true" aria-controls="collapseExamples" style="cursor: pointer;">
+                Examples
+                <i class="collapsed-indicator ms-auto bi bi-chevron-down"></i>
+            </h2>
+            <div class="collapse show" id="collapseExamples">
+                <div class="examples-container">
+                    {% for example in sections.examples %}
+                    <div class="list-group-item">{{ example.text }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Connections Section -->
+        {% if sections.connections %}
+        <div class="note-section">
+            <h2 data-bs-toggle="collapse" data-bs-target="#collapseConnections" role="button" aria-expanded="true" aria-controls="collapseConnections" style="cursor: pointer;">
+                <span class="section-icon">🔗</span>
+                Connections
+                <i class="collapsed-indicator ms-auto bi bi-chevron-down"></i>
+            </h2>
+            <div class="collapse show" id="collapseConnections">
+                <div class="connections-container">
+                    {% for connection in sections.connections %}
+                    <div class="connection-item">
+                        <span class="connection-icon">→</span>
+                        {{ connection.text }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Questions Section -->
+        {% if sections.questions %}
+        <div class="note-section">
+            <h2 data-bs-toggle="collapse" data-bs-target="#collapseQuestions" role="button" aria-expanded="true" aria-controls="collapseQuestions" style="cursor: pointer;">
+                Study Questions
+                <i class="collapsed-indicator ms-auto bi bi-chevron-down"></i>
+            </h2>
+            <div class="collapse show" id="collapseQuestions">
+                <div class="questions-container">
+                    {% for question in sections.questions %}
+                    <div class="list-group-item">{{ question.text }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Back Button -->
+        <div class="text-center">
+            <a href="{{ url_for('notes') }}" class="back-button">
+                <i class="bi bi-arrow-left"></i> Back to NotesMaker
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Create multiple shooting stars
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create additional shooting stars
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const star = document.createElement('div');
+                    star.className = 'shooting-star';
+                    star.style.top = Math.random() * 30 + 'vh';
+                    star.style.left = Math.random() * 20 + 'vw';
+                    star.style.animationDelay = (i * 2) + 's';
+                    document.body.appendChild(star);
+                }, i * 1000);
+            }
+            
+            // Add floating animation to sections
+            document.querySelectorAll('.note-section').forEach((section, index) => {
+                section.style.animationDelay = (index * 0.5) + 's';
+                section.classList.add('float-element');
+            });
+            
+            // Add collapsible functionality
+            document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(header => {
+                header.addEventListener('click', function() {
+                    const icon = this.querySelector('.collapsed-indicator');
+                    if (this.getAttribute('aria-expanded') === 'true') {
+                        icon.style.transform = 'rotate(-90deg)';
+                        this.setAttribute('aria-expanded', 'false');
+                    } else {
+                        icon.style.transform = 'rotate(0deg)';
+                        this.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

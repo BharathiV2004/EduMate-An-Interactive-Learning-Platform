@@ -1,0 +1,150 @@
+{
+    "topic": "Smart Device Communication Technologies",
+    "generated_at": "2025-05-13T23:21:10.668712",
+    "questions": [
+        {
+            "question": "What technology is best suited for transferring large files between devices over a short range?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi Direct",
+                "C": "NFC (Near Field Communication)",
+                "D": "USB"
+            },
+            "answer": "B",
+            "explanation": "Wi-Fi Direct allows devices to connect directly without needing an existing network, making it ideal for sharing files or streaming content from one device to another. It's like setting up a peer-to-peer connection without the need for a central hub.",
+            "hint": "Think of how you share music on Spotify with friends at a party."
+        },
+        {
+            "question": "Which smart device communication technology enables secure payment transactions through smartphones?",
+            "options": {
+                "A": "NFC (Near Field Communication)",
+                "B": "Bluetooth",
+                "C": "Wi-Fi Direct",
+                "D": "RFID (Radio-Frequency Identification)"
+            },
+            "answer": "A",
+            "explanation": "NFC is the backbone of contactless payments, allowing your phone to tap into a terminal and complete a transaction. It's like the digital equivalent of swiping a credit card but faster and more convenient.",
+            "hint": "Think about how you can make a payment by simply touching a screen."
+        },
+        {
+            "question": "In smart home systems, which technology is commonly used for connecting multiple devices under a single network?",
+            "options": {
+                "A": "Zigbee",
+                "B": "Bluetooth Low Energy (BLE)",
+                "C": "Wi-Fi",
+                "D": "Z-Wave"
+            },
+            "answer": "C",
+            "explanation": "Wi-Fi creates a central hub that allows all your smart home devices to communicate and interact with each other, much like how a router in an office connects multiple computers. It’s the backbone of most modern smart homes.",
+            "hint": "Think about your router at home."
+        },
+        {
+            "question": "Which technology is best for smart device communication that requires low power consumption and can operate over longer distances?",
+            "options": {
+                "A": "Zigbee",
+                "B": "Bluetooth Low Energy (BLE)",
+                "C": "Wi-Fi Direct",
+                "D": "Z-Wave"
+            },
+            "answer": "D",
+            "explanation": "Z-Wave uses less power than other options, making it ideal for battery-operated devices like door locks or thermostats. It’s like whispering to your smart lock from across a room.",
+            "hint": "Think of the energy-efficient nature of remote control devices."
+        },
+        {
+            "question": "What technology allows for secure and quick data transfer between two NFC-enabled devices?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi Direct",
+                "C": "NFC (Near Field Communication)",
+                "D": "Zigbee"
+            },
+            "answer": "C",
+            "explanation": "NFC is designed for simple, secure, and fast data exchange over short distances, perfect for sharing information like business cards or payment details. It’s the fastest way to transfer small files between devices.",
+            "hint": "Think of how you share a photo by tapping phones."
+        },
+        {
+            "question": "Which technology enables multiple smart devices to communicate with each other on a network without relying on an internet connection?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi Direct",
+                "C": "NFC (Near Field Communication)",
+                "D": "Zigbee"
+            },
+            "answer": "D",
+            "explanation": "Zigbee allows many devices to work together as a network, making it ideal for smart home systems. It’s like having a group chat where all your devices can communicate and coordinate without needing the internet.",
+            "hint": "Think of how a group of friends might plan an outing."
+        },
+        {
+            "question": "In the context of smart device communication, what technology is best suited for low-power wireless communication between short-range devices?",
+            "options": {
+                "A": "Bluetooth Low Energy (BLE)",
+                "B": "Wi-Fi Direct",
+                "C": "NFC (Near Field Communication)",
+                "D": "Zigbee"
+            },
+            "answer": "A",
+            "explanation": "BLE is perfect for wearable tech and other power-sensitive applications because it uses minimal energy. It’s like a whisper compared to a shout, making it ideal for devices that need to last longer on batteries.",
+            "hint": "Think of the low-energy mode in your phone."
+        },
+        {
+            "question": "Which technology allows smart devices to communicate with each other even when they are not within immediate proximity?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi Direct",
+                "C": "Zigbee",
+                "D": "Wi-Fi"
+            },
+            "answer": "D",
+            "explanation": "Wi-Fi enables communication between devices over a broader area, ideal for connecting smart home hubs and various devices. It’s like the internet on your local network, allowing devices to communicate even when they are far apart.",
+            "hint": "Think of how you can control your smart lights from another room."
+        },
+        {
+            "question": "What technology is commonly used in smart homes to enable seamless communication between various appliances without an external server?",
+            "options": {
+                "A": "Zigbee",
+                "B": "Bluetooth",
+                "C": "NFC (Near Field Communication)",
+                "D": "Wi-Fi Direct"
+            },
+            "answer": "A",
+            "explanation": "Zigbee networks devices directly, allowing them to communicate and work together as a system. It’s like having a dedicated local network for your smart home gadgets.",
+            "hint": "Think of the direct connection in a local area network."
+        },
+        {
+            "question": "In the context of smart device communication, which technology is most commonly used for large-scale IoT (Internet of Things) networks?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Zigbee",
+                "C": "Wi-Fi Direct",
+                "D": "LoRaWAN"
+            },
+            "answer": "D",
+            "explanation": "LoRaWAN is designed for large-scale IoT deployments, enabling long-range communication between devices with minimal energy consumption. It’s like the backbone of a smart city.",
+            "hint": "Think of the vast coverage area required for smart cities."
+        },
+        {
+            "question": "Which technology is best suited for secure and efficient data exchange in a small office environment?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Wi-Fi Direct",
+                "C": "NFC (Near Field Communication)",
+                "D": "Z-Wave"
+            },
+            "answer": "B",
+            "explanation": "Wi-Fi Direct allows direct communication between devices without the need for a central network, ideal for small groups. It’s like setting up a peer-to-peer connection in an office.",
+            "hint": "Think of how you might share files with colleagues using your phone."
+        },
+        {
+            "question": "What technology is commonly used to connect multiple sensors and actuators in industrial IoT applications?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Zigbee",
+                "C": "NFC (Near Field Communication)",
+                "D": "LoRaWAN"
+            },
+            "answer": "B",
+            "explanation": "Zigbee is widely used in industrial settings for connecting numerous devices due to its robust network capabilities. It’s like the backbone of a smart factory.",
+            "hint": "Think of how many devices need to communicate on an assembly line."
+        }
+    ]
+}

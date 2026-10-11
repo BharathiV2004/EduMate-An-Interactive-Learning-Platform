@@ -1,0 +1,110 @@
+{
+    "topic": "5G, IoT, and VoIP in Smart Devices",
+    "story_name": "The Tech-Savvy Home",
+    "characters": [
+        {
+            "name": "Sophia",
+            "description": "A tech-savvy 23-year-old software developer.",
+            "image_path": "/static/images/character_Sophia.png",
+            "voice_id": "en-US-AndrewNeural"
+        },
+        {
+            "name": "Mr. Thompson",
+            "description": "Sophia's 60-year-old grandfather, a retired engineer.",
+            "image_path": "/static/images/character_Mr.%20Thompson.png",
+            "voice_id": "en-US-AndrewNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "Introduction to the Smart Home",
+            "setting": "Living room of Mr. Thompsonâ€™s home filled with modern devices and gadgets.",
+            "scene_image_path": "/static/images/scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sophia",
+                    "line": "Grandpa, do you know about 5G, IoT, and VoIP? They're making our home smarter!",
+                    "audio_path": "/static/audio/scene_1_Sophia_5087471608914497785.mp3"
+                },
+                {
+                    "character": "Mr. Thompson",
+                    "line": "Ah, my dear, let's explore these together.",
+                    "audio_path": "/static/audio/scene_1_Mr.%20Thompson_4904205884255494571.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "Explaining 5G",
+            "setting": "Mr. Thompsonâ€™s study filled with engineering tools and books.",
+            "scene_image_path": "/static/images/scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sophia",
+                    "line": "5G is super-fast internet that makes VoIP calls clearer and faster.",
+                    "audio_path": "/static/audio/scene_2_Sophia_7709382372902149941.mp3"
+                },
+                {
+                    "character": "Mr. Thompson",
+                    "line": "Exactly, it reduces delay and improves call quality for mobile video chats.",
+                    "audio_path": "/static/audio/scene_2_Mr.%20Thompson_3608706027205137079.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "Introduction to IoT Devices",
+            "setting": "Kitchen with various smart devices connected to the network.",
+            "scene_image_path": "/static/images/scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sophia",
+                    "line": "IoT means everyday devices can make or receive VoIP calls too! Like your smart fridge.",
+                    "audio_path": "/static/audio/scene_3_Sophia_8421948381771839322.mp3"
+                },
+                {
+                    "character": "Mr. Thompson",
+                    "line": "For example, your smart fridge could call you when you're out of milk.",
+                    "audio_path": "/static/audio/scene_3_Mr.%20Thompson_3568428152477620507.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 4,
+            "scene_title": "Smart Homes and Offices",
+            "setting": "Living room with family gathered around a smart speaker.",
+            "scene_image_path": "/static/images/scene_4.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sophia",
+                    "line": "Devices in homes or offices can automatically connect to help with communication.",
+                    "audio_path": "/static/audio/scene_4_Sophia_6807278209937013240.mp3"
+                },
+                {
+                    "character": "Mr. Thompson",
+                    "line": "They can schedule calls or send reminders, making our lives easier.",
+                    "audio_path": "/static/audio/scene_4_Mr.%20Thompson_3731769433893529852.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 5,
+            "scene_title": "Practical Example",
+            "setting": "Smart home system interface on a tablet.",
+            "scene_image_path": "/static/images/scene_5.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Sophia",
+                    "line": "Like this smart home system, Grandpa. It can automate many tasks.",
+                    "audio_path": "/static/audio/scene_5_Sophia_5082249448262722146.mp3"
+                },
+                {
+                    "character": "Mr. Thompson",
+                    "line": "That's fascinating! Technology is truly advancing!",
+                    "audio_path": "/static/audio/scene_5_Mr.%20Thompson_3452108809662065682.mp3"
+                }
+            ]
+        }
+    ]
+}

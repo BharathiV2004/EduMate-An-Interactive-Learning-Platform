@@ -1,0 +1,62 @@
+{
+    "topic": "Photosynthesis",
+    "card_count": 7,
+    "cards": [
+        {
+            "front": "What is the primary role of chlorophyll in photosynthesis?",
+            "back": {
+                "answer": "Chlorophyll captures light energy from the sun, which is essential for initiating the process of photosynthesis.",
+                "analogy": "Chlorophyll acts like a solar panel that converts sunlight into usable energy for plants.",
+                "common_mistake": "Chlorophyll produces oxygen as its main product."
+            }
+        },
+        {
+            "front": "How do stomata contribute to photosynthesis?",
+            "back": {
+                "answer": "Stomata allow gases, primarily carbon dioxide and water vapor, to enter and exit the leaf, facilitating the exchange needed for photosynthesis.",
+                "analogy": "Stomata are like tiny doors on a house that let in fresh air and let out stale air.",
+                "common_mistake": "Stomata generate glucose through photosynthesis."
+            }
+        },
+        {
+            "front": "What is the significance of light-dependent reactions in photosynthesis?",
+            "back": {
+                "answer": "Light-dependent reactions convert light energy into chemical energy stored in ATP and NADPH, which are used to power the Calvin cycle.",
+                "analogy": "Light-dependent reactions are like a battery that charges up from sunlight before powering other processes.",
+                "common_mistake": "Light-dependent reactions directly produce glucose."
+            }
+        },
+        {
+            "front": "How does the Calvin cycle contribute to photosynthesis?",
+            "back": {
+                "answer": "The Calvin cycle uses ATP and NADPH produced by light-dependent reactions to convert carbon dioxide into glucose.",
+                "analogy": "The Calvin cycle is like a kitchen where ingredients are transformed into a meal using energy from a battery.",
+                "common_mistake": "The Calvin cycle directly produces oxygen."
+            }
+        },
+        {
+            "front": "What role does water play in the process of photosynthesis?",
+            "back": {
+                "answer": "Water splits during the light-dependent reactions, providing electrons and hydrogen ions necessary for producing ATP and NADPH.",
+                "analogy": "Water is like a river that feeds energy into a hydroelectric power plant to generate electricity.",
+                "common_mistake": "Water acts as the main product of photosynthesis."
+            }
+        },
+        {
+            "front": "How does temperature affect the rate of photosynthesis?",
+            "back": {
+                "answer": "Temperature affects enzyme activity, which in turn influences the rate of photosynthesis. Optimal temperatures allow for maximum efficiency.",
+                "analogy": "Temperature is like adjusting the speed of a conveyor belt to move more or less efficiently through an assembly line.",
+                "common_mistake": "Higher temperatures always increase the rate of photosynthesis."
+            }
+        },
+        {
+            "front": "What is the role of pigments other than chlorophyll in photosynthesis?",
+            "back": {
+                "answer": "Pigments such as carotenoids and phycobilins absorb different wavelengths of light, enhancing the efficiency of energy capture by plants.",
+                "analogy": "Other pigments are like backup power sources that help ensure a steady supply of energy when sunlight is weak.",
+                "common_mistake": "Pigments other than chlorophyll produce oxygen."
+            }
+        }
+    ]
+}

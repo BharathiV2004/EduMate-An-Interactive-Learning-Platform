@@ -1,0 +1,86 @@
+{
+    "topic": "Find Nearby Hospitals  \nDisplay Interactive Map  \n\nProblems and Solutions",
+    "card_count": 10,
+    "cards": [
+        {
+            "front": "How can a patient efficiently find nearby hospitals using an interactive map?",
+            "back": {
+                "answer": "By inputting their location into the mapping software, which then highlights the nearest healthcare facilities along with travel time estimates.",
+                "analogy": "Similar to how Google Maps directs you to the closest coffee shop based on your current position.",
+                "common_mistake": "Assuming that only public hospitals are displayed and private clinics might not be included."
+            }
+        },
+        {
+            "front": "What is a potential problem when using an interactive map for finding nearby hospitals?",
+            "back": {
+                "answer": "The map may lack real-time updates, such as hospital closures or traffic conditions, affecting the accuracy of the information provided.",
+                "analogy": "Like relying on a printed city guide that doesn't account for recent changes in store locations.",
+                "common_mistake": "Ignoring outdated information and assuming the map always shows the most current state."
+            }
+        },
+        {
+            "front": "How can an interactive map improve the user experience when finding nearby hospitals?",
+            "back": {
+                "answer": "By providing visual representations of hospital locations, distances, and directions, enhancing accessibility and reducing search time.",
+                "analogy": "Comparable to using a well-organized library catalog that helps you quickly locate books based on your needs.",
+                "common_mistake": "Thinking that relying solely on an interactive map is sufficient without considering personal health conditions or specific medical requirements."
+            }
+        },
+        {
+            "front": "What issue might arise if the interactive map does not support multiple languages?",
+            "back": {
+                "answer": "Users who speak different languages may find it difficult to understand hospital names and directions, leading to potential confusion.",
+                "analogy": "Like a tourist in Japan trying to navigate using only English maps when many signs are in Japanese.",
+                "common_mistake": "Assuming that all users will understand the language used on the map."
+            }
+        },
+        {
+            "front": "How can an interactive map address the challenge of varying healthcare facilities?",
+            "back": {
+                "answer": "By categorizing hospitals based on their services, allowing users to filter options according to their specific needs (e.g., specialized care, pediatric services).",
+                "analogy": "Similar to a music streaming service that allows you to select songs by genre or artist.",
+                "common_mistake": "Believing that all hospitals offer the same range of services without considering specializations."
+            }
+        },
+        {
+            "front": "What problem could occur if an interactive map does not have sufficient detail about hospital amenities?",
+            "back": {
+                "answer": "Users might miss critical information such as parking availability, accessibility features, and waiting times, impacting their decision-making process.",
+                "analogy": "Like ordering food online but forgetting to check the restaurant’s menu options before placing your order.",
+                "common_mistake": "Assuming that basic details like opening hours are always available on any interactive map."
+            }
+        },
+        {
+            "front": "How can an interactive map help in situations where a hospital is overwhelmed?",
+            "back": {
+                "answer": "By providing alternative routes or suggesting nearby clinics, ensuring users receive care even if their preferred hospital has limited capacity.",
+                "analogy": "Like a GPS rerouting you around traffic jams to find the fastest path to your destination.",
+                "common_mistake": "Ignoring the possibility of multiple options and assuming there’s only one viable solution."
+            }
+        },
+        {
+            "front": "What is a challenge when using an interactive map for emergency situations?",
+            "back": {
+                "answer": "The map might not be fully functional during power outages or technical failures, potentially causing delays in seeking medical help.",
+                "analogy": "Similar to relying on a paper map during a blackout—less reliable than digital alternatives but still useful.",
+                "common_mistake": "Relying solely on the interactive map without considering backup plans like calling emergency services directly."
+            }
+        },
+        {
+            "front": "How can an interactive map assist in managing the load of healthcare facilities?",
+            "back": {
+                "answer": "By dynamically adjusting recommendations based on current demand, helping to distribute patients more evenly across available resources.",
+                "analogy": "Like a traffic management system that reroutes drivers during rush hour to prevent congestion.",
+                "common_mistake": "Assuming the map remains static and doesn’t adapt to changing conditions."
+            }
+        },
+        {
+            "front": "What issue might arise if an interactive map does not allow for personalization?",
+            "back": {
+                "answer": "Users with specific needs (e.g., wheelchair accessibility) might find it challenging to locate hospitals that meet their requirements, leading to suboptimal choices.",
+                "analogy": "Like trying to use a one-size-fits-all shoe store when you need custom footwear.",
+                "common_mistake": "Ignoring the importance of customization and assuming generic information is sufficient for everyone."
+            }
+        }
+    ]
+}

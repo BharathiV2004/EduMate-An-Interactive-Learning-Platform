@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beach Bash Word Hunt Pro</title>
+    <style>
+       :root {
+            --marine: linear-gradient(135deg, #2c5f8a 0%, #1b3b5e 100%);
+            --sunset: linear-gradient(45deg, #FF6B6B 0%, #FFE66D 100%);
+            --sand: linear-gradient(135deg, #fff3cd 0%, #ffe69b 100%);
+            --ocean-wave: #38A3A5;
+            --seafoam: #57CC99;
+        }
+
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+            background: var(--marine);
+            color: white;
+        }
+
+        .game-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            background: var(--sand);
+            padding: 1.5rem;
+            border-radius: 15px;
+            color: #2c5f8a;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            color: var(--ocean-wave);
+            letter-spacing: -0.5px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(15, 1fr);
+            gap: 3px;
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .cell {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            background: #f8f9fa;
+            color: #2c5f8a;
+            font-size: 1.1em;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .cell::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--sunset);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cell.selected {
+            transform: scale(1.15);
+            z-index: 1;
+            box-shadow: 0 0 12px rgba(44,95,138,0.3);
+            border: 2px solid var(--ocean-wave);
+        }
+
+        .cell.correct {
+            background: var(--seafoam);
+            animation: pop 0.4s;
+        }
+
+        .cell.incorrect {
+            background: #FF6B6B;
+            animation: shake 0.4s;
+        }
+
+        .clues-panel {
+            margin-top: 3rem;
+            background: rgba(255,255,255,0.1);
+            padding: 2.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .clue-list {
+            columns: 2;
+            gap: 2.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .clue-item {
+            break-inside: avoid;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.08));
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            counter-increment: clue-counter;
+        }
+
+        .clue-item::before {
+            content: counter(clue-counter);
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            background: var(--ocean-wave);
+            color: white;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .clue-item.found {
+            background: linear-gradient(145deg, rgba(87,204,153,0.2), rgba(56,163,165,0.2));
+            transform: translateX(8px);
+        }
+
+        .clue-item.found::after {
+            content: '✓';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            color: var(--seafoam);
+            font-size: 1.4em;
+            animation: checkPop 0.3s ease;
+        }
+
+        .clue-item b {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 0.5rem;
+            color: var(--seafoam);
+        }
+
+        @keyframes pop {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes checkPop {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 0 0 1rem;
+            color: var(--seafoam);
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <header class="header">
+            <h1>🏖️ Beach Bash Pro</h1>
+            <div class="stats">
+                <div class="stat-item">
+                    <div>SCORE</div>
+                    <div class="stat-value" id="score">0</div>
+                </div>
+                <div class="stat-item">
+                    <div>FOUND</div>
+                    <div class="stat-value" id="found">0/10</div>
+                </div>
+                <div class="stat-item">
+                    <div>TIME</div>
+                    <div class="stat-value" id="timer">00:00</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid" id="grid"></div>
+
+        <div class="clues-panel">
+            <h2>Summer Clues 🌞</h2>
+            <div class="clue-list" id="clues"></div>
+        </div>
+    </div>
+
+    <script>
+        class WordHuntPro {
+            constructor() {
+                this.words = {
+                    'BUBBLE': 6,
+                    'DOLPHIN': 4,
+                    'SUMMER': 7,
+                    'CUPCAKE': 8,
+                    'BASEBALL': 2,
+                    'CAMP': 10,
+                    'SURFING': 5,
+                    'ART': 9,
+                    'KAYAK': 3,
+                    'LEMONADE': 1
+                };
+
+                this.gameState = {
+                    score: 0,
+                    found: 0,
+                    time: 0,
+                    selected: [],
+                    currentDirection: null
+                };
+
+                this.initGame();
+                this.startTimer();
+            }
+
+            initGame() {
+                this.createGrid();
+                this.renderClues();
+                this.setupListeners();
+            }
+
+            createGrid() {
+                const gridData = [
+                    // Row 0 - BASEBALL (horizontal)
+                    ['B','A','S','E','B','A','L','L','X','C','F','G','H','I','J'],
+                    // Row 1 - BUBBLE (horizontal)
+                    ['Y','A','S','E','L','B','U','B','B','L','E','L','D','V','J'],
+                    // Row 2 - ART starts (vertical)
+                    ['V','X','A','L','L','A','B','E','S','A','B','A','R','L','P'],
+                    // Row 3 - ART continues
+                    ['O','L','D','R','E','Q','N','I','B','M','I','R','C','K','C'],
+                    // Row 4 - ART ends
+                    ['O','D','D','P','T','M','M','K','N','Y','X','T','G','N','N'],
+                    // Row 5 - SUMMER starts (vertical)
+                    ['O','Q','Q','B','E','S','E','S','U','S','W','F','X','N','H'],
+                    // Row 6 - SUMMER continues
+                    ['M','P','F','L','F','U','L','K','U','U','F','E','R','F','L'],
+                    // Row 7 - DOLPHIN (horizontal)
+                    ['D','O','L','P','H','I','N','W','A','M','C','D','F','A','Q'],
+                    // Row 8 - SUMMER continues
+                    ['F','Q','J','Q','N','M','M','R','N','M','V','F','X','U','I'],
+                    // Row 9 - SUMMER ends
+                    ['I','R','S','T','F','E','R','C','R','E','R','S','U','S','C'],
+                    // Row 10 - KAYAK (horizontal)
+                    ['X','N','U','P','K','A','Y','A','K','R','Y','A','K','P','C'],
+                    // Row 11 - Filler
+                    ['S','J','Y','S','L','A','N','K','M','A','K','E','C','U','P'],
+                    // Row 12 - CUPCAKE (horizontal)
+                    ['C','U','P','C','A','K','E','R','T','F','A','R','R','E','T'],
+                    // Row 13 - SURFING (horizontal)
+                    ['A','W','E','T','I','H','W','S','U','R','F','I','N','G','S'],
+                    // Row 14 - LEMONADE + CAMP (horizontal)
+                    ['L','E','M','O','N','A','D','E','B','C','A','M','P','S','Y']
+                ];
+
+                const grid = document.getElementById('grid');
+                for(let i = 0; i < 15; i++) {
+                    for(let j = 0; j < 15; j++) {
+                        const cell = document.createElement('div');
+                        cell.className = 'cell';
+                        cell.dataset.row = i;
+                        cell.dataset.col = j;
+                        cell.textContent = gridData[i][j];
+                        grid.appendChild(cell);
+                    }
+                }
+            }
+
+            renderClues() {
+                const clues = document.getElementById('clues');
+                Object.entries(this.words).forEach(([word, num]) => {
+                    const div = document.createElement('div');
+                    div.className = 'clue-item';
+                    div.innerHTML = `<b>${word}</b>: ${this.getClueText(num)}`;
+                    clues.appendChild(div);
+                });
+            }
+
+            getClueText(num) {
+                const clues = {
+                    1: 'Citrus drink (8 letters)',
+                    2: 'Team sport (8 letters)',
+                    3: 'Paddling watercraft (5 letters)',
+                    4: 'Marine mammal (7 letters)',
+                    5: 'Wave sport (7 letters)',
+                    6: 'Fizzy drink effect (6 letters)',
+                    7: 'Warm season (6 letters)',
+                    8: 'Sweet baked treat (7 letters)',
+                    9: 'Creative expression (3 letters)',
+                    10: 'Outdoor program (4 letters)'
+                };
+                return clues[num];
+            }
+
+            setupListeners() {
+                let isDragging = false;
+                
+                document.addEventListener('mousedown', e => {
+                    if (!e.target.classList.contains('cell')) return;
+                    isDragging = true;
+                    this.handleStart(e.target);
+                });
+
+                document.addEventListener('mouseover', e => {
+                    if (!isDragging || !e.target.classList.contains('cell')) return;
+                    this.handleDrag(e.target);
+                });
+
+                document.addEventListener('mouseup', () => {
+                    isDragging = false;
+                    this.handleSelectionEnd();
+                });
+            }
+
+            handleStart(cell) {
+                this.clearSelection();
+                this.gameState.selected = [cell];
+                cell.classList.add('selected');
+            }
+
+            handleDrag(cell) {
+                if (!this.validateNextCell(cell)) return;
+                
+                this.gameState.selected.push(cell);
+                cell.classList.add('selected');
+                this.updateDirection();
+            }
+
+            validateNextCell(cell) {
+                if (this.gameState.selected.includes(cell)) return false;
+                if (this.gameState.selected.length === 1) return true;
+                
+                const lastCell = this.gameState.selected.slice(-1)[0];
+                const expectedRow = parseInt(lastCell.dataset.row) + this.gameState.currentDirection.dr;
+                const expectedCol = parseInt(lastCell.dataset.col) + this.gameState.currentDirection.dc;
+                return parseInt(cell.dataset.row) === expectedRow && 
+                       parseInt(cell.dataset.col) === expectedCol;
+            }
+
+            updateDirection() {
+                if (this.gameState.selected.length < 2) return;
+                
+                const [first, second] = this.gameState.selected;
+                this.gameState.currentDirection = {
+                    dr: parseInt(second.dataset.row) - parseInt(first.dataset.row),
+                    dc: parseInt(second.dataset.col) - parseInt(first.dataset.col)
+                };
+
+                // Block diagonal selection
+                if (this.gameState.currentDirection.dr !== 0 && 
+                    this.gameState.currentDirection.dc !== 0) {
+                    this.clearSelection();
+                }
+            }
+
+            handleSelectionEnd() {
+                const word = this.gameState.selected
+                    .map(c => c.textContent)
+                    .join('')
+                    .toUpperCase();
+
+                if (this.words.hasOwnProperty(word)) {
+                    this.handleCorrect(word);
+                } else if (this.gameState.selected.length > 1) {
+                    this.handleIncorrect();
+                }
+                
+                this.clearSelection();
+            }
+
+            handleCorrect(word) {
+                this.gameState.score += word.length * 100;
+                this.gameState.found++;
+                delete this.words[word];
+
+                this.gameState.selected.forEach(cell => {
+                    cell.classList.add('correct');
+                    setTimeout(() => cell.classList.remove('correct'), 1000);
+                });
+
+                document.getElementById('score').textContent = this.gameState.score;
+                document.getElementById('found').textContent = `${this.gameState.found}/10`;
+                
+                document.querySelectorAll('.clue-item').forEach(item => {
+                    if (item.textContent.startsWith(word)) {
+                        item.classList.add('found');
+                    }
+                });
+
+                if (this.gameState.found === 10) {
+                    setTimeout(() => {
+                        alert(`🏆 Game Over! Final Score: ${this.gameState.score}`);
+                    }, 500);
+                }
+            }
+
+            handleIncorrect() {
+                this.gameState.score = Math.max(0, this.gameState.score - 50);
+                document.getElementById('score').textContent = this.gameState.score;
+                
+                this.gameState.selected.forEach(cell => {
+                    cell.classList.add('incorrect');
+                    setTimeout(() => cell.classList.remove('incorrect'), 1000);
+                });
+            }
+
+            clearSelection() {
+                this.gameState.selected.forEach(c => c.classList.remove('selected'));
+                this.gameState.selected = [];
+                this.gameState.currentDirection = null;
+            }
+
+            startTimer() {
+                setInterval(() => {
+                    this.gameState.time++;
+                    const minutes = String(Math.floor(this.gameState.time / 60)).padStart(2, '0');
+                    const seconds = String(this.gameState.time % 60).padStart(2, '0');
+                    document.getElementById('timer').textContent = `${minutes}:${seconds}`;
+                }, 1000);
+            }
+        }
+
+        new WordHuntPro();
+    </script>
+</body>
+</html>

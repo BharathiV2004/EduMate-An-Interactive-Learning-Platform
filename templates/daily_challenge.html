@@ -1,0 +1,70 @@
+{% extends "cb_base.html" %}
+
+{% block content %}
+<div class="challenge-container">
+    <div class="challenge-header">
+        <h2>Random Challenge</h2>
+        <h3>Language : {{level.language}}</h3>
+        <div class="challenge-meta">
+            <div class="reward-badge">
+                🏆 Reward: <strong>{{level.base_coins+level.first_time_bonus}}🪙</strong> 
+            </div>
+        </div><br>
+    </div>
+    <h2>Level {{ level.id }}: {{ level.title }}</h2>
+    <p>{{ level.description }}</p>
+    <div class="game-area">
+        <div class="blocks-pool" id="blocks-pool">
+            <h3>Available Blocks</h3>
+            {% for block in level.blocks %}
+            <div class="code-block" data-id="{{ block.id }}" draggable="true">
+                {% if 'indent' in block %}<span class="indent" style="width: {{ block.indent * 20 }}px"></span>{% endif %}
+                {{ block.text }}
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="workspace" id="workspace">
+            <h3>Your Solution</h3>
+            <div class="drop-zone" id="drop-zone"></div>
+            <!-- Add this near the drop zone -->
+            <div class="undo-hint">Double touch to undo the block</div>
+            <button id="run-btn" data-language="{{ level.language }}" data-flag=1>Run Code</button>
+            <button id="hint-btn" data-language="{{ level.language }}">Use Hint (Cost: 1 Hint)</button>
+        </div>
+        
+        <div class="output">
+            <h3>Expected Output</h3>
+            <pre>{{ level.expected_output }}</pre>
+        
+            
+            <div id="result-message"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const levelId = {{ level.id }};
+    const solution = {{ level.solution|tojson }};
+// Countdown timer for daily challenge
+function updateCountdown() {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0);
+    
+    const diff = midnight - now;
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.getElementById('countdown').textContent = 
+        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Drag and drop and game logic would be similar to the main game
+// Additional challenge-specific logic would go here
+</script>
+{% endblock %}

@@ -1,0 +1,410 @@
+{
+  "web technology": [
+    {
+      "id": "we1",
+      "term": "HTML",
+      "definition": "Markup language for structuring web content."
+    },
+    {
+      "id": "we2",
+      "term": "CSS",
+      "definition": "Stylesheet language for describing web page appearance."
+    },
+    {
+      "id": "we3",
+      "term": "JavaScript",
+      "definition": "Programming language enabling interactive elements on websites."
+    },
+    {
+      "id": "we4",
+      "term": "SEO",
+      "definition": "Practices to improve a website’s visibility in search engine results."
+    },
+    {
+      "id": "we5",
+      "term": "API",
+      "definition": "Interface allowing software components to communicate."
+    },
+    {
+      "id": "we6",
+      "term": "CMS",
+      "definition": "Content management system for website administration."
+    },
+    {
+      "id": "we7",
+      "term": "Framework",
+      "definition": "Software framework providing standard building blocks."
+    },
+    {
+      "id": "we8",
+      "term": "CDN",
+      "definition": "Network delivering content through global servers."
+    }
+  ],
+  "python": [
+    {
+      "id": "we1",
+      "term": "HTML",
+      "definition": "Markup language for structuring web content."
+    },
+    {
+      "id": "we2",
+      "term": "CSS",
+      "definition": "Stylesheet language for describing web page appearance."
+    },
+    {
+      "id": "we3",
+      "term": "JavaScript",
+      "definition": "Programming language enabling interactive elements on websites."
+    },
+    {
+      "id": "we4",
+      "term": "SEO",
+      "definition": "Practices to improve a website’s visibility in search engine results."
+    },
+    {
+      "id": "we5",
+      "term": "API",
+      "definition": "Interface allowing software components to communicate."
+    },
+    {
+      "id": "we6",
+      "term": "CMS",
+      "definition": "Content management system for website administration."
+    },
+    {
+      "id": "we7",
+      "term": "Framework",
+      "definition": "Software framework providing standard building blocks."
+    },
+    {
+      "id": "we8",
+      "term": "CDN",
+      "definition": "Network delivering content through global servers."
+    }
+  ],
+  "data structure": [
+    {
+      "id": "we1",
+      "term": "HTML",
+      "definition": "Markup language for structuring web content."
+    },
+    {
+      "id": "we2",
+      "term": "CSS",
+      "definition": "Stylesheet language for describing web page appearance."
+    },
+    {
+      "id": "we3",
+      "term": "JavaScript",
+      "definition": "Programming language enabling interactive elements on websites."
+    },
+    {
+      "id": "we4",
+      "term": "SEO",
+      "definition": "Practices to improve a website’s visibility in search engine results."
+    },
+    {
+      "id": "we5",
+      "term": "API",
+      "definition": "Interface allowing software components to communicate."
+    },
+    {
+      "id": "we6",
+      "term": "CMS",
+      "definition": "Content management system for website administration."
+    },
+    {
+      "id": "we7",
+      "term": "Framework",
+      "definition": "Software framework providing standard building blocks."
+    },
+    {
+      "id": "we8",
+      "term": "CDN",
+      "definition": "Network delivering content through global servers."
+    }
+  ],
+  "Web Technology": [
+    {
+      "id": "we1",
+      "term": "HTML",
+      "definition": "Markup language for structuring web content."
+    },
+    {
+      "id": "we2",
+      "term": "CSS",
+      "definition": "Stylesheet language for describing web page appearance."
+    },
+    {
+      "id": "we3",
+      "term": "JavaScript",
+      "definition": "Programming language enabling interactive elements on websites."
+    },
+    {
+      "id": "we4",
+      "term": "SEO",
+      "definition": "Practices to improve a website’s visibility in search engine results."
+    },
+    {
+      "id": "we5",
+      "term": "API",
+      "definition": "Interface allowing software components to communicate."
+    },
+    {
+      "id": "we6",
+      "term": "CMS",
+      "definition": "Content management system for website administration."
+    },
+    {
+      "id": "we7",
+      "term": "Framework",
+      "definition": "Software framework providing standard building blocks."
+    },
+    {
+      "id": "we8",
+      "term": "CDN",
+      "definition": "Network delivering content through global servers."
+    }
+  ],
+  "app": [
+    {
+      "id": "we1",
+      "term": "HTML",
+      "definition": "Markup language for structuring web content."
+    },
+    {
+      "id": "we2",
+      "term": "CSS",
+      "definition": "Stylesheet language for describing web page appearance."
+    },
+    {
+      "id": "we3",
+      "term": "JavaScript",
+      "definition": "Programming language enabling interactive elements on websites."
+    },
+    {
+      "id": "we4",
+      "term": "SEO",
+      "definition": "Practices to improve a website’s visibility in search engine results."
+    },
+    {
+      "id": "we5",
+      "term": "API",
+      "definition": "Interface allowing software components to communicate."
+    },
+    {
+      "id": "we6",
+      "term": "CMS",
+      "definition": "Content management system for website administration."
+    },
+    {
+      "id": "we7",
+      "term": "Framework",
+      "definition": "Software framework providing standard building blocks."
+    },
+    {
+      "id": "we8",
+      "term": "CDN",
+      "definition": "Network delivering content through global servers."
+    }
+  ],
+  "java": [
+    {
+      "id": "we1",
+      "term": "HTML",
+      "definition": "Markup language for structuring web content."
+    },
+    {
+      "id": "we2",
+      "term": "CSS",
+      "definition": "Stylesheet language for describing web page appearance."
+    },
+    {
+      "id": "we3",
+      "term": "JavaScript",
+      "definition": "Programming language enabling interactive elements on websites."
+    },
+    {
+      "id": "we4",
+      "term": "SEO",
+      "definition": "Practices to improve a website’s visibility in search engine results."
+    },
+    {
+      "id": "we5",
+      "term": "API",
+      "definition": "Interface allowing software components to communicate."
+    },
+    {
+      "id": "we6",
+      "term": "CMS",
+      "definition": "Content management system for website administration."
+    },
+    {
+      "id": "we7",
+      "term": "Framework",
+      "definition": "Software framework providing standard building blocks."
+    },
+    {
+      "id": "we8",
+      "term": "CDN",
+      "definition": "Network delivering content through global servers."
+    }
+  ],
+  "javascript": [
+    {
+      "id": "ja1",
+      "term": "Variable",
+      "definition": "Container for storing data values."
+    },
+    {
+      "id": "ja2",
+      "term": "Function",
+      "definition": "Block of code designed to perform a specific task."
+    },
+    {
+      "id": "ja3",
+      "term": "Object",
+      "definition": "Collection of properties, each property having a name and a value."
+    },
+    {
+      "id": "ja4",
+      "term": "Event",
+      "definition": "Occurrence detected by the browser that has meaning to the user."
+    },
+    {
+      "id": "ja5",
+      "term": "DOM",
+      "definition": "Document Object Model for web pages."
+    },
+    {
+      "id": "ja6",
+      "term": "Scope",
+      "definition": "Accessibility of variables within code blocks."
+    },
+    {
+      "id": "ja7",
+      "term": "Callback",
+      "definition": "Function passed as an argument to another function."
+    },
+    {
+      "id": "ja8",
+      "term": "Prototype",
+      "definition": "Inherited properties and methods in JavaScript objects."
+    },
+    {
+      "id": "ja9",
+      "term": "Asynchronous",
+      "definition": "Operations that do not block the execution of other code."
+    },
+    {
+      "id": "ja10",
+      "term": "Strict Mode",
+      "definition": "Code standardizing syntax and preventing certain actions."
+    }
+  ],
+  "machine learning": [
+    {
+      "id": "ma1",
+      "term": "Algorithm",
+      "definition": "Set of rules for problem-solving used by machines."
+    },
+    {
+      "id": "ma2",
+      "term": "Dataset",
+      "definition": "Collection of data used to train machine learning models."
+    },
+    {
+      "id": "ma3",
+      "term": "Feature",
+      "definition": "Attribute or characteristic used as input in a model."
+    },
+    {
+      "id": "ma4",
+      "term": "Overfitting",
+      "definition": "Model performs well on training data but poorly on new data."
+    },
+    {
+      "id": "ma5",
+      "term": "Supervised Learning",
+      "definition": "Training model with labeled data for accurate predictions."
+    },
+    {
+      "id": "ma6",
+      "term": "Unsupervised Learning",
+      "definition": "Analyzing untagged data to find hidden patterns."
+    },
+    {
+      "id": "ma7",
+      "term": "Neural Network",
+      "definition": "Model inspired by human brain, processing information in layers."
+    },
+    {
+      "id": "ma8",
+      "term": "Bias",
+      "definition": "Systematic error leading to incorrect predictions or outcomes."
+    },
+    {
+      "id": "ma9",
+      "term": "Hyperparameter",
+      "definition": "Parameters set before model training affects learning process."
+    },
+    {
+      "id": "ma10",
+      "term": "Gradient Descent",
+      "definition": "Optimization algorithm minimizing cost function iteratively."
+    }
+  ],
+  "English alphabets": [
+    {
+      "id": "en1",
+      "term": "Alphabet",
+      "definition": "Collection of letters used to form words."
+    },
+    {
+      "id": "en2",
+      "term": "Vowel",
+      "definition": "Letter representing a sound made by vocal tract alone."
+    },
+    {
+      "id": "en3",
+      "term": "Consonant",
+      "definition": "Letter not a vowel, producing sound with vocal tract constriction."
+    },
+    {
+      "id": "en4",
+      "term": "Uppercase",
+      "definition": "Large letter form in writing systems."
+    },
+    {
+      "id": "en5",
+      "term": "Lowercase",
+      "definition": "Small letter form in writing systems."
+    },
+    {
+      "id": "en6",
+      "term": "Diacritical Mark",
+      "definition": "Symbol added to modify the sound of a letter."
+    },
+    {
+      "id": "en7",
+      "term": "Palindrome",
+      "definition": "Word or phrase that reads the same backward as forward."
+    },
+    {
+      "id": "en8",
+      "term": "Acronym",
+      "definition": "Word formed from initial letters of other words, pronounced as such."
+    },
+    {
+      "id": "en9",
+      "term": "Alphabetical Order",
+      "definition": "Arrangement of words in dictionary sequence."
+    },
+    {
+      "id": "en10",
+      "term": "Ligature",
+      "definition": "Combination of two or more letters into one symbol."
+    }
+  ]
+}

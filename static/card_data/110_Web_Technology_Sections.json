@@ -1,0 +1,86 @@
+{
+    "topic": "Web Technology Sections",
+    "card_count": 10,
+    "cards": [
+        {
+            "front": "What is the purpose of HTTP headers in web technology?",
+            "back": {
+                "answer": "HTTP headers contain metadata about the request or response, such as content type, encoding, and caching instructions.",
+                "analogy": "Think of HTTP headers like a letter's envelope, carrying important information about its contents but not the actual message itself.",
+                "common_mistake": "Headers are used to store user data and session states."
+            }
+        },
+        {
+            "front": "How does HTML differ from CSS?",
+            "back": {
+                "answer": "HTML defines the structure of web pages, while CSS controls their presentation.",
+                "analogy": "Imagine HTML as the blueprint for a house (defining rooms, walls, etc.), and CSS as the paint and decor that give it style.",
+                "common_mistake": "Both HTML and CSS are used to change text color."
+            }
+        },
+        {
+            "front": "What is a server in web technology?",
+            "back": {
+                "answer": "A server is a computer program or device that provides information to other computers over a network, typically following HTTP protocols.",
+                "analogy": "Think of a server as a librarian who keeps books (information) organized and makes them available for borrowing (requests).",
+                "common_mistake": "Servers are only used for storing data."
+            }
+        },
+        {
+            "front": "What does the term 'client' mean in web technology?",
+            "back": {
+                "answer": "A client is a computer program or device that requests information from a server.",
+                "analogy": "In the context of web technology, a client is like a customer visiting a store to buy products (requesting content).",
+                "common_mistake": "Clients are servers that host websites."
+            }
+        },
+        {
+            "front": "What role does JavaScript play in web development?",
+            "back": {
+                "answer": "JavaScript adds interactivity and dynamic behavior to web pages, enabling user interactions.",
+                "analogy": "Think of JavaScript as the sprinkles on an ice cream sundae—it gives it that extra bit of flavor and fun.",
+                "common_mistake": "JavaScript is only used for styling web pages."
+            }
+        },
+        {
+            "front": "How does a browser work with web technologies?",
+            "back": {
+                "answer": "A browser interprets HTML, CSS, and JavaScript to render web content in a user-friendly way.",
+                "analogy": "Imagine the browser as a translator who reads different languages (HTML, CSS, JS) and converts them into a language you can understand (a rendered webpage).",
+                "common_mistake": "Browsers only support HTML."
+            }
+        },
+        {
+            "front": "What is a domain name?",
+            "back": {
+                "answer": "A domain name is an identifier for a website that helps users remember the web address.",
+                "analogy": "Think of a domain name as a street address, making it easier to find someone's house instead of memorizing a series of numbers and letters.",
+                "common_mistake": "Domain names are IP addresses."
+            }
+        },
+        {
+            "front": "What is the difference between static and dynamic websites?",
+            "back": {
+                "answer": "Static websites have content that does not change without manual intervention, while dynamic sites can update content in real-time based on user interaction or data from a server.",
+                "analogy": "A static website is like a printed brochure (unchanging), whereas a dynamic site is like an interactive app (content can be updated).",
+                "common_mistake": "Static and dynamic websites are the same; they just use different programming languages."
+            }
+        },
+        {
+            "front": "What role does caching play in web technology?",
+            "back": {
+                "answer": "Caching stores copies of data or pages on client devices to reduce server load and improve loading times.",
+                "analogy": "Think of caching as storing frequently used items in a kitchen drawer, so you don’t need to keep fetching them from the storage room every time.",
+                "common_mistake": "Caching only takes place on the server side."
+            }
+        },
+        {
+            "front": "How does a web application differ from a website?",
+            "back": {
+                "answer": "A web application is designed for specific tasks and can interact with databases or other servers; websites are primarily for information delivery.",
+                "analogy": "Imagine a website as a book (for reading) versus a game (where actions have consequences and the content changes).",
+                "common_mistake": "Websites and web applications serve exactly the same purpose."
+            }
+        }
+    ]
+}

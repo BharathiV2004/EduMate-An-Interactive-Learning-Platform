@@ -1,0 +1,90 @@
+{
+    "topic": "Comparing Two Numbers",
+    "generated_at": "2025-05-08T00:32:08.227504",
+    "questions": [
+        {
+            "question": "If you compare 0.7 and \\( \\frac{7}{8} \\), what is true?",
+            "options": {
+                "A": "0.7 is greater than \\( \\frac{7}{8} \\)",
+                "B": "\\( \\frac{7}{8} \\) is greater than 0.7",
+                "C": "Both are equal",
+                "D": "Cannot be determined from the information given"
+            },
+            "answer": "B",
+            "explanation": "Converting 0.7 to a fraction gives us \\( \\frac{7}{10} \\). Comparing \\( \\frac{7}{8} \\) and \\( \\frac{7}{10} \\), we see that \\( \\frac{7}{8} = 0.875 \\) is greater than 0.7.",
+            "hint": "Consider the value of 0.8.\n\n---"
+        },
+        {
+            "question": "Which number is smaller, \\( -\\frac{2}{3} \\) or \\( -1.2 \\)?",
+            "options": {
+                "A": "\\( -\\frac{2}{3} \\)",
+                "B": "\\( -1.2 \\)",
+                "C": "Both are equal",
+                "D": "Cannot be determined from the information given"
+            },
+            "answer": "A",
+            "explanation": "When comparing negative numbers, the one with the larger absolute value is actually smaller. The absolute value of \\( -\\frac{2}{3} \\) is approximately 0.67, which is less than the absolute value of 1.2.",
+            "hint": "Think about the number line and how farther left a number is from zero means it's smaller.\n\n---"
+        },
+        {
+            "question": "If you compare \\( 4.\\overline{5} \\) (4.555...) with \\( \\frac{17}{3} \\), which is greater?",
+            "options": {
+                "A": "\\( 4.\\overline{5} \\)",
+                "B": "\\( \\frac{17}{3} \\)",
+                "C": "Both are equal",
+                "D": "Cannot be determined from the information given"
+            },
+            "answer": "B",
+            "explanation": "Converting \\( \\frac{17}{3} \\) to a decimal gives us 5.666..., which is greater than the repeating decimal 4.555... (or \\( 4.\\overline{5} \\)).",
+            "hint": "Consider the integer parts of each number.\n\n---"
+        },
+        {
+            "question": "Which number is smaller, 0.3 or \\( \\frac{2}{7} \\)?",
+            "options": {
+                "A": "0.3",
+                "B": "\\( \\frac{2}{7} \\)",
+                "C": "Both are equal",
+                "D": "Cannot be determined from the information given"
+            },
+            "answer": "B",
+            "explanation": "Converting \\( \\frac{2}{7} \\) to a decimal gives approximately 0.2857, which is less than 0.3.",
+            "hint": "Consider how close \\( \\frac{2}{7} \\) is to zero.\n\n---"
+        },
+        {
+            "question": "If you compare \\( -\\frac{4}{5} \\) and \\( -0.6 \\), what is true?",
+            "options": {
+                "A": "\\( -\\frac{4}{5} \\) is greater",
+                "B": "\\( -0.6 \\) is greater",
+                "C": "Both are equal",
+                "D": "Cannot be determined from the information given"
+            },
+            "answer": "C",
+            "explanation": "Converting \\( -\\frac{4}{5} \\) to a decimal gives us –0.8, which means both numbers are actually equal in value.",
+            "hint": "Consider what happens when you multiply or divide by a negative number.\n\n---"
+        },
+        {
+            "question": "Which number is greater, 3.12 or \\( \\frac{97}{32} \\)?",
+            "options": {
+                "A": "3.12",
+                "B": "\\( \\frac{97}{32} \\)",
+                "C": "Both are equal",
+                "D": "Cannot be determined from the information given"
+            },
+            "answer": "B",
+            "explanation": "Converting \\( \\frac{97}{32} \\) to a decimal gives approximately 3.03125, which is less than 3.12.",
+            "hint": "Think about how close 3.03125 is to 3.\n\n---"
+        },
+        {
+            "question": "If you compare \\( -\\frac{6}{7} \\) and –0.87, what is true?",
+            "options": {
+                "A": "\\( -\\frac{6}{7} \\) is greater",
+                "B": "–0.87 is greater",
+                "C": "Both are equal",
+                "D": "Cannot be determined from the information given"
+            },
+            "answer": "A",
+            "explanation": "Converting \\( -\\frac{6}{7} \\) to a decimal gives approximately –0.8571, which is greater than –0.87.",
+            "hint": "Consider the number line and how values closer to zero are \"greater.\""
+        }
+    ]
+}

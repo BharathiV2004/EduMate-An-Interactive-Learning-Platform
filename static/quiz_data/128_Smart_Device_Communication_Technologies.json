@@ -1,0 +1,90 @@
+{
+    "topic": "Smart Device Communication Technologies",
+    "generated_at": "2025-05-14T11:02:58.598479",
+    "questions": [
+        {
+            "question": "Which of the following technologies is NOT typically used for peer-to-peer communication?",
+            "options": {
+                "A": "Wi-Fi Direct",
+                "B": "Bluetooth Low Energy (BLE)",
+                "C": "Z-Wave",
+                "D": "TCP/IP"
+            },
+            "answer": "D",
+            "explanation": "TCP/IP, or Transmission Control Protocol/Internet Protocol, is a suite of networking protocols that enable internet connectivity. It’s more focused on establishing connections over the Internet rather than direct device-to-device communication.",
+            "hint": "Consider what happens when you connect your phone directly to a printer.\n\n---"
+        },
+        {
+            "question": "What technology allows multiple devices to form a network without any one device being designated as the central hub?",
+            "options": {
+                "A": "Wi-Fi",
+                "B": "Bluetooth",
+                "C": "Zigbee",
+                "D": "NFC (Near Field Communication)"
+            },
+            "answer": "C",
+            "explanation": "Zigbee enables multiple devices to connect and communicate in a mesh topology, where each node can forward data on behalf of others. This distributed network approach enhances reliability and efficiency.",
+            "hint": "Think about how neighbors might share their Wi-Fi passwords.\n\n---"
+        },
+        {
+            "question": "Which technology is best suited for short-range wireless communication between two devices?",
+            "options": {
+                "A": "LTE",
+                "B": "Bluetooth",
+                "C": "4G",
+                "D": "NFC"
+            },
+            "answer": "B",
+            "explanation": "Bluetooth is ideal for pairing and transmitting data over short distances, making it perfect for connecting headphones to a phone or keyboards to computers.",
+            "hint": "Think about your wireless earbuds.\n\n---"
+        },
+        {
+            "question": "In which scenario would you most likely use Wi-Fi Direct?",
+            "options": {
+                "A": "Connecting multiple devices to the same router",
+                "B": "Streaming high-definition video from a smartphone to a TV",
+                "C": "Sending files between two laptops in the same room",
+                "D": "Controlling a smart home device via voice commands"
+            },
+            "answer": "C",
+            "explanation": "Wi-Fi Direct enables direct peer-to-peer connections, allowing devices like laptops or smartphones to communicate without an existing network. This is perfect for transferring data quickly and efficiently.",
+            "hint": "Consider sharing files between your tablet and laptop.\n\n---"
+        },
+        {
+            "question": "Which of the following is a benefit of using Zigbee over traditional Wi-Fi in smart home systems?",
+            "options": {
+                "A": "Higher data transfer rates",
+                "B": "Lower power consumption",
+                "C": "More stable internet connection",
+                "D": "Greater range"
+            },
+            "answer": "B",
+            "explanation": "Zigbee is designed to consume less energy, making it suitable for battery-operated devices like sensors and actuators. This low-power design helps extend the life of smart home components.",
+            "hint": "Think about how your thermostat operates on batteries.\n\n---"
+        },
+        {
+            "question": "What technology would you use if you needed to establish a connection between two devices within 10 centimeters?",
+            "options": {
+                "A": "Wi-Fi",
+                "B": "Bluetooth",
+                "C": "Zigbee",
+                "D": "NFC"
+            },
+            "answer": "D",
+            "explanation": "NFC (Near Field Communication) is designed for short-range, high-frequency communication and works well when devices are very close together. It’s ideal for contactless payment systems and quick data exchange.",
+            "hint": "Think about how your phone can tap to pay.\n\n---"
+        },
+        {
+            "question": "Which of the following technologies would be most suitable for a large-scale smart city infrastructure?",
+            "options": {
+                "A": "Bluetooth",
+                "B": "Zigbee",
+                "C": "LoRaWAN (Long Range Wide Area Network)",
+                "D": "NFC"
+            },
+            "answer": "C",
+            "explanation": "LoRaWAN is designed for long-range, low-power communication networks, making it ideal for applications in smart cities where numerous devices need to communicate over wide areas with minimal energy consumption.",
+            "hint": "Think about how a city might monitor traffic and pollution from distant sensors."
+        }
+    ]
+}

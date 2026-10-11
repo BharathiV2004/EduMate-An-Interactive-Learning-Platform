@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer Flipcard Game - {{ topic }}</title>
+    <link rel="stylesheet" href="/static/css/style_flip.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ topic.capitalize() }} Multiplayer Matching Game</h1>
+        
+        <div id="lobby" class="lobby-section">
+            <div class="player-form">
+                <input type="text" id="player-name" placeholder="Your Name" maxlength="20">
+                <button id="join-btn" class="btn">Join Game</button>
+                <button id="create-btn" class="btn">Create New Room</button>
+            </div>
+            
+            <div id="room-info" class="hidden">
+                <div class="room-id-display">
+                    <span>Room ID: </span>
+                    <strong id="room-id"></strong>
+                    <button id="copy-btn" class="btn small-btn">Copy</button>
+                </div>
+                <div id="player-list" class="player-list"></div>
+                <button id="start-btn" class="btn" disabled>Start Game</button>
+            </div>
+        </div>
+        
+        <div id="game-section" class="hidden">
+            <div class="game-stats">
+                <div class="stat">
+                    <span class="stat-label">Matches:</span>
+                    <span id="matches" class="stat-value">0</span>/<span id="total-pairs" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">00:00</span>
+                </div>
+            </div>
+            
+            <div id="players-scoreboard" class="players-scoreboard"></div>
+            
+            <div id="game-board" class="game-board" data-topic="{{ topic }}"></div>
+            
+            <div class="game-controls">
+                <button id="restart-btn" class="btn">Restart Game</button>
+                <button id="leave-btn" class="btn">Leave Game</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/multiplayer_flip.js"></script>
+</body>
+</html>

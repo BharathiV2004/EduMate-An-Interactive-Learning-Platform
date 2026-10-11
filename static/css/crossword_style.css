@@ -1,0 +1,291 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.screen {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.button-group {
+    margin-top: 15px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.game-header {
+    margin-bottom: 20px;
+}
+
+.game-area {
+    display: flex;
+    gap: 20px;
+}
+
+.crossword-container {
+    flex: 1;
+}
+
+.clues-container {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+}
+
+.clues-section {
+    flex: 1;
+}
+
+#crossword-grid {
+    display: grid;
+    grid-template-columns: repeat(15, 30px);
+    grid-template-rows: repeat(15, 30px);
+    gap: 1px;
+    background-color: #333;
+}
+
+.cell {
+    background-color: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.cell.black {
+    background-color: #333;
+}
+
+.cell-number {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    font-size: 10px;
+    color: #333;
+}
+
+.cell-letter {
+    font-weight: bold;
+}
+
+.cell.highlight {
+    background-color: #ffeb3b;
+}
+
+.cell.correct {
+    background-color: #a5d6a7;
+}
+
+.cell.incorrect {
+    background-color: #ffab91;
+}
+
+.clue-item {
+    margin-bottom: 10px;
+}
+
+.answer-input {
+    margin-left: 10px;
+    padding: 3px;
+    width: 100px;
+}
+
+.submit-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#result-message {
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+#result-message.success {
+    background-color: #a5d6a7;
+    color: #2e7d32;
+}
+
+#result-message.error {
+    background-color: #ffab91;
+    color: #c62828;
+}
+/* Previous styles remain the same, just add these new styles */
+
+.cell-letter {
+    font-weight: bold;
+    color: #333; /* Default color for letters before submission */
+}
+
+.cell.correct .cell-letter {
+    color: #2e7d32; /* Dark green for correct letters */
+}
+
+.cell.incorrect .cell-letter {
+    color: #c62828; /* Dark red for incorrect letters */
+}
+
+.cell.highlight {
+    background-color: #ffeb3b;
+}
+
+.cell.correct {
+    background-color: #a5d6a7; /* Light green for correct cells */
+}
+
+.cell.incorrect {
+    background-color: #ffab91; /* Light red for incorrect cells */
+}
+
+/* Rest of your existing CSS remains the same */
+/* Winner display styles */
+.winner-container {
+    text-align: center;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.winner-message h2 {
+    color: #28a745;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.scoreboard {
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.player-score {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    background-color: white;
+}
+
+.player-score.you {
+    background-color: #e7f5ff;
+    font-weight: bold;
+}
+
+.player-score:last-child {
+    border-bottom: none;
+}
+
+#play-again {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+#play-again:hover {
+    background-color: #0069d9;
+}
+/* Winner display styles */
+.winner-container {
+    text-align: center;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.winner-message h2 {
+    color: #28a745;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.scoreboard {
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.player-score {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    background-color: white;
+}
+
+.player-score.you {
+    background-color: #e7f5ff;
+    font-weight: bold;
+}
+
+.player-score:last-child {
+    border-bottom: none;
+}
+
+#play-again {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+#play-again:hover {
+    background-color: #0069d9;
+}
+

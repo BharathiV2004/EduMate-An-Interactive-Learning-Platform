@@ -1,0 +1,102 @@
+{
+    "topic": "Web Technology and Development",
+    "generated_at": "2025-05-16T09:53:11.684781",
+    "questions": [
+        {
+            "question": "In which of these frameworks is the \"virtual DOM\" concept primarily used?",
+            "options": {
+                "A": "Vue.js",
+                "B": "Angular",
+                "C": "React",
+                "D": "Express"
+            },
+            "answer": "C",
+            "explanation": "The virtual DOM in React allows for efficient updates and comparisons, making it much faster to render changes. It's like having a digital blueprint that quickly checks if you need to change the furniture layout instead of physically moving everything.",
+            "hint": "Think about what makes React fast when rendering changes.\n\n---"
+        },
+        {
+            "question": "Which JavaScript method can be used to prevent a form from being submitted?",
+            "options": {
+                "A": "`preventDefault()`",
+                "B": "`stopPropagation()`",
+                "C": "`addEventListener()`",
+                "D": "`setTimeout()`"
+            },
+            "answer": "A",
+            "explanation": "When you use `event.preventDefault()`, it stops the default action of an event, such as submitting a form. It's like pressing 'cancel' on a draft before it gets sent—without this step, your message might go out by accident.",
+            "hint": "Think about how to stop something from happening.\n\n---"
+        },
+        {
+            "question": "Which of these is not a CSS pseudo-class?",
+            "options": {
+                "A": "`:hover`",
+                "B": "`:active`",
+                "C": "`:before`",
+                "D": "`:function`"
+            },
+            "answer": "D",
+            "explanation": "Pseudo-classes in CSS are special selectors that match elements based on certain states, like being hovered over or being the first child. `:function` is not a pseudo-class because it doesn't represent any specific state.",
+            "hint": "Think of actions you can take with an element.\n\n---"
+        },
+        {
+            "question": "Which web development tool is used for building server-side logic in Node.js applications?",
+            "options": {
+                "A": "React",
+                "B": "Express",
+                "C": "Vue.js",
+                "D": "Angular"
+            },
+            "answer": "B",
+            "explanation": "Express is a fast, unopinionated, minimalist web framework for Node.js. It provides features to build web servers and APIs but doesn't manage the front-end like other frameworks such as React or Vue.js.",
+            "hint": "Think about what handles server-side logic.\n\n---"
+        },
+        {
+            "question": "In which of these scenarios would you use `localStorage` over `sessionStorage`?",
+            "options": {
+                "A": "When you need data to persist across multiple sessions",
+                "B": "When you want data to be available only during a single browsing session",
+                "C": "When you're working with forms and need real-time updates",
+                "D": "When you're implementing an animation on the website"
+            },
+            "answer": "A",
+            "explanation": "`localStorage` persists the stored data until explicitly deleted by the user, while `sessionStorage` is cleared when the page session ends. If you want to save something like a user's preferences that should be remembered even after they close and reopen their browser, use `localStorage`.",
+            "hint": "Think about what needs to stick around.\n\n---"
+        },
+        {
+            "question": "What is the purpose of the `async` keyword in JavaScript?",
+            "options": {
+                "A": "To define an asynchronous function",
+                "B": "To declare variables",
+                "C": "To create a new object",
+                "D": "To add event listeners"
+            },
+            "answer": "A",
+            "explanation": "The `async` keyword makes functions return promises, which can be awaited. This is crucial for writing clean and readable code when working with asynchronous operations like fetching data from an API.",
+            "hint": "Think about waiting for something.\n\n---"
+        },
+        {
+            "question": "Which of the following libraries does NOT include a virtual DOM?",
+            "options": {
+                "A": "Vue.js",
+                "B": "React",
+                "C": "Angular",
+                "D": "Preact"
+            },
+            "answer": "C",
+            "explanation": "While both Vue and React use a virtual DOM, Angular's change detection mechanism doesn't rely on it in the same way. Instead, Angular uses its own powerful change detection system to efficiently update the UI.",
+            "hint": "Think about which ones have something extra.\n\n---"
+        },
+        {
+            "question": "Which method is used to make an HTTP GET request in JavaScript?",
+            "options": {
+                "A": "`fetch`",
+                "B": "`axios.get`",
+                "C": "`$.get`",
+                "D": "`request('GET')`"
+            },
+            "answer": "A",
+            "explanation": "The `fetch` API provides a powerful and flexible way to make network requests, but other libraries like axios offer more concise methods for making GET requests.",
+            "hint": "Think about the simplest built-in method."
+        }
+    ]
+}

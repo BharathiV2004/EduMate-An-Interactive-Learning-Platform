@@ -1,0 +1,252 @@
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a2e;
+    color: #e6e6e6;
+    font-family: 'Roboto Mono', monospace;
+    overflow-x: hidden;
+}
+
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Game Header */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #16213e;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.game-logo {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    color: #00d1b2;
+    text-shadow: 0 0 10px rgba(0, 209, 178, 0.5);
+}
+
+.game-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-box {
+    background-color: #0f3460;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 80px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 12px;
+    color: #a1a1a1;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Game Panels */
+.game-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.game-panel {
+    background-color: #16213e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.panel-title {
+    margin-top: 0;
+    color: #00d1b2;
+    border-bottom: 2px solid #0f3460;
+    padding-bottom: 10px;
+}
+
+.problem-panel {
+    grid-column: span 2;
+}
+
+/* Code Display */
+.code-display, .code-editor {
+    background-color: #0f0f23;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 15px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    color: #e6e6e6;
+    margin-top: 15px;
+    min-height: 150px;
+}
+
+.code-editor {
+    background-color: #0f0f23;
+    cursor: text;
+}
+
+/* Snippets */
+.snippet-pool {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.snippet {
+    background-color: #0f3460;
+    border: 1px dashed #4cc9f0;
+    border-radius: 5px;
+    padding: 12px;
+    cursor: grab;
+    transition: all 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.snippet:hover {
+    background-color: #1a508b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.snippet:active {
+    cursor: grabbing;
+}
+
+.snippet-drag-handle {
+    color: #a1a1a1;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.btn-check {
+    background-color: #00d1b2;
+    color: #000;
+}
+
+.btn-check:hover {
+    background-color: #00b89c;
+}
+
+.btn-skip {
+    background-color: transparent;
+    border: 1px solid #f14668;
+    color: #f14668;
+}
+
+.btn-skip:hover {
+    background-color: rgba(241, 70, 104, 0.1);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #16213e;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 80%;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+#feedbackTitle {
+    color: #00d1b2;
+    margin-top: 0;
+}
+
+#feedbackMessage {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background-color: #0f3460;
+    border-radius: 5px;
+    margin-top: 20px;
+    height: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #00d1b2;
+    border-radius: 5px;
+    width: 0%;
+    transition: width 0.3s;
+}
+
+/* Animations */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 0.5s;
+}

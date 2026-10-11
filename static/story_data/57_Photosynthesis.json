@@ -1,0 +1,164 @@
+{
+    "topic": "Photosynthesis",
+    "story_name": "The Green Sentinel",
+    "characters": [
+        {
+            "name": "Ella",
+            "description": "A bright and curious 16-year-old biology student (Female, 16 years old)",
+            "image_path": "/static/images/character_Ella.png",
+            "voice_id": "en-US-EmmaNeural"
+        },
+        {
+            "name": "Dr. Olivia",
+            "description": "An experienced botanist in her late 40s, knowledgeable and patient (Female, late 40s)",
+            "image_path": "/static/images/character_Dr.%20Olivia.png",
+            "voice_id": "zh-CN-YunyangNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "Introduction to the Green Sentinel",
+            "setting": "A serene greenhouse filled with various plants.",
+            "scene_image_path": "/static/images/scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Ella",
+                    "line": "Dr. Olivia, I've always been fascinated by how plants grow so lush and green.",
+                    "audio_path": "/static/audio/scene_1_Ella_4454433108248066531.mp3"
+                },
+                {
+                    "character": "Dr. Olivia",
+                    "line": "That's a great curiosity, Ella! Let me introduce you to the concept of photosynthesis.",
+                    "audio_path": "/static/audio/scene_1_Dr.%20Olivia_8235135526116173316.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "The Role of Chlorophyll",
+            "setting": "Inside Dr. Olivia’s lab with green plants and equipment.",
+            "scene_image_path": "/static/images/scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Olivia",
+                    "line": "Chlorophyll is like a magical ingredient in leaves that helps them capture sunlight.",
+                    "audio_path": "/static/audio/scene_2_Dr.%20Olivia_3833235339740468769.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "So, it's almost like the leaf is eating sunlight?",
+                    "audio_path": "/static/audio/scene_2_Ella_7488106049919215721.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "The Process Explained",
+            "setting": "A classroom setting with visual aids on photosynthesis.",
+            "scene_image_path": "/static/images/scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Olivia",
+                    "line": "Yes, exactly! Chlorophyll absorbs light energy and uses it to convert carbon dioxide from the air into glucose.",
+                    "audio_path": "/static/audio/scene_3_Dr.%20Olivia_7594035490553265143.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "And that's how plants make their food!",
+                    "audio_path": "/static/audio/scene_3_Ella_5218952647471618094.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 4,
+            "scene_title": "Water's Role in Photosynthesis",
+            "setting": "A botanical garden with a water feature.",
+            "scene_image_path": "/static/images/scene_4.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Olivia",
+                    "line": "Water is another crucial component. It travels through the plant and combines with carbon dioxide to produce energy.",
+                    "audio_path": "/static/audio/scene_4_Dr.%20Olivia_8466084149536964659.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "So, without water, photosynthesis can't happen?",
+                    "audio_path": "/static/audio/scene_4_Ella_5045979287666207504.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 5,
+            "scene_title": "Oxygen Release",
+            "setting": "A sunny outdoor area where plants are flourishing.",
+            "scene_image_path": "/static/images/scene_5.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Olivia",
+                    "line": "During this process, oxygen is also released as a byproduct. That's why plants are essential for our environment.",
+                    "audio_path": "/static/audio/scene_5_Dr.%20Olivia_9167521470160018128.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "Wow, I never realized that!",
+                    "audio_path": "/static/audio/scene_5_Ella_2185977474543756213.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 6,
+            "scene_title": "The Green Leaf as a Factory",
+            "setting": "A small greenhouse with a focus on the role of chlorophyll.",
+            "scene_image_path": "/static/images/scene_6.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Olivia",
+                    "line": "Think of each leaf as a tiny factory where photosynthesis takes place. Chlorophyll is like the power generator.",
+                    "audio_path": "/static/audio/scene_6_Dr.%20Olivia_7784996266668747716.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "That's so cool! How can I help ensure that my houseplants are healthy?",
+                    "audio_path": "/static/audio/scene_6_Ella_8660907210125161398.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 7,
+            "scene_title": "Practical Application",
+            "setting": "Ella’s home with her plants.",
+            "scene_image_path": "/static/images/scene_7.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Olivia",
+                    "line": "Make sure your plants get plenty of light and water. Also, consider the type of soil they need.",
+                    "audio_path": "/static/audio/scene_7_Dr.%20Olivia_8549315331359860287.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "I'll take better care of them now! Thanks, Dr. Olivia!",
+                    "audio_path": "/static/audio/scene_7_Ella_2346782995128794948.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 8,
+            "scene_title": "The Green Sentinel in Action",
+            "setting": "A park with lush greenery.",
+            "scene_image_path": "/static/images/scene_8.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Olivia",
+                    "line": "Remember, every plant is a green sentinel protecting our planet by producing oxygen and cleaning the air.",
+                    "audio_path": "/static/audio/scene_8_Dr.%20Olivia_3429403323460782266.mp3"
+                },
+                {
+                    "character": "Ella",
+                    "line": "I'll always appreciate nature more now.",
+                    "audio_path": "/static/audio/scene_8_Ella_1070044763874355507.mp3"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,108 @@
+{
+    "title": "5G, IoT, VoIP in Smart Devices",
+    "pdf_path": "notes\\5G,_IoT,_VoIP_in_Smart_Devices_notes.pdf",
+    "sections": {
+        "main_notes": [
+            {
+                "title": "5G",
+                "subtopics": []
+            },
+            {
+                "title": "Super-fast internet connection",
+                "subtopics": []
+            },
+            {
+                "title": "Enhances VoIP call quality",
+                "subtopics": []
+            },
+            {
+                "title": "Clearer calls",
+                "subtopics": []
+            },
+            {
+                "title": "Less delay",
+                "subtopics": []
+            },
+            {
+                "title": "Applications",
+                "subtopics": []
+            },
+            {
+                "title": "Mobile video calls",
+                "subtopics": []
+            },
+            {
+                "title": "High-quality conversations",
+                "subtopics": []
+            },
+            {
+                "title": "IoT (Internet of Things)",
+                "subtopics": []
+            },
+            {
+                "title": "Everyday devices connected to the internet",
+                "subtopics": []
+            },
+            {
+                "title": "Smart speakers",
+                "subtopics": []
+            },
+            {
+                "title": "Wearable devices (e.g., smart watches)",
+                "subtopics": []
+            },
+            {
+                "title": "VoIP capabilities",
+                "subtopics": []
+            },
+            {
+                "title": "Devices can make or receive VoIP calls",
+                "subtopics": []
+            },
+            {
+                "title": "Example: Your smart fridge calling you when out of milk",
+                "subtopics": []
+            },
+            {
+                "title": "Smart Homes and Offices",
+                "subtopics": []
+            },
+            {
+                "title": "Integration of multiple devices for communication purposes",
+                "subtopics": []
+            },
+            {
+                "title": "Scheduling calls",
+                "subtopics": []
+            },
+            {
+                "title": "Sending reminders",
+                "subtopics": []
+            }
+        ],
+        "key_terms": [
+            {
+                "term": "5G",
+                "definition": "A fifth-generation cellular network technology that offers significantly faster data transfer rates, lower latency, and higher capacity compared to previous generations."
+            },
+            {
+                "term": "IoT (Internet of Things)",
+                "definition": "A system of interconnected physical devices, vehicles, home appliances, and other items embedded with sensors, software, and connectivity which enable these objects to collect and exchange data over the internet."
+            }
+        ],
+        "examples": [
+            "Your smart fridge calling you when it detects that you are running low on milk.",
+            "A smart speaker automatically scheduling a video call for your next meeting based on your calendar entries.",
+            "Wearable devices like fitness trackers sending real-time health updates to your smartphone or other connected devices."
+        ],
+        "connections": [
+            "5G and IoT together enhance the capabilities of smart devices by providing faster data transfer rates, enabling more efficient communication between devices.",
+            "VoIP integration in smart devices allows for seamless voice communication across a wide range of devices, from smartphones to home appliances.",
+            "Smart homes and offices benefit from automated scheduling and reminders, improving productivity and convenience."
+        ],
+        "questions": [
+            "How does 5G improve the quality of VoIP calls compared to previous generations?",
+            "What are some potential applications of IoT in smart homes and offices beyond just making or receiving VoIP calls?"
+        ]
+    }
+}

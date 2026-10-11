@@ -1,0 +1,128 @@
+{
+    "topic": "5G, IoT and VoIP in Smart Devices",
+    "story_name": "The Smart Home Enigma",
+    "characters": [
+        {
+            "name": "Eva",
+            "description": "A tech-savvy 23-year-old software developer.",
+            "image_path": "/static/images/character_Eva.png",
+            "voice_id": "en-US-AndrewNeural"
+        },
+        {
+            "name": "Dr. Thompson",
+            "description": "A retired 70-year-old inventor with a passion for technology.",
+            "image_path": "/static/images/character_Dr.%20Thompson.png",
+            "voice_id": "en-US-AndrewNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "Introduction to the Mystery",
+            "setting": "A modern living room filled with smart devices and gadgets.",
+            "scene_image_path": "/static/images/scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Eva",
+                    "line": "Dr. Thompson, can you explain how these new tech advancements are changing our homes?",
+                    "audio_path": "/static/audio/scene_1_Eva_3869557954748466685.mp3"
+                },
+                {
+                    "character": "Dr. Thompson",
+                    "line": "Certainly, Eva. Let's start with what I call the 'Internet of Things' or IoT.",
+                    "audio_path": "/static/audio/scene_1_Dr.%20Thompson_6731167272194032959.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "Exploring IoT",
+            "setting": "The same living room as before, but now focusing on a smart speaker.",
+            "scene_image_path": "/static/images/scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Thompson",
+                    "line": "Imagine your coffee maker waking up when you're about to leave for work. It’s all thanks to IoT.",
+                    "audio_path": "/static/audio/scene_2_Dr.%20Thompson_1008218756204787735.mp3"
+                },
+                {
+                    "character": "Eva",
+                    "line": "That's amazing! How does it work?",
+                    "audio_path": "/static/audio/scene_2_Eva_4561642314092500525.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "Delving into 5G",
+            "setting": "A small tech room with various devices connected.",
+            "scene_image_path": "/static/images/scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Thompson",
+                    "line": "Now, 5G is like a superhighway for data, making everything faster and more efficient.",
+                    "audio_path": "/static/audio/scene_3_Dr.%20Thompson_2025185974700196663.mp3"
+                },
+                {
+                    "character": "Eva",
+                    "line": "So, this means better video calls too? How does that work?",
+                    "audio_path": "/static/audio/scene_3_Eva_4586364060494827168.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 4,
+            "scene_title": "VoIP in Action",
+            "setting": "A cozy kitchen with a smart fridge.",
+            "scene_image_path": "/static/images/scene_4.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Thompson",
+                    "line": "Let’s see how your smart fridge can call you when it detects low milk levels using VoIP.",
+                    "audio_path": "/static/audio/scene_4_Dr.%20Thompson_4845910854302550061.mp3"
+                },
+                {
+                    "character": "Eva",
+                    "line": "That's incredibly convenient! But isn't there any delay? How does 5G help?",
+                    "audio_path": "/static/audio/scene_4_Eva_8338263400747013809.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 5,
+            "scene_title": "Smart Home Automation",
+            "setting": "Back in the living room with various devices integrated.",
+            "scene_image_path": "/static/images/scene_5.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Thompson",
+                    "line": "5G ensures that all these smart devices can communicate seamlessly, like a well-orchestrated team.",
+                    "audio_path": "/static/audio/scene_5_Dr.%20Thompson_6386700963457876360.mp3"
+                },
+                {
+                    "character": "Eva",
+                    "line": "It’s like having a smart assistant in every corner of my home! I never thought technology could be this integrated.",
+                    "audio_path": "/static/audio/scene_5_Eva_953236241983440490.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 6,
+            "scene_title": "The Future",
+            "setting": "A futuristic-looking office space with advanced technology.",
+            "scene_image_path": "/static/images/scene_6.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Thompson",
+                    "line": "The possibilities are endless, Eva. From remote work to smart cities, these technologies will continue to evolve.",
+                    "audio_path": "/static/audio/scene_6_Dr.%20Thompson_1806038531491509698.mp3"
+                },
+                {
+                    "character": "Eva",
+                    "line": "I can't wait to see what the future holds!",
+                    "audio_path": "/static/audio/scene_6_Eva_55781606243996082.mp3"
+                }
+            ]
+        }
+    ]
+}

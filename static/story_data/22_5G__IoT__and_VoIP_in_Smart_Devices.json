@@ -1,0 +1,160 @@
+{
+    "topic": "5G, IoT, and VoIP in Smart Devices",
+    "story_name": "The Digital Whisperer",
+    "characters": [
+        {
+            "name": "Jamie",
+            "description": "A tech-savvy young adult in their early twenties who loves innovation.",
+            "image_path": "D:/Downloads/Edumate/static/images\\character_Jamie.png",
+            "voice_id": "en-US-EmmaNeural"
+        },
+        {
+            "name": "Dr. Nova",
+            "description": "An elderly but still energetic professor of computer science, 65 years old.",
+            "image_path": "D:/Downloads/Edumate/static/images\\character_Dr. Nova.png",
+            "voice_id": "en-US-GuyNeural"
+        }
+    ],
+    "scenes": [
+        {
+            "scene_number": 1,
+            "scene_title": "Introduction to Jamie's New World",
+            "setting": "Jamie’s modern apartment filled with various smart devices and gadgets.",
+            "dialogues": [
+                {
+                    "character": "Jamie",
+                    "line": "Hey Dr. Nova, I just got a new smart fridge! It can call me when the milk runs low?"
+                },
+                {
+                    "character": "Dr. Nova",
+                    "line": "That sounds fascinating, Jamie. Let's explore more about this technology."
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_1.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Jamie",
+                    "line": "Hey Dr. Nova, I just got a new smart fridge! It can call me when the milk runs low?",
+                    "audio_path": "scene_1_Jamie_5513574702307640578.mp3"
+                },
+                {
+                    "character": "Dr. Nova",
+                    "line": "That sounds fascinating, Jamie. Let's explore more about this technology.",
+                    "audio_path": "scene_1_Dr. Nova_6012257418909445481.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 2,
+            "scene_title": "Exploring 5G",
+            "setting": "In front of a large screen displaying various technical diagrams.",
+            "dialogues": [
+                {
+                    "character": "Dr. Nova",
+                    "line": "Firstly, let’s talk about 5G. It’s like a super-fast highway for internet data."
+                },
+                {
+                    "character": "Jamie",
+                    "line": "So, it makes calls clearer and videos smoother?"
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_2.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Nova",
+                    "line": "Firstly, let’s talk about 5G. It’s like a super-fast highway for internet data.",
+                    "audio_path": "scene_2_Dr. Nova_5567041504646304682.mp3"
+                },
+                {
+                    "character": "Jamie",
+                    "line": "So, it makes calls clearer and videos smoother?",
+                    "audio_path": "scene_2_Jamie_5710535000349146977.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 3,
+            "scene_title": "IoT in Action",
+            "setting": "Jamie's living room with connected devices around the room.",
+            "dialogues": [
+                {
+                    "character": "Dr. Nova",
+                    "line": "Now, imagine all these devices communicating together. That’s IoT."
+                },
+                {
+                    "character": "Jamie",
+                    "line": "Like my smart speaker scheduling a call for me? Or reminding me to take out the trash?"
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_3.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Nova",
+                    "line": "Now, imagine all these devices communicating together. That’s IoT.",
+                    "audio_path": "scene_3_Dr. Nova_2228584047515732242.mp3"
+                },
+                {
+                    "character": "Jamie",
+                    "line": "Like my smart speaker scheduling a call for me? Or reminding me to take out the trash?",
+                    "audio_path": "scene_3_Jamie_4372939463068914948.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 4,
+            "scene_title": "VoIP and Smart Calls",
+            "setting": "Jamie’s home office with video conferencing equipment.",
+            "dialogues": [
+                {
+                    "character": "Dr. Nova",
+                    "line": "And VoIP, or Voice over Internet Protocol, allows you to make calls using internet connections."
+                },
+                {
+                    "character": "Jamie",
+                    "line": "So, I can have crystal-clear video calls from my phone or laptop?"
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_4.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Nova",
+                    "line": "And VoIP, or Voice over Internet Protocol, allows you to make calls using internet connections.",
+                    "audio_path": "scene_4_Dr. Nova_117134855532438551.mp3"
+                },
+                {
+                    "character": "Jamie",
+                    "line": "So, I can have crystal-clear video calls from my phone or laptop?",
+                    "audio_path": "scene_4_Jamie_7593212721161235317.mp3"
+                }
+            ]
+        },
+        {
+            "scene_number": 5,
+            "scene_title": "Smart Home and Office",
+            "setting": "Back in Jamie’s apartment with all devices working seamlessly.",
+            "dialogues": [
+                {
+                    "character": "Dr. Nova",
+                    "line": "Together, these technologies can create smart homes and offices where everything is connected and works for you."
+                },
+                {
+                    "character": "Jamie",
+                    "line": "Wow, this could really change the way we live and work!"
+                }
+            ],
+            "scene_image_path": "D:/Downloads/Edumate/static/images\\scene_5.png",
+            "dialogues_with_audio": [
+                {
+                    "character": "Dr. Nova",
+                    "line": "Together, these technologies can create smart homes and offices where everything is connected and works for you.",
+                    "audio_path": "scene_5_Dr. Nova_2831294995563030435.mp3"
+                },
+                {
+                    "character": "Jamie",
+                    "line": "Wow, this could really change the way we live and work!",
+                    "audio_path": "scene_5_Jamie_1362657782094409876.mp3"
+                }
+            ]
+        }
+    ]
+}

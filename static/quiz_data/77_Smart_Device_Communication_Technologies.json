@@ -1,0 +1,90 @@
+{
+    "topic": "Smart Device Communication Technologies",
+    "generated_at": "2025-05-10T15:32:42.898766",
+    "questions": [
+        {
+            "question": "Which protocol allows multiple devices within a home network to communicate and exchange data without needing an internet connection?",
+            "options": {
+                "A": "HTTP",
+                "B": "MQTT",
+                "C": "Zigbee",
+                "D": "FTP"
+            },
+            "answer": "C",
+            "explanation": "Zigbee is designed for low-power, wireless communication among multiple devices in a local area. Imagine controlling your smart lights or thermostat from your smartphone—no need to be connected to the internet.",
+            "hint": "Think about a neighborhood of houses where all the lights can talk to each other.\n\n---"
+        },
+        {
+            "question": "What technology enables two nearby smartphones to exchange data over short distances without an intermediary server?",
+            "options": {
+                "A": "FTP",
+                "B": "Wi-Fi Direct",
+                "C": "HTTP",
+                "D": "Bluetooth"
+            },
+            "answer": "D",
+            "explanation": "Bluetooth allows direct communication between devices, such as sharing files or sending a file from one phone to another. It’s like passing a note in class; no need for a teacher (server) to facilitate.",
+            "hint": "Think about the closest device that can talk directly to yours.\n\n---"
+        },
+        {
+            "question": "Which of the following smart home technologies is most suitable for remote control and monitoring via the internet?",
+            "options": {
+                "A": "Zigbee",
+                "B": "Z-Wave",
+                "C": "Wi-Fi",
+                "D": "BLE (Bluetooth Low Energy)"
+            },
+            "answer": "C",
+            "explanation": "Wi-Fi allows devices to connect over a larger range, making it ideal for controlling your smart home from anywhere with an internet connection. It’s like having a universal remote control that works through the cloud.",
+            "hint": "Think about accessing your home while you’re on vacation.\n\n---"
+        },
+        {
+            "question": "What technology is commonly used in industrial settings for low-power wireless communication among devices to manage and monitor machinery?",
+            "options": {
+                "A": "MQTT",
+                "B": "Zigbee",
+                "C": "LoRaWAN",
+                "D": "Wi-Fi"
+            },
+            "answer": "C",
+            "explanation": "LoRaWAN (Long Range Wide Area Network) is ideal for industrial applications, providing long-range, low-power wireless communication. It’s like a whisper that travels far distances, perfect for managing vast factory floors.",
+            "hint": "Think about managing machinery from miles away.\n\n---"
+        },
+        {
+            "question": "Which of the following technologies provides secure, short-range wireless connectivity between mobile devices and nearby peripherals?",
+            "options": {
+                "A": "HTTP",
+                "B": "BLE (Bluetooth Low Energy)",
+                "C": "Zigbee",
+                "D": "NFC"
+            },
+            "answer": "B",
+            "explanation": "BLE is perfect for sending small amounts of data over short distances, such as pairing your fitness tracker with your smartphone. It’s like a secret handshake between devices.",
+            "hint": "Think about quick and secure device pairing.\n\n---"
+        },
+        {
+            "question": "What smart device communication technology can be used to form temporary peer-to-peer connections without the need for an infrastructure server?",
+            "options": {
+                "A": "Wi-Fi",
+                "B": "MQTT",
+                "C": "Zigbee",
+                "D": "Wi-Fi Direct"
+            },
+            "answer": "D",
+            "explanation": "Wi-Fi Direct allows devices to create a temporary connection directly with each other, bypassing the need for a central router. It’s like forming a quick alliance without a referee.",
+            "hint": "Think about devices talking to each other face-to-face.\n\n---"
+        },
+        {
+            "question": "Which technology is best suited for establishing secure connections between mobile devices and web services?",
+            "options": {
+                "A": "MQTT",
+                "B": "HTTPS",
+                "C": "BLE (Bluetooth Low Energy)",
+                "D": "NFC"
+            },
+            "answer": "B",
+            "explanation": "HTTPS provides a secure way to send data over the internet, ensuring that any information exchanged with a website or service is protected. It’s like having a secret code for your online transactions.",
+            "hint": "Think about protecting sensitive information."
+        }
+    ]
+}

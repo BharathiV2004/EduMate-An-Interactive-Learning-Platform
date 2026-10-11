@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Summary</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        /* Global Variables - Star Colors */
+        :root {
+            --star-primary: #8a9dc7;
+            --star-secondary: #b5c7e3;
+            --star-accent: #f8df8c;
+            --star-bright: #ffffff;
+            --night-bg-dark: #0a1128;
+            --night-bg-medium: #1b2e5e;
+            --night-bg-light: #2e4482;
+            --aurora-green: rgba(120, 236, 189, 0.3);
+            --aurora-blue: rgba(105, 159, 238, 0.2);
+            --aurora-purple: rgba(179, 136, 235, 0.3);
+        }
+
+        /* Base Elements */
+        body {
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, var(--night-bg-dark), var(--night-bg-medium), var(--night-bg-light));
+            position: relative;
+            color: var(--star-bright);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Starry Night Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, var(--star-bright), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, var(--star-primary), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 160px, var(--star-secondary), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, var(--star-accent), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, var(--star-bright), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 160px 120px, var(--star-primary), rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: twinkle 8s infinite alternate ease-in-out;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        /* Milky Way Effect */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(217deg, rgba(94, 114, 235, 0.05), rgba(255,0,0,0) 70.71%),
+                        linear-gradient(127deg, rgba(104, 109, 224, 0.05), rgba(0,255,0,0) 70.71%),
+                        linear-gradient(336deg, rgba(67, 97, 238, 0.08), rgba(0,0,255,0) 70.71%);
+            transform: rotate(-15deg);
+            z-index: -2;
+            opacity: 0.4;
+            animation: milkyWayFlow 30s infinite alternate ease-in-out;
+        }
+
+        /* Animations */
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale(1.01);
+            }
+        }
+
+        @keyframes milkyWayFlow {
+            0% {
+                transform: rotate(-15deg) translateY(-5%);
+            }
+            100% {
+                transform: rotate(-18deg) translateY(5%);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(138, 157, 199, 0.3); }
+            100% { box-shadow: 0 0 20px rgba(138, 157, 199, 0.6); }
+        }
+
+        /* Header Styling */
+        .pdf-header {
+            background: linear-gradient(135deg, var(--night-bg-medium), var(--night-bg-light));
+            color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .pdf-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                                    transparent, 
+                                    rgba(255, 255, 255, 0.1), 
+                                    transparent);
+            animation: headerShine 8s infinite;
+        }
+
+        @keyframes headerShine {
+            0% { left: -100%; }
+            20%, 100% { left: 100%; }
+        }
+
+        .pdf-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1.5rem;
+        }
+
+        .pdf-header .btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            padding: 0.8rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .pdf-header .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main Content Sections */
+        .note-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .note-section:hover {
+            box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .note-section h2 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--star-bright);
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .note-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                                    var(--night-bg-light), 
+                                    var(--star-accent), 
+                                    var(--night-bg-light));
+        }
+
+        .section-icon {
+            font-size: 2rem;
+            margin-right: 0.8rem;
+            color: var(--star-accent);
+            text-shadow: 0 0 10px rgba(248, 223, 140, 0.5);
+        }
+
+        /* Aurora Effect */
+        .aurora {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            pointer-events: none;
+            z-index: -3;
+            overflow: hidden;
+        }
+
+        .aurora .aurora-layer {
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            filter: blur(40px);
+            border-radius: 50%;
+            transform-origin: center center;
+        }
+
+        .aurora .aurora-layer-1 {
+            background: var(--aurora-green);
+            animation: auroraWave 20s infinite alternate ease-in-out;
+        }
+
+        .aurora .aurora-layer-2 {
+            background: var(--aurora-blue);
+            animation: auroraWave2 25s infinite alternate-reverse ease-in-out;
+        }
+
+        .aurora .aurora-layer-3 {
+            background: var(--aurora-purple);
+            animation: auroraWave3 22s infinite alternate ease-in-out;
+        }
+
+        @keyframes auroraWave {
+            0% { transform: translateX(-5%) scaleY(0.9); opacity: 0.5; }
+            100% { transform: translateX(5%) scaleY(1.1); opacity: 0.7; }
+        }
+
+        @keyframes auroraWave2 {
+            0% { transform: translateX(3%) scaleY(1.1); opacity: 0.4; }
+            100% { transform: translateX(-3%) scaleY(0.9); opacity: 0.6; }
+        }
+
+        @keyframes auroraWave3 {
+            0% { transform: translateX(-4%) scaleY(1); opacity: 0.3; }
+            100% { transform: translateX(4%) scaleY(1.2); opacity: 0.5; }
+        }
+
+        /* Back Button */
+        .back-button {
+            background: rgba(30, 41, 82, 0.5);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--star-bright);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none !important;
+            display: inline-block;
+        }
+
+        .back-button:hover,
+        .back-button:focus {
+            background: rgba(36, 51, 102, 0.7);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            text-decoration: none !important;
+            color: var(--star-bright);
+        }
+
+        .back-button i {
+            margin-right: 0.5rem;
+        }
+
+        /* Additional Floating Elements */
+        .float-element {
+            animation: float 6s infinite alternate ease-in-out;
+        }
+
+        /* Collapsible Section Animation */
+        .collapsing {
+            transition: height 0.35s ease;
+        }
+
+        .collapsed-indicator {
+            transition: transform 0.3s ease;
+            margin-left: auto;
+        }
+
+        [aria-expanded="false"] .collapsed-indicator {
+            transform: rotate(-90deg);
+        }
+
+        /* Shooting Star Effect */
+        .shooting-star {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 3px;
+            background: var(--star-bright);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+                        0 0 0 8px rgba(255, 255, 255, 0.1),
+                        0 0 20px var(--star-bright);
+            animation: shootingStar 6s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes shootingStar {
+            0% {
+                transform: translate(0, 0);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(100vw, 100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Section content styling */
+        .summary-content {
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .section-summaries .card {
+            background: rgba(30, 41, 82, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .section-summaries .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-summaries .card-header {
+            background: rgba(30, 41, 82, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--star-accent);
+            font-weight: 600;
+        }
+        
+        .section-summaries .card-body {
+            color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <!-- Aurora Effect -->
+    <div class="aurora">
+        <div class="aurora-layer aurora-layer-1"></div>
+        <div class="aurora-layer aurora-layer-2"></div>
+        <div class="aurora-layer aurora-layer-3"></div>
+    </div>
+    <div class="shooting-star"></div>
+
+    <div class="container py-5">
+        <!-- Header Section -->
+        <div class="pdf-header text-center">
+            <h1>{{ title }}</h1>
+            {% if pdf_path %}
+            <a href="{{ url_for('static', filename=pdf_path) }}" 
+               class="btn btn-light btn-lg"
+               download>
+                <i class="bi bi-file-earmark-pdf"></i> Download Full Summary
+            </a>
+            {% endif %}
+        </div>
+
+        <!-- Main Summary Section -->
+        <div class="note-section">
+            <h2 data-bs-toggle="collapse" data-bs-target="#collapseSummary" 
+                role="button" aria-expanded="true"
+                style="cursor: pointer;">
+                <i class="bi bi-file-text-fill me-2"></i>{{ level|title }} Summary
+                <i class="collapsed-indicator bi bi-chevron-down"></i>
+            </h2>
+            <div class="collapse show" id="collapseSummary">
+                <div class="summary-content p-3">
+                    {{ summary|safe }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Summaries -->
+        {% if section_summaries and section_summaries|length > 0 %}
+        <div class="note-section section-summaries">
+            <h2 data-bs-toggle="collapse" data-bs-target="#collapseSections" 
+                role="button" aria-expanded="true"
+                style="cursor: pointer;">
+                <i class="bi bi-list-ul me-2"></i>Section Summaries
+                <i class="collapsed-indicator bi bi-chevron-down"></i>
+            </h2>
+            <div class="collapse show" id="collapseSections">
+                {% for section in section_summaries %}
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Section {{ loop.index }}
+                    </div>
+                    <div class="card-body">
+                        {{ section.text|safe if section is mapping else section|safe }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- PDF Preview Section -->
+        {% if pdf_path %}
+        <div class="note-section">
+            <h2 data-bs-toggle="collapse" data-bs-target="#collapsePDF" 
+                role="button" aria-expanded="true"
+                style="cursor: pointer;">
+                <i class="bi bi-file-pdf me-2"></i>PDF Preview
+                <i class="collapsed-indicator bi bi-chevron-down"></i>
+            </h2>
+            <div class="collapse show" id="collapsePDF">
+                <div class="ratio ratio-16x9">
+                    <iframe src="{{ url_for('static', filename=pdf_path) }}" 
+                            class="rounded-3"
+                            style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2)">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Back Button -->
+        <div class="text-center mt-4">
+            <a href="{{ url_for('summarizer') }}" class="back-button">
+                <i class="bi bi-arrow-left"></i> Back to Summary Generator
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Create multiple shooting stars
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create additional shooting stars
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const star = document.createElement('div');
+                    star.className = 'shooting-star';
+                    star.style.top = Math.random() * 30 + 'vh';
+                    star.style.left = Math.random() * 20 + 'vw';
+                    star.style.animationDelay = (i * 2) + 's';
+                    document.body.appendChild(star);
+                }, i * 1000);
+            }
+            
+            // Add floating animation to sections
+            document.querySelectorAll('.note-section').forEach((section, index) => {
+                section.style.animationDelay = (index * 0.5) + 's';
+                section.classList.add('float-element');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+{
+    "topic": "Find Nearby Hospitals  \nDisplay on Map  \nSolutions Implemented",
+    "card_count": 10,
+    "cards": [
+        {
+            "front": "How can patients quickly find nearby hospitals on a map?",
+            "back": {
+                "answer": "By using location-based services, patients can identify the closest healthcare facilities to their current location.",
+                "analogy": "Like using a GPS navigation system to find the nearest gas station.",
+                "common_mistake": "Assuming that only hospital websites provide this information."
+            }
+        },
+        {
+            "front": "What is the primary benefit of displaying nearby hospitals on a map?",
+            "back": {
+                "answer": "It enables users to visualize and prioritize potential healthcare providers based on proximity and availability.",
+                "analogy": "Similar to how traffic apps show real-time congestion, helping drivers choose the fastest route.",
+                "common_mistake": "Thinking that only urban areas have access to such mapping tools."
+            }
+        },
+        {
+            "front": "In what way can digital maps enhance hospital search capabilities?",
+            "back": {
+                "answer": "Digital maps offer interactive features like zooming, directions, and real-time updates on facility status and availability.",
+                "analogy": "Comparable to how online shopping platforms provide product details and customer reviews.",
+                "common_mistake": "Ignoring the importance of regular map updates for accurate information."
+            }
+        },
+        {
+            "front": "How does integrating live traffic data improve hospital location services?",
+            "back": {
+                "answer": "By accounting for current road conditions, users can avoid congested areas during their journey to a hospital.",
+                "analogy": "Much like how weather apps help plan outdoor activities based on real-time weather conditions.",
+                "common_mistake": "Assuming that traffic data is only useful in urban settings."
+            }
+        },
+        {
+            "front": "What role does user feedback play in improving nearby hospital map solutions?",
+            "back": {
+                "answer": "User feedback helps refine the mapping algorithms, making them more accurate and responsive to local needs.",
+                "analogy": "Like how customer ratings improve product recommendations on e-commerce sites.",
+                "common_mistake": "Overlooking the importance of active community involvement for continuous improvement."
+            }
+        },
+        {
+            "front": "How can hospitals leverage mobile apps for better patient engagement?",
+            "back": {
+                "answer": "By developing or integrating apps that offer appointment booking, information about services, and location-based guidance to the hospital.",
+                "analogy": "Similar to how ride-hailing apps provide users with a seamless travel experience from start to finish.",
+                "common_mistake": "Assuming that only young patients use these types of applications."
+            }
+        },
+        {
+            "front": "What are some challenges in implementing mobile mapping solutions for hospitals?",
+            "back": {
+                "answer": "Challenges include ensuring data privacy, maintaining accuracy, and addressing the digital divide among different user groups.",
+                "analogy": "Like balancing security measures with accessibility when designing a public park.",
+                "common_mistake": "Believing that all users have equal access to smartphones or internet connectivity."
+            }
+        },
+        {
+            "front": "How can location-based services benefit emergency medical response?",
+            "back": {
+                "answer": "By pinpointing exact locations of emergencies and directing ambulances to the nearest available facilities efficiently.",
+                "analogy": "Similar to how airport traffic control directs planes for quick landings.",
+                "common_mistake": "Thinking that location-based services are only useful in urban areas."
+            }
+        },
+        {
+            "front": "What is an example of a feature that can be added to improve the usability of hospital map solutions?",
+            "back": {
+                "answer": "Adding voice guidance and real-time notifications about facility status changes, such as closures or openings.",
+                "analogy": "Like how public transportation apps provide alerts for delays or service interruptions.",
+                "common_mistake": "Ignoring the value of constant updates in healthcare services."
+            }
+        },
+        {
+            "front": "How can hospitals ensure that their mapping solutions are accessible to all users?",
+            "back": {
+                "answer": "By implementing features like text-to-speech, large print, and compatibility with assistive technologies for visually impaired individuals.",
+                "analogy": "Similar to how websites have accessibility modes for different disabilities.",
+                "common_mistake": "Assuming that everyone uses the same devices or browsers."
+            }
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cyber Defender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_story.css') }}">
+</head>
+<body>
+    <div id="loading">
+        <h2>Loading Story...</h2>
+        <div id="progress-bar">
+            <div id="progress"></div>
+        </div>
+    </div>
+
+    <div id="title-screen" class="hidden">
+        <h1>StoryCraft: A New Way to Learn</h1>
+        <p style="text-align:center;max-width:80%;margin-bottom:30px;">A journey toward a deeper understanding of the concept.</p>
+        <button id="start-btn">Start Story</button>
+        <button id="go-back-btn" style="margin-top: 20px;">Go Back</button>
+    </div>
+
+    <div id="story-container" class="hidden">
+        <img id="scene-image" src="" alt="Scene Background">
+        <div id="scene-title">Scene Title</div>
+        <div id="dialogue-container"></div>
+    </div>
+
+    <div id="completion-screen" class="hidden">
+        <h1>Congratulations!</h1>
+        <p>You've completed the learning session. Ready for a replay?</p>
+        <button id="replay-btn">Replay Story</button>
+        <button id="go-back-btn-completion" style="margin-top: 20px;">Go Back</button>
+    </div>
+
+    <audio id="audio-player"></audio>
+
+    <script src="{{ url_for('static', filename='js/script_story.js') }}"></script>
+    <script>
+        const storyData = {{ story_data|tojson|safe }};
+
+        // Add Go Back button functionality
+        document.getElementById('go-back-btn').addEventListener('click', function() {
+            window.location.href = "events.html";
+        });
+
+        document.getElementById('go-back-btn-completion').addEventListener('click', function() {
+            window.location.href = "events.html";
+        });
+    </script>
+</body>
+</html>

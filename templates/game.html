@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quest: The Programming Challenge</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_cq.css') }}">
+    <style>
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-continue {
+            background-color: #00d1b2;
+            color: white;
+        }
+
+        .btn-courses {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-language {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .btn-continue:hover {
+            background-color: #00b7a4;
+        }
+
+        .btn-courses:hover {
+            background-color: #45a049;
+        }
+
+        .btn-language:hover {
+            background-color: #1976D2;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Roboto Mono', monospace;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <input type="hidden" id="currentLanguage" value="{{ language }}">
+        <header class="game-header">
+            <div class="game-logo">Code Quest</div>
+            <div class="game-stats">
+                <div class="stat-box">
+                    <span class="stat-label">Level</span>
+                    <span class="stat-value" id="level">1</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Score</span>
+                    <span class="stat-value" id="score">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Lives</span>
+                    <span class="stat-value" id="lives">❤️❤️❤️</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-area">
+            <div class="game-panel problem-panel">
+                <div class="mission-details">
+                    <h3 class="panel-title">Problem Description</h3>
+                    <p id="problem-description">{{question.description}}</p>
+                    <h3 class="panel-title">Expected Output</h3>
+                    <div class="code-display">
+                        <pre id="code-template">{{question.expected_output}}</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-panel snippet-panel">
+                <h2 class="panel-title">Code Fragments</h2>
+                <div class="snippet-pool" id="snippetPool">
+                    {% for snippet in question.snippets %}
+                    <div class="snippet" draggable="true" data-snippet="{{ snippet }}">
+                        <span class="snippet-text">{{ snippet }}</span>
+                        <div class="snippet-drag-handle">≡</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="game-panel solution-panel">
+                <h2 class="panel-title">Your Solution</h2>
+                <div class="code-editor" id="editor">{{ question.template }}</div>
+                <div class="action-buttons">
+                    <button class="btn btn-check" id="checkBtn">RUN CODE</button>
+                    <button class="btn btn-skip" id="skipBtn">SKIP LEVEL</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="feedbackModal">
+            <div class="modal-content">
+                <h2 id="feedbackTitle">Result</h2>
+                <p id="feedbackMessage"></p>
+                <div id="solutionDisplay" class="hidden">
+                    <p>The correct solution was:</p>
+                    <pre id="correctSolution"></pre>
+                </div>
+                <div class="modal-buttons">
+                    <button class="btn btn-continue" id="continueBtn">CONTINUE</button>
+                    <button class="btn btn-courses" id="backToCoursesBtn">BACK TO Edumate</button>
+                    <button class="btn btn-language" id="backToLanguageBtn">CHOOSE LANGUAGE</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script_cq.js') }}"></script>
+</body>
+</html> 
