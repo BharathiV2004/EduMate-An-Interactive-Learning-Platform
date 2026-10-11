@@ -41,17 +41,6 @@ Installation & Usage:
 3. Run the application using:
 4. Navigate the GUI to upload educational content and generate outputs.
 
-Contributors:
--------------
-- Valan Antony Raj G
-- Sailesh K
-- Sanjay P
-- Roopesh Khanna B
-- Pragadeesh L A
-- Athithiya A
-- Nithishkrishna R S
-- Mukarram Ahamed U
-
 References:
 -----------
 - OpenAI Whisper: Speech Recognition
